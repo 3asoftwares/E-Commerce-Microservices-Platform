@@ -1,0 +1,33 @@
+{
+  "extends": "../../packages/utils/src/config/tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "@e-commerce/ui-library": ["../../packages/ui-library/src"],
+      "@e-commerce/ui-library/*": ["../../packages/ui-library/src/*"],
+      "@e-commerce/types": ["../../packages/types/src"],
+      "@e-commerce/types/*": ["../../packages/types/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,37 @@
+# Frontend Services Dockerfile
+FROM node:20-alpine
+
+# Set build argument for app name
+ARG APP_NAME=all
+ARG ENV_FILE=.env
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache python3 make g++ git
+
+# Copy package files first for better caching
+COPY package.json yarn.lock ./
+
+# Copy workspace package.json files
+COPY apps/admin-app/package.json ./apps/admin-app/
+COPY apps/seller-app/package.json ./apps/seller-app/
+COPY apps/shell-app/package.json ./apps/shell-app/
+COPY apps/storefront-app/package.json ./apps/storefront-app/
+COPY packages/types/package.json ./packages/types/
+COPY packages/ui-library/package.json ./packages/ui-library/
+COPY packages/utils/package.json ./packages/utils/
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Copy source code
+COPY apps/ ./apps/
+COPY packages/ ./packages/
+COPY tsconfig*.json ./
+
+# Expose ports for all frontend apps
+EXPOSE 3000 3001 3002 3003 6006
+
+# Default command
+CMD ["yarn", "dev:frontend"]

@@ -1,0 +1,5462 @@
+[
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d125"
+    },
+    "name": "Wireless Bluetooth Headphones",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 10670,
+    "category": "Electronics",
+    "stock": 150,
+    "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.5,
+    "reviewCount": 245,
+    "createdAt": {
+      "$date": "2025-02-20T10:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d126"
+    },
+    "name": "USB-C Fast Charging Cable",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 10128,
+    "category": "Electronics",
+    "stock": 500,
+    "imageUrl": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1200,
+    "createdAt": {
+      "$date": "2025-02-25T14:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d127"
+    },
+    "name": "4K Webcam with Microphone",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 9727,
+    "category": "Electronics",
+    "stock": 75,
+    "imageUrl": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.6,
+    "reviewCount": 380,
+    "createdAt": {
+      "$date": "2025-03-15T08:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d128"
+    },
+    "name": "Organic Cotton T-Shirt",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 2129,
+    "category": "Clothing",
+    "stock": 300,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.3,
+    "reviewCount": 520,
+    "createdAt": {
+      "$date": "2025-03-18T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d129"
+    },
+    "name": "Stainless Steel Water Bottle",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 5078,
+    "category": "Home",
+    "stock": 200,
+    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.7,
+    "reviewCount": 890,
+    "createdAt": {
+      "$date": "2025-04-05T09:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d12a"
+    },
+    "name": "Yoga Mat with Strap",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 7267,
+    "category": "Sports",
+    "stock": 120,
+    "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.4,
+    "reviewCount": 650,
+    "createdAt": {
+      "$date": "2025-04-12T15:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d12b"
+    },
+    "name": "The Clean Coder - Programming Book",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 1255,
+    "category": "Books",
+    "stock": 85,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.6,
+    "reviewCount": 420,
+    "createdAt": {
+      "$date": "2025-05-01T11:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d12c"
+    },
+    "name": "Premium Coffee Beans",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 1089,
+    "category": "Food",
+    "stock": 250,
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1500,
+    "createdAt": {
+      "$date": "2025-05-10T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d12d"
+    },
+    "name": "Wooden Building Blocks Set",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 7951,
+    "category": "Toys",
+    "stock": 95,
+    "imageUrl": "https://images.unsplash.com/photo-1595908352132-efc2f6f30afc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.5,
+    "reviewCount": 280,
+    "createdAt": {
+      "$date": "2025-05-18T13:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d12e"
+    },
+    "name": "Portable Phone Charger 20000mAh",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 3732,
+    "category": "Electronics",
+    "stock": 180,
+    "imageUrl": "https://images.unsplash.com/photo-1491927750519-058fc557ea54?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 920,
+    "createdAt": {
+      "$date": "2025-05-25T10:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T10:15:39.459Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d12f"
+    },
+    "name": "Wireless Bluetooth Headphones",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 3939,
+    "category": "Electronics",
+    "stock": 77,
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.7,
+    "reviewCount": 320,
+    "createdAt": {
+      "$date": "2025-05-25T04:34:59.361Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.372Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d130"
+    },
+    "name": "USB-C Fast Charging Cable",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 4177,
+    "category": "Clothing",
+    "stock": 459,
+    "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1080,
+    "createdAt": {
+      "$date": "2025-08-20T04:34:59.372Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d131"
+    },
+    "name": "4K Webcam with Microphone",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 6588,
+    "category": "Home",
+    "stock": 37,
+    "imageUrl": "https://images.unsplash.com/photo-1546456073-92b9c080a67c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 347,
+    "createdAt": {
+      "$date": "2025-07-10T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d132"
+    },
+    "name": "Organic Cotton T-Shirt",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 7203,
+    "category": "Sports",
+    "stock": 262,
+    "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.4,
+    "reviewCount": 589,
+    "createdAt": {
+      "$date": "2025-06-06T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d133"
+    },
+    "name": "Stainless Steel Water Bottle",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 1125,
+    "category": "Books",
+    "stock": 122,
+    "imageUrl": "https://images.unsplash.com/photo-150784272343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.9,
+    "reviewCount": 914,
+    "createdAt": {
+      "$date": "2025-10-03T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d134"
+    },
+    "name": "Yoga Mat with Strap",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 3020,
+    "category": "Food",
+    "stock": 66,
+    "imageUrl": "https://images.unsplash.com/photo-1585238341710-4b5ff5c0f4f9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.2,
+    "reviewCount": 574,
+    "createdAt": {
+      "$date": "2025-06-23T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d135"
+    },
+    "name": "The Clean Coder - Programming Book",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 6609,
+    "category": "Toys",
+    "stock": 35,
+    "imageUrl": "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.6,
+    "reviewCount": 310,
+    "createdAt": {
+      "$date": "2025-11-24T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d136"
+    },
+    "name": "Premium Coffee Beans",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 3950,
+    "category": "Electronics",
+    "stock": 243,
+    "imageUrl": "https://images.unsplash.com/photo-1484033503419-0bf4a0bba1f6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1566,
+    "createdAt": {
+      "$date": "2025-11-19T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d137"
+    },
+    "name": "Wooden Building Blocks Set",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 5695,
+    "category": "Clothing",
+    "stock": 64,
+    "imageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.4,
+    "reviewCount": 179,
+    "createdAt": {
+      "$date": "2025-10-21T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d138"
+    },
+    "name": "Portable Phone Charger 20000mAh",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 13417,
+    "category": "Home",
+    "stock": 144,
+    "imageUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.9,
+    "reviewCount": 979,
+    "createdAt": {
+      "$date": "2025-09-02T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d139"
+    },
+    "name": "Wireless Bluetooth Headphones - Pro",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 5650,
+    "category": "Sports",
+    "stock": 135,
+    "imageUrl": "https://images.unsplash.com/photo-1539161819572-a2fb3a1381a0?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.2,
+    "reviewCount": 274,
+    "createdAt": {
+      "$date": "2025-09-16T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d13a"
+    },
+    "name": "USB-C Fast Charging Cable - Plus",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 2775,
+    "category": "Books",
+    "stock": 447,
+    "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1274,
+    "createdAt": {
+      "$date": "2025-06-28T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d13b"
+    },
+    "name": "4K Webcam with Microphone - Premium",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 4773,
+    "category": "Food",
+    "stock": 36,
+    "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.3,
+    "reviewCount": 390,
+    "createdAt": {
+      "$date": "2025-07-10T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d13c"
+    },
+    "name": "Organic Cotton T-Shirt - Deluxe",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 7925,
+    "category": "Toys",
+    "stock": 292,
+    "imageUrl": "https://images.unsplash.com/photo-1617395829139-2e6e7c5532a5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.1,
+    "reviewCount": 483,
+    "createdAt": {
+      "$date": "2025-12-10T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d13d"
+    },
+    "name": "Stainless Steel Water Bottle - Ultra",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 7183,
+    "category": "Electronics",
+    "stock": 145,
+    "imageUrl": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.7,
+    "reviewCount": 814,
+    "createdAt": {
+      "$date": "2025-09-11T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d13e"
+    },
+    "name": "Yoga Mat with Strap - Max",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 3208,
+    "category": "Clothing",
+    "stock": 59,
+    "imageUrl": "https://images.unsplash.com/photo-1554521666-7d18c3ce3a2d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.2,
+    "reviewCount": 604,
+    "createdAt": {
+      "$date": "2025-11-15T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d13f"
+    },
+    "name": "The Clean Coder - Programming Book - Lite",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 3886,
+    "category": "Home",
+    "stock": 61,
+    "imageUrl": "https://images.unsplash.com/photo-1512090564787-bc8cc0e1b81b?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.9,
+    "reviewCount": 337,
+    "createdAt": {
+      "$date": "2025-12-15T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d140"
+    },
+    "name": "Premium Coffee Beans - Compact",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 8289,
+    "category": "Sports",
+    "stock": 246,
+    "imageUrl": "https://images.unsplash.com/photo-1552989457-b99b86e2dde5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 5.1,
+    "reviewCount": 1494,
+    "createdAt": {
+      "$date": "2025-08-01T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d141"
+    },
+    "name": "Wooden Building Blocks Set - Pro",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 2644,
+    "category": "Books",
+    "stock": 93,
+    "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.6,
+    "reviewCount": 391,
+    "createdAt": {
+      "$date": "2025-11-24T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d142"
+    },
+    "name": "Portable Phone Charger 20000mAh - Plus",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 4938,
+    "category": "Food",
+    "stock": 112,
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561e1a?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.4,
+    "reviewCount": 1040,
+    "createdAt": {
+      "$date": "2025-12-12T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d143"
+    },
+    "name": "Wireless Bluetooth Headphones - Premium",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 6601,
+    "category": "Toys",
+    "stock": 121,
+    "imageUrl": "https://images.unsplash.com/photo-1624996508006-2e24ff7f8ddc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 267,
+    "createdAt": {
+      "$date": "2025-05-01T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d144"
+    },
+    "name": "USB-C Fast Charging Cable - Deluxe",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 5654,
+    "category": "Electronics",
+    "stock": 463,
+    "imageUrl": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 5.1,
+    "reviewCount": 1113,
+    "createdAt": {
+      "$date": "2025-09-12T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d145"
+    },
+    "name": "4K Webcam with Microphone - Ultra",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 2399,
+    "category": "Clothing",
+    "stock": 67,
+    "imageUrl": "https://images.unsplash.com/photo-1505298346881-b72b27e84530?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.6,
+    "reviewCount": 246,
+    "createdAt": {
+      "$date": "2025-07-22T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d146"
+    },
+    "name": "Organic Cotton T-Shirt - Max",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 8838,
+    "category": "Home",
+    "stock": 225,
+    "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.3,
+    "reviewCount": 651,
+    "createdAt": {
+      "$date": "2025-12-14T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d147"
+    },
+    "name": "Stainless Steel Water Bottle - Lite",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 9213,
+    "category": "Sports",
+    "stock": 158,
+    "imageUrl": "https://images.unsplash.com/photo-1488704849519-d92f54faefb5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.4,
+    "reviewCount": 961,
+    "createdAt": {
+      "$date": "2025-12-03T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d148"
+    },
+    "name": "Yoga Mat with Strap - Compact",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 1043,
+    "category": "Books",
+    "stock": 93,
+    "imageUrl": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.4,
+    "reviewCount": 678,
+    "createdAt": {
+      "$date": "2025-09-25T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d149"
+    },
+    "name": "The Clean Coder - Programming Book - Pro",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2305,
+    "category": "Food",
+    "stock": 15,
+    "imageUrl": "https://images.unsplash.com/photo-1557803104302-8ca57139a6fa?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.8,
+    "reviewCount": 316,
+    "createdAt": {
+      "$date": "2025-12-07T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d14a"
+    },
+    "name": "Premium Coffee Beans - Plus",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 1890,
+    "category": "Toys",
+    "stock": 178,
+    "imageUrl": "https://images.unsplash.com/photo-1590080876-e93e5e2d6a2a?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1588,
+    "createdAt": {
+      "$date": "2025-10-12T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d14b"
+    },
+    "name": "Wooden Building Blocks Set - Premium",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 7363,
+    "category": "Electronics",
+    "stock": 63,
+    "imageUrl": "https://images.unsplash.com/photo-1534424602256-c8ceea51cf59?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.5,
+    "reviewCount": 198,
+    "createdAt": {
+      "$date": "2025-12-05T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d14c"
+    },
+    "name": "Portable Phone Charger 20000mAh - Deluxe",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 3881,
+    "category": "Clothing",
+    "stock": 116,
+    "imageUrl": "https://images.unsplash.com/photo-1539533057443-abd894fdbb92?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1039,
+    "createdAt": {
+      "$date": "2025-05-04T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d14d"
+    },
+    "name": "Wireless Bluetooth Headphones - Ultra",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 13044,
+    "category": "Home",
+    "stock": 126,
+    "imageUrl": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.3,
+    "reviewCount": 305,
+    "createdAt": {
+      "$date": "2025-06-03T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d14e"
+    },
+    "name": "USB-C Fast Charging Cable - Max",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 7417,
+    "category": "Sports",
+    "stock": 434,
+    "imageUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1106,
+    "createdAt": {
+      "$date": "2025-12-14T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d14f"
+    },
+    "name": "4K Webcam with Microphone - Lite",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 1793,
+    "category": "Books",
+    "stock": 63,
+    "imageUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.8,
+    "reviewCount": 446,
+    "createdAt": {
+      "$date": "2025-11-24T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d150"
+    },
+    "name": "Organic Cotton T-Shirt - Compact",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 3980,
+    "category": "Food",
+    "stock": 283,
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.2,
+    "reviewCount": 380,
+    "createdAt": {
+      "$date": "2025-12-22T04:34:59.373Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.373Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d151"
+    },
+    "name": "Stainless Steel Water Bottle - Pro",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 8014,
+    "category": "Toys",
+    "stock": 177,
+    "imageUrl": "https://images.unsplash.com/photo-1594787318286-3d835c1cab83?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.6,
+    "reviewCount": 995,
+    "createdAt": {
+      "$date": "2025-10-15T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d152"
+    },
+    "name": "Yoga Mat with Strap - Plus",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 4751,
+    "category": "Electronics",
+    "stock": 87,
+    "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.6,
+    "reviewCount": 718,
+    "createdAt": {
+      "$date": "2025-06-05T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d153"
+    },
+    "name": "The Clean Coder - Programming Book - Premium",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 4737,
+    "category": "Clothing",
+    "stock": 72,
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.8,
+    "reviewCount": 410,
+    "createdAt": {
+      "$date": "2025-09-07T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d154"
+    },
+    "name": "Premium Coffee Beans - Deluxe",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 13370,
+    "category": "Home",
+    "stock": 175,
+    "imageUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1413,
+    "createdAt": {
+      "$date": "2025-06-14T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d155"
+    },
+    "name": "Wooden Building Blocks Set - Ultra",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 11514,
+    "category": "Sports",
+    "stock": 55,
+    "imageUrl": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.2,
+    "reviewCount": 197,
+    "createdAt": {
+      "$date": "2025-06-29T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d156"
+    },
+    "name": "Portable Phone Charger 20000mAh - Max",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 1841,
+    "category": "Books",
+    "stock": 163,
+    "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 5,
+    "reviewCount": 935,
+    "createdAt": {
+      "$date": "2025-12-21T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d157"
+    },
+    "name": "Wireless Bluetooth Headphones - Lite",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 2382,
+    "category": "Food",
+    "stock": 97,
+    "imageUrl": "https://images.unsplash.com/photo-1573521193529-7da8fb4ce338?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.7,
+    "reviewCount": 322,
+    "createdAt": {
+      "$date": "2025-07-02T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d158"
+    },
+    "name": "USB-C Fast Charging Cable - Compact",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 1572,
+    "category": "Toys",
+    "stock": 484,
+    "imageUrl": "https://images.unsplash.com/photo-1531259683007-016efdf6741d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 5,
+    "reviewCount": 1148,
+    "createdAt": {
+      "$date": "2025-06-18T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d159"
+    },
+    "name": "4K Webcam with Microphone - Pro",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 4598,
+    "category": "Electronics",
+    "stock": 26,
+    "imageUrl": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 463,
+    "createdAt": {
+      "$date": "2025-09-28T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d15a"
+    },
+    "name": "Organic Cotton T-Shirt - Plus",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 5904,
+    "category": "Clothing",
+    "stock": 229,
+    "imageUrl": "https://images.unsplash.com/photo-1572019614356-f64b42c917a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.3,
+    "reviewCount": 573,
+    "createdAt": {
+      "$date": "2025-05-25T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d15b"
+    },
+    "name": "Stainless Steel Water Bottle - Premium",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 8762,
+    "category": "Home",
+    "stock": 151,
+    "imageUrl": "https://images.unsplash.com/photo-1532372320572-cda40c6e5525?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.8,
+    "reviewCount": 939,
+    "createdAt": {
+      "$date": "2025-10-14T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d15c"
+    },
+    "name": "Yoga Mat with Strap - Deluxe",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 8979,
+    "category": "Sports",
+    "stock": 100,
+    "imageUrl": "https://images.unsplash.com/photo-1595594007352-5846d62d9abc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.4,
+    "reviewCount": 764,
+    "createdAt": {
+      "$date": "2025-10-06T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d15d"
+    },
+    "name": "The Clean Coder - Programming Book - Ultra",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 1361,
+    "category": "Books",
+    "stock": 41,
+    "imageUrl": "https://images.unsplash.com/photo-1543002588-d4d6c47168b2?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.4,
+    "reviewCount": 569,
+    "createdAt": {
+      "$date": "2025-10-24T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d15e"
+    },
+    "name": "Premium Coffee Beans - Max",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 1453,
+    "category": "Food",
+    "stock": 202,
+    "imageUrl": "https://images.unsplash.com/photo-1563379091339-03b21ab4a104?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 5.1,
+    "reviewCount": 1440,
+    "createdAt": {
+      "$date": "2025-06-29T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d15f"
+    },
+    "name": "Wooden Building Blocks Set - Lite",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 3241,
+    "category": "Toys",
+    "stock": 89,
+    "imageUrl": "https://images.unsplash.com/photo-1609269585289-603ba36f3ee9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.5,
+    "reviewCount": 268,
+    "createdAt": {
+      "$date": "2025-09-14T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d160"
+    },
+    "name": "Portable Phone Charger 20000mAh - Compact",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 9819,
+    "category": "Electronics",
+    "stock": 164,
+    "imageUrl": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.8,
+    "reviewCount": 880,
+    "createdAt": {
+      "$date": "2025-06-08T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d161"
+    },
+    "name": "Wireless Bluetooth Headphones - Pro #1",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 4418,
+    "category": "Clothing",
+    "stock": 136,
+    "imageUrl": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.4,
+    "reviewCount": 317,
+    "createdAt": {
+      "$date": "2025-07-19T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d162"
+    },
+    "name": "USB-C Fast Charging Cable - Plus #1",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 9739,
+    "category": "Home",
+    "stock": 477,
+    "imageUrl": "https://images.unsplash.com/photo-1555672473-d1fd09e25eaa?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1086,
+    "createdAt": {
+      "$date": "2025-06-29T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d163"
+    },
+    "name": "4K Webcam with Microphone - Premium #1",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 12049,
+    "category": "Sports",
+    "stock": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 426,
+    "createdAt": {
+      "$date": "2025-11-06T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d164"
+    },
+    "name": "Organic Cotton T-Shirt - Deluxe #1",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 1431,
+    "category": "Books",
+    "stock": 224,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.4,
+    "reviewCount": 522,
+    "createdAt": {
+      "$date": "2025-07-23T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d165"
+    },
+    "name": "Stainless Steel Water Bottle - Ultra #1",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 3668,
+    "category": "Food",
+    "stock": 190,
+    "imageUrl": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": false,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.9,
+    "reviewCount": 833,
+    "createdAt": {
+      "$date": "2025-05-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d166"
+    },
+    "name": "Yoga Mat with Strap - Max #1",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 7417,
+    "category": "Toys",
+    "stock": 88,
+    "imageUrl": "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.2,
+    "reviewCount": 513,
+    "createdAt": {
+      "$date": "2025-06-15T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d167"
+    },
+    "name": "The Clean Coder - Programming Book - Lite #1",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2365,
+    "category": "Electronics",
+    "stock": 30,
+    "imageUrl": "https://images.unsplash.com/photo-1491927750519-058fc557ea54?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.6,
+    "reviewCount": 274,
+    "createdAt": {
+      "$date": "2025-06-01T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d168"
+    },
+    "name": "Premium Coffee Beans - Compact #1",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 4513,
+    "category": "Clothing",
+    "stock": 246,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1527,
+    "createdAt": {
+      "$date": "2025-11-05T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d169"
+    },
+    "name": "Wooden Building Blocks Set - Pro #1",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 12715,
+    "category": "Home",
+    "stock": 60,
+    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.4,
+    "reviewCount": 138,
+    "createdAt": {
+      "$date": "2025-05-08T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d16a"
+    },
+    "name": "Portable Phone Charger 20000mAh - Plus #1",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 5572,
+    "category": "Sports",
+    "stock": 113,
+    "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.4,
+    "reviewCount": 900,
+    "createdAt": {
+      "$date": "2025-11-07T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d16b"
+    },
+    "name": "Wireless Bluetooth Headphones - Premium #1",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 2543,
+    "category": "Books",
+    "stock": 126,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 98,
+    "createdAt": {
+      "$date": "2025-11-06T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d16c"
+    },
+    "name": "USB-C Fast Charging Cable - Deluxe #1",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 612,
+    "category": "Food",
+    "stock": 434,
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1108,
+    "createdAt": {
+      "$date": "2025-10-13T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d16d"
+    },
+    "name": "4K Webcam with Microphone - Ultra #1",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 1474,
+    "category": "Toys",
+    "stock": 28,
+    "imageUrl": "https://images.unsplash.com/photo-1595908352132-efc2f6f30afc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.4,
+    "reviewCount": 430,
+    "createdAt": {
+      "$date": "2025-09-18T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d16e"
+    },
+    "name": "Organic Cotton T-Shirt - Max #1",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 8419,
+    "category": "Electronics",
+    "stock": 287,
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.4,
+    "reviewCount": 432,
+    "createdAt": {
+      "$date": "2025-12-10T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d16f"
+    },
+    "name": "Stainless Steel Water Bottle - Lite #1",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 3294,
+    "category": "Clothing",
+    "stock": 141,
+    "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.8,
+    "reviewCount": 915,
+    "createdAt": {
+      "$date": "2025-05-03T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d170"
+    },
+    "name": "Yoga Mat with Strap - Compact #1",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 12890,
+    "category": "Home",
+    "stock": 118,
+    "imageUrl": "https://images.unsplash.com/photo-1546456073-92b9c080a67c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.6,
+    "reviewCount": 592,
+    "createdAt": {
+      "$date": "2025-09-18T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d171"
+    },
+    "name": "The Clean Coder - Programming Book - Pro #1",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 8260,
+    "category": "Sports",
+    "stock": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.5,
+    "reviewCount": 364,
+    "createdAt": {
+      "$date": "2025-09-13T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d172"
+    },
+    "name": "Premium Coffee Beans - Plus #1",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 866,
+    "category": "Books",
+    "stock": 197,
+    "imageUrl": "https://images.unsplash.com/photo-150784272343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1636,
+    "createdAt": {
+      "$date": "2025-07-01T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d173"
+    },
+    "name": "Wooden Building Blocks Set - Premium #1",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 3573,
+    "category": "Food",
+    "stock": 32,
+    "imageUrl": "https://images.unsplash.com/photo-1585238341710-4b5ff5c0f4f9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.3,
+    "reviewCount": 198,
+    "createdAt": {
+      "$date": "2025-05-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d174"
+    },
+    "name": "Portable Phone Charger 20000mAh - Deluxe #1",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 8032,
+    "category": "Toys",
+    "stock": 161,
+    "imageUrl": "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1043,
+    "createdAt": {
+      "$date": "2025-05-16T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d175"
+    },
+    "name": "Wireless Bluetooth Headphones - Ultra #1",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 5136,
+    "category": "Electronics",
+    "stock": 100,
+    "imageUrl": "https://images.unsplash.com/photo-1484033503419-0bf4a0bba1f6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 296,
+    "createdAt": {
+      "$date": "2025-11-25T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d176"
+    },
+    "name": "USB-C Fast Charging Cable - Max #1",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 1831,
+    "category": "Clothing",
+    "stock": 467,
+    "imageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1071,
+    "createdAt": {
+      "$date": "2025-10-23T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d177"
+    },
+    "name": "4K Webcam with Microphone - Lite #1",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 4955,
+    "category": "Home",
+    "stock": 31,
+    "imageUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 252,
+    "createdAt": {
+      "$date": "2025-10-16T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d178"
+    },
+    "name": "Organic Cotton T-Shirt - Compact #1",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 6354,
+    "category": "Sports",
+    "stock": 243,
+    "imageUrl": "https://images.unsplash.com/photo-1539161819572-a2fb3a1381a0?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.4,
+    "reviewCount": 407,
+    "createdAt": {
+      "$date": "2025-10-22T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d179"
+    },
+    "name": "Stainless Steel Water Bottle - Pro #1",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 2683,
+    "category": "Books",
+    "stock": 168,
+    "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.7,
+    "reviewCount": 951,
+    "createdAt": {
+      "$date": "2025-12-29T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d17a"
+    },
+    "name": "Yoga Mat with Strap - Plus #1",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 1356,
+    "category": "Food",
+    "stock": 119,
+    "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.3,
+    "reviewCount": 697,
+    "createdAt": {
+      "$date": "2025-11-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d17b"
+    },
+    "name": "The Clean Coder - Programming Book - Premium #1",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 6666,
+    "category": "Toys",
+    "stock": 77,
+    "imageUrl": "https://images.unsplash.com/photo-1617395829139-2e6e7c5532a5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.7,
+    "reviewCount": 510,
+    "createdAt": {
+      "$date": "2025-05-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d17c"
+    },
+    "name": "Premium Coffee Beans - Deluxe #1",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 3972,
+    "category": "Electronics",
+    "stock": 208,
+    "imageUrl": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1383,
+    "createdAt": {
+      "$date": "2025-10-20T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d17d"
+    },
+    "name": "Wooden Building Blocks Set - Ultra #1",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 5500,
+    "category": "Clothing",
+    "stock": 80,
+    "imageUrl": "https://images.unsplash.com/photo-1554521666-7d18c3ce3a2d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.4,
+    "reviewCount": 155,
+    "createdAt": {
+      "$date": "2025-10-26T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d17e"
+    },
+    "name": "Portable Phone Charger 20000mAh - Max #1",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 10985,
+    "category": "Home",
+    "stock": 176,
+    "imageUrl": "https://images.unsplash.com/photo-1512090564787-bc8cc0e1b81b?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 5,
+    "reviewCount": 1022,
+    "createdAt": {
+      "$date": "2025-07-29T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d17f"
+    },
+    "name": "Wireless Bluetooth Headphones - Lite #1",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 12126,
+    "category": "Sports",
+    "stock": 131,
+    "imageUrl": "https://images.unsplash.com/photo-1552989457-b99b86e2dde5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.3,
+    "reviewCount": 130,
+    "createdAt": {
+      "$date": "2025-07-12T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d180"
+    },
+    "name": "USB-C Fast Charging Cable - Compact #1",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 1839,
+    "category": "Books",
+    "stock": 485,
+    "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1260,
+    "createdAt": {
+      "$date": "2025-10-06T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d181"
+    },
+    "name": "4K Webcam with Microphone - Pro #1",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 3861,
+    "category": "Food",
+    "stock": 62,
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561e1a?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.4,
+    "reviewCount": 244,
+    "createdAt": {
+      "$date": "2025-08-23T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d182"
+    },
+    "name": "Organic Cotton T-Shirt - Plus #1",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 5567,
+    "category": "Toys",
+    "stock": 275,
+    "imageUrl": "https://images.unsplash.com/photo-1624996508006-2e24ff7f8ddc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.4,
+    "reviewCount": 669,
+    "createdAt": {
+      "$date": "2025-06-04T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d183"
+    },
+    "name": "Stainless Steel Water Bottle - Premium #1",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 4090,
+    "category": "Electronics",
+    "stock": 194,
+    "imageUrl": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.7,
+    "reviewCount": 761,
+    "createdAt": {
+      "$date": "2026-01-02T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d184"
+    },
+    "name": "Yoga Mat with Strap - Deluxe #1",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 2636,
+    "category": "Clothing",
+    "stock": 117,
+    "imageUrl": "https://images.unsplash.com/photo-1505298346881-b72b27e84530?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.6,
+    "reviewCount": 619,
+    "createdAt": {
+      "$date": "2025-06-07T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d185"
+    },
+    "name": "The Clean Coder - Programming Book - Ultra #1",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 13695,
+    "category": "Home",
+    "stock": 54,
+    "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.6,
+    "reviewCount": 539,
+    "createdAt": {
+      "$date": "2025-12-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d186"
+    },
+    "name": "Premium Coffee Beans - Max #1",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 5623,
+    "category": "Sports",
+    "stock": 190,
+    "imageUrl": "https://images.unsplash.com/photo-1488704849519-d92f54faefb5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": false,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1591,
+    "createdAt": {
+      "$date": "2025-08-22T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d187"
+    },
+    "name": "Wooden Building Blocks Set - Lite #1",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 843,
+    "category": "Books",
+    "stock": 29,
+    "imageUrl": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.5,
+    "reviewCount": 188,
+    "createdAt": {
+      "$date": "2025-07-27T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d188"
+    },
+    "name": "Portable Phone Charger 20000mAh - Compact #1",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 1508,
+    "category": "Food",
+    "stock": 170,
+    "imageUrl": "https://images.unsplash.com/photo-1557803104302-8ca57139a6fa?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1064,
+    "createdAt": {
+      "$date": "2025-10-23T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d189"
+    },
+    "name": "Wireless Bluetooth Headphones - Pro #2",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 1652,
+    "category": "Toys",
+    "stock": 141,
+    "imageUrl": "https://images.unsplash.com/photo-1590080876-e93e5e2d6a2a?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 140,
+    "createdAt": {
+      "$date": "2025-07-06T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d18a"
+    },
+    "name": "USB-C Fast Charging Cable - Plus #2",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 8453,
+    "category": "Electronics",
+    "stock": 493,
+    "imageUrl": "https://images.unsplash.com/photo-1534424602256-c8ceea51cf59?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1311,
+    "createdAt": {
+      "$date": "2025-11-25T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d18b"
+    },
+    "name": "4K Webcam with Microphone - Premium #2",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 3368,
+    "category": "Clothing",
+    "stock": 11,
+    "imageUrl": "https://images.unsplash.com/photo-1539533057443-abd894fdbb92?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.4,
+    "reviewCount": 446,
+    "createdAt": {
+      "$date": "2025-11-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d18c"
+    },
+    "name": "Organic Cotton T-Shirt - Deluxe #2",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 11033,
+    "category": "Home",
+    "stock": 221,
+    "imageUrl": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.6,
+    "reviewCount": 454,
+    "createdAt": {
+      "$date": "2025-07-26T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d18d"
+    },
+    "name": "Stainless Steel Water Bottle - Ultra #2",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 3690,
+    "category": "Sports",
+    "stock": 193,
+    "imageUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.7,
+    "reviewCount": 904,
+    "createdAt": {
+      "$date": "2025-11-19T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d18e"
+    },
+    "name": "Yoga Mat with Strap - Max #2",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 1226,
+    "category": "Books",
+    "stock": 62,
+    "imageUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.3,
+    "reviewCount": 571,
+    "createdAt": {
+      "$date": "2025-10-23T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d18f"
+    },
+    "name": "The Clean Coder - Programming Book - Lite #2",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2322,
+    "category": "Food",
+    "stock": 31,
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.8,
+    "reviewCount": 349,
+    "createdAt": {
+      "$date": "2025-09-09T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d190"
+    },
+    "name": "Premium Coffee Beans - Compact #2",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 4085,
+    "category": "Toys",
+    "stock": 223,
+    "imageUrl": "https://images.unsplash.com/photo-1594787318286-3d835c1cab83?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1449,
+    "createdAt": {
+      "$date": "2025-05-02T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d191"
+    },
+    "name": "Wooden Building Blocks Set - Pro #2",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 10408,
+    "category": "Electronics",
+    "stock": 29,
+    "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.7,
+    "reviewCount": 425,
+    "createdAt": {
+      "$date": "2025-08-05T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d192"
+    },
+    "name": "Portable Phone Charger 20000mAh - Plus #2",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 3932,
+    "category": "Clothing",
+    "stock": 142,
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.9,
+    "reviewCount": 839,
+    "createdAt": {
+      "$date": "2025-07-12T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d193"
+    },
+    "name": "Wireless Bluetooth Headphones - Premium #2",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 3675,
+    "category": "Home",
+    "stock": 132,
+    "imageUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.4,
+    "reviewCount": 154,
+    "createdAt": {
+      "$date": "2025-05-08T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d194"
+    },
+    "name": "USB-C Fast Charging Cable - Deluxe #2",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 7076,
+    "category": "Sports",
+    "stock": 481,
+    "imageUrl": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1274,
+    "createdAt": {
+      "$date": "2025-07-25T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d195"
+    },
+    "name": "4K Webcam with Microphone - Ultra #2",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 2408,
+    "category": "Books",
+    "stock": 12,
+    "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 319,
+    "createdAt": {
+      "$date": "2025-06-14T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d196"
+    },
+    "name": "Organic Cotton T-Shirt - Max #2",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 1089,
+    "category": "Food",
+    "stock": 296,
+    "imageUrl": "https://images.unsplash.com/photo-1573521193529-7da8fb4ce338?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.1,
+    "reviewCount": 450,
+    "createdAt": {
+      "$date": "2025-06-09T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d197"
+    },
+    "name": "Stainless Steel Water Bottle - Lite #2",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 2474,
+    "category": "Toys",
+    "stock": 158,
+    "imageUrl": "https://images.unsplash.com/photo-1531259683007-016efdf6741d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1000,
+    "createdAt": {
+      "$date": "2025-11-14T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d198"
+    },
+    "name": "Yoga Mat with Strap - Compact #2",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 3529,
+    "category": "Electronics",
+    "stock": 75,
+    "imageUrl": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.7,
+    "reviewCount": 591,
+    "createdAt": {
+      "$date": "2025-08-21T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d199"
+    },
+    "name": "The Clean Coder - Programming Book - Pro #2",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 3526,
+    "category": "Clothing",
+    "stock": 13,
+    "imageUrl": "https://images.unsplash.com/photo-1572019614356-f64b42c917a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.6,
+    "reviewCount": 297,
+    "createdAt": {
+      "$date": "2025-06-07T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d19a"
+    },
+    "name": "Premium Coffee Beans - Plus #2",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 8465,
+    "category": "Home",
+    "stock": 195,
+    "imageUrl": "https://images.unsplash.com/photo-1532372320572-cda40c6e5525?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.8,
+    "reviewCount": 1508,
+    "createdAt": {
+      "$date": "2025-10-27T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d19b"
+    },
+    "name": "Wooden Building Blocks Set - Premium #2",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 3432,
+    "category": "Sports",
+    "stock": 67,
+    "imageUrl": "https://images.unsplash.com/photo-1595594007352-5846d62d9abc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.8,
+    "reviewCount": 281,
+    "createdAt": {
+      "$date": "2025-05-19T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d19c"
+    },
+    "name": "Portable Phone Charger 20000mAh - Deluxe #2",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 2312,
+    "category": "Books",
+    "stock": 103,
+    "imageUrl": "https://images.unsplash.com/photo-1543002588-d4d6c47168b2?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 796,
+    "createdAt": {
+      "$date": "2025-10-11T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.374Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d19d"
+    },
+    "name": "Wireless Bluetooth Headphones - Ultra #2",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 3470,
+    "category": "Food",
+    "stock": 125,
+    "imageUrl": "https://images.unsplash.com/photo-1563379091339-03b21ab4a104?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 322,
+    "createdAt": {
+      "$date": "2026-01-02T04:34:59.374Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d19e"
+    },
+    "name": "USB-C Fast Charging Cable - Max #2",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 6700,
+    "category": "Toys",
+    "stock": 450,
+    "imageUrl": "https://images.unsplash.com/photo-1609269585289-603ba36f3ee9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1195,
+    "createdAt": {
+      "$date": "2025-10-19T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d19f"
+    },
+    "name": "4K Webcam with Microphone - Lite #2",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 4354,
+    "category": "Electronics",
+    "stock": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 320,
+    "createdAt": {
+      "$date": "2025-09-06T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a0"
+    },
+    "name": "Organic Cotton T-Shirt - Compact #2",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 4275,
+    "category": "Clothing",
+    "stock": 267,
+    "imageUrl": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.3,
+    "reviewCount": 517,
+    "createdAt": {
+      "$date": "2025-11-29T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a1"
+    },
+    "name": "Stainless Steel Water Bottle - Pro #2",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 5971,
+    "category": "Home",
+    "stock": 162,
+    "imageUrl": "https://images.unsplash.com/photo-1555672473-d1fd09e25eaa?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.9,
+    "reviewCount": 872,
+    "createdAt": {
+      "$date": "2025-12-26T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a2"
+    },
+    "name": "Yoga Mat with Strap - Plus #2",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 10618,
+    "category": "Sports",
+    "stock": 115,
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.6,
+    "reviewCount": 680,
+    "createdAt": {
+      "$date": "2025-07-25T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a3"
+    },
+    "name": "The Clean Coder - Programming Book - Premium #2",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2213,
+    "category": "Books",
+    "stock": 77,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.5,
+    "reviewCount": 503,
+    "createdAt": {
+      "$date": "2025-06-22T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a4"
+    },
+    "name": "Premium Coffee Beans - Deluxe #2",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 2192,
+    "category": "Food",
+    "stock": 231,
+    "imageUrl": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1643,
+    "createdAt": {
+      "$date": "2025-06-09T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a5"
+    },
+    "name": "Wooden Building Blocks Set - Ultra #2",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 7496,
+    "category": "Toys",
+    "stock": 68,
+    "imageUrl": "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.3,
+    "reviewCount": 399,
+    "createdAt": {
+      "$date": "2025-07-02T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a6"
+    },
+    "name": "Portable Phone Charger 20000mAh - Max #2",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 7070,
+    "category": "Electronics",
+    "stock": 139,
+    "imageUrl": "https://images.unsplash.com/photo-1491927750519-058fc557ea54?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 904,
+    "createdAt": {
+      "$date": "2025-12-31T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a7"
+    },
+    "name": "Wireless Bluetooth Headphones - Lite #2",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 6608,
+    "category": "Clothing",
+    "stock": 120,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.8,
+    "reviewCount": 156,
+    "createdAt": {
+      "$date": "2025-11-24T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a8"
+    },
+    "name": "USB-C Fast Charging Cable - Compact #2",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 3819,
+    "category": "Home",
+    "stock": 426,
+    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1121,
+    "createdAt": {
+      "$date": "2025-07-15T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1a9"
+    },
+    "name": "4K Webcam with Microphone - Pro #2",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 12417,
+    "category": "Sports",
+    "stock": 36,
+    "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 463,
+    "createdAt": {
+      "$date": "2025-06-20T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1aa"
+    },
+    "name": "Organic Cotton T-Shirt - Plus #2",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 2631,
+    "category": "Books",
+    "stock": 244,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.3,
+    "reviewCount": 471,
+    "createdAt": {
+      "$date": "2025-07-19T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ab"
+    },
+    "name": "Stainless Steel Water Bottle - Premium #2",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 2355,
+    "category": "Food",
+    "stock": 195,
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.8,
+    "reviewCount": 930,
+    "createdAt": {
+      "$date": "2025-07-11T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ac"
+    },
+    "name": "Yoga Mat with Strap - Deluxe #2",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 2835,
+    "category": "Toys",
+    "stock": 57,
+    "imageUrl": "https://images.unsplash.com/photo-1595908352132-efc2f6f30afc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.6,
+    "reviewCount": 574,
+    "createdAt": {
+      "$date": "2025-08-17T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ad"
+    },
+    "name": "The Clean Coder - Programming Book - Ultra #2",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 3480,
+    "category": "Electronics",
+    "stock": 71,
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.7,
+    "reviewCount": 551,
+    "createdAt": {
+      "$date": "2025-10-16T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ae"
+    },
+    "name": "Premium Coffee Beans - Max #2",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 4776,
+    "category": "Clothing",
+    "stock": 185,
+    "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 5.1,
+    "reviewCount": 1470,
+    "createdAt": {
+      "$date": "2025-06-25T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1af"
+    },
+    "name": "Wooden Building Blocks Set - Lite #2",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 15500,
+    "category": "Home",
+    "stock": 45,
+    "imageUrl": "https://images.unsplash.com/photo-1546456073-92b9c080a67c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.3,
+    "reviewCount": 334,
+    "createdAt": {
+      "$date": "2025-05-06T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b0"
+    },
+    "name": "Portable Phone Charger 20000mAh - Compact #2",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 3968,
+    "category": "Sports",
+    "stock": 166,
+    "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.5,
+    "reviewCount": 812,
+    "createdAt": {
+      "$date": "2025-06-13T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b1"
+    },
+    "name": "Wireless Bluetooth Headphones - Pro #3",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 1891,
+    "category": "Books",
+    "stock": 80,
+    "imageUrl": "https://images.unsplash.com/photo-150784272343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.7,
+    "reviewCount": 116,
+    "createdAt": {
+      "$date": "2025-06-27T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b2"
+    },
+    "name": "USB-C Fast Charging Cable - Plus #3",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 2970,
+    "category": "Food",
+    "stock": 481,
+    "imageUrl": "https://images.unsplash.com/photo-1585238341710-4b5ff5c0f4f9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1173,
+    "createdAt": {
+      "$date": "2025-12-11T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b3"
+    },
+    "name": "4K Webcam with Microphone - Premium #3",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 2552,
+    "category": "Toys",
+    "stock": 47,
+    "imageUrl": "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.5,
+    "reviewCount": 345,
+    "createdAt": {
+      "$date": "2025-12-25T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b4"
+    },
+    "name": "Organic Cotton T-Shirt - Deluxe #3",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 6328,
+    "category": "Electronics",
+    "stock": 277,
+    "imageUrl": "https://images.unsplash.com/photo-1484033503419-0bf4a0bba1f6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.2,
+    "reviewCount": 623,
+    "createdAt": {
+      "$date": "2025-06-26T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b5"
+    },
+    "name": "Stainless Steel Water Bottle - Ultra #3",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 2582,
+    "category": "Clothing",
+    "stock": 137,
+    "imageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.6,
+    "reviewCount": 919,
+    "createdAt": {
+      "$date": "2025-05-15T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b6"
+    },
+    "name": "Yoga Mat with Strap - Max #3",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 5899,
+    "category": "Home",
+    "stock": 63,
+    "imageUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.5,
+    "reviewCount": 505,
+    "createdAt": {
+      "$date": "2025-06-05T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b7"
+    },
+    "name": "The Clean Coder - Programming Book - Lite #3",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 8283,
+    "category": "Sports",
+    "stock": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1539161819572-a2fb3a1381a0?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.8,
+    "reviewCount": 550,
+    "createdAt": {
+      "$date": "2025-06-26T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b8"
+    },
+    "name": "Premium Coffee Beans - Compact #3",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 2506,
+    "category": "Books",
+    "stock": 246,
+    "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 5.1,
+    "reviewCount": 1513,
+    "createdAt": {
+      "$date": "2025-07-29T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1b9"
+    },
+    "name": "Wooden Building Blocks Set - Pro #3",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 688,
+    "category": "Food",
+    "stock": 45,
+    "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.4,
+    "reviewCount": 141,
+    "createdAt": {
+      "$date": "2025-12-11T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ba"
+    },
+    "name": "Portable Phone Charger 20000mAh - Plus #3",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 3285,
+    "category": "Toys",
+    "stock": 110,
+    "imageUrl": "https://images.unsplash.com/photo-1617395829139-2e6e7c5532a5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.4,
+    "reviewCount": 891,
+    "createdAt": {
+      "$date": "2025-08-29T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1bb"
+    },
+    "name": "Wireless Bluetooth Headphones - Premium #3",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 1236,
+    "category": "Electronics",
+    "stock": 98,
+    "imageUrl": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.8,
+    "reviewCount": 284,
+    "createdAt": {
+      "$date": "2025-09-29T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1bc"
+    },
+    "name": "USB-C Fast Charging Cable - Deluxe #3",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 3538,
+    "category": "Clothing",
+    "stock": 486,
+    "imageUrl": "https://images.unsplash.com/photo-1554521666-7d18c3ce3a2d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1129,
+    "createdAt": {
+      "$date": "2025-10-13T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1bd"
+    },
+    "name": "4K Webcam with Microphone - Ultra #3",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 2797,
+    "category": "Home",
+    "stock": 62,
+    "imageUrl": "https://images.unsplash.com/photo-1512090564787-bc8cc0e1b81b?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": false,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.8,
+    "reviewCount": 438,
+    "createdAt": {
+      "$date": "2025-08-27T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1be"
+    },
+    "name": "Organic Cotton T-Shirt - Max #3",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 6638,
+    "category": "Sports",
+    "stock": 266,
+    "imageUrl": "https://images.unsplash.com/photo-1552989457-b99b86e2dde5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.1,
+    "reviewCount": 662,
+    "createdAt": {
+      "$date": "2025-07-14T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1bf"
+    },
+    "name": "Stainless Steel Water Bottle - Lite #3",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 967,
+    "category": "Books",
+    "stock": 180,
+    "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1033,
+    "createdAt": {
+      "$date": "2025-09-25T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c0"
+    },
+    "name": "Yoga Mat with Strap - Compact #3",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 2671,
+    "category": "Food",
+    "stock": 101,
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561e1a?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.5,
+    "reviewCount": 555,
+    "createdAt": {
+      "$date": "2025-11-23T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c1"
+    },
+    "name": "The Clean Coder - Programming Book - Pro #3",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 3279,
+    "category": "Toys",
+    "stock": 39,
+    "imageUrl": "https://images.unsplash.com/photo-1624996508006-2e24ff7f8ddc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": false,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.7,
+    "reviewCount": 328,
+    "createdAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c2"
+    },
+    "name": "Premium Coffee Beans - Plus #3",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 8529,
+    "category": "Electronics",
+    "stock": 239,
+    "imageUrl": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1441,
+    "createdAt": {
+      "$date": "2025-12-02T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c3"
+    },
+    "name": "Wooden Building Blocks Set - Premium #3",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 3843,
+    "category": "Clothing",
+    "stock": 58,
+    "imageUrl": "https://images.unsplash.com/photo-1505298346881-b72b27e84530?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.5,
+    "reviewCount": 389,
+    "createdAt": {
+      "$date": "2025-08-25T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c4"
+    },
+    "name": "Portable Phone Charger 20000mAh - Deluxe #3",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 13055,
+    "category": "Home",
+    "stock": 158,
+    "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 883,
+    "createdAt": {
+      "$date": "2025-05-08T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c5"
+    },
+    "name": "Wireless Bluetooth Headphones - Ultra #3",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 4056,
+    "category": "Sports",
+    "stock": 133,
+    "imageUrl": "https://images.unsplash.com/photo-1488704849519-d92f54faefb5?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.3,
+    "reviewCount": 106,
+    "createdAt": {
+      "$date": "2025-08-19T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c6"
+    },
+    "name": "USB-C Fast Charging Cable - Max #3",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 1713,
+    "category": "Books",
+    "stock": 449,
+    "imageUrl": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1199,
+    "createdAt": {
+      "$date": "2025-10-26T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c7"
+    },
+    "name": "4K Webcam with Microphone - Lite #3",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 3422,
+    "category": "Food",
+    "stock": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1557803104302-8ca57139a6fa?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.9,
+    "reviewCount": 314,
+    "createdAt": {
+      "$date": "2025-05-04T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c8"
+    },
+    "name": "Organic Cotton T-Shirt - Compact #3",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 8175,
+    "category": "Toys",
+    "stock": 259,
+    "imageUrl": "https://images.unsplash.com/photo-1590080876-e93e5e2d6a2a?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.5,
+    "reviewCount": 458,
+    "createdAt": {
+      "$date": "2025-09-07T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1c9"
+    },
+    "name": "Stainless Steel Water Bottle - Pro #3",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 7284,
+    "category": "Electronics",
+    "stock": 161,
+    "imageUrl": "https://images.unsplash.com/photo-1534424602256-c8ceea51cf59?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.5,
+    "reviewCount": 894,
+    "createdAt": {
+      "$date": "2025-08-06T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ca"
+    },
+    "name": "Yoga Mat with Strap - Plus #3",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 5138,
+    "category": "Clothing",
+    "stock": 41,
+    "imageUrl": "https://images.unsplash.com/photo-1539533057443-abd894fdbb92?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.2,
+    "reviewCount": 753,
+    "createdAt": {
+      "$date": "2025-05-10T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1cb"
+    },
+    "name": "The Clean Coder - Programming Book - Premium #3",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 8455,
+    "category": "Home",
+    "stock": 66,
+    "imageUrl": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.5,
+    "reviewCount": 536,
+    "createdAt": {
+      "$date": "2025-06-11T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1cc"
+    },
+    "name": "Premium Coffee Beans - Deluxe #3",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 3472,
+    "category": "Sports",
+    "stock": 247,
+    "imageUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1606,
+    "createdAt": {
+      "$date": "2025-05-01T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1cd"
+    },
+    "name": "Wooden Building Blocks Set - Ultra #3",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 2668,
+    "category": "Books",
+    "stock": 21,
+    "imageUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.4,
+    "reviewCount": 241,
+    "createdAt": {
+      "$date": "2025-07-23T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ce"
+    },
+    "name": "Portable Phone Charger 20000mAh - Max #3",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 1092,
+    "category": "Food",
+    "stock": 160,
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.6,
+    "reviewCount": 792,
+    "createdAt": {
+      "$date": "2025-10-31T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1cf"
+    },
+    "name": "Wireless Bluetooth Headphones - Lite #3",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 4340,
+    "category": "Toys",
+    "stock": 142,
+    "imageUrl": "https://images.unsplash.com/photo-1594787318286-3d835c1cab83?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.7,
+    "reviewCount": 197,
+    "createdAt": {
+      "$date": "2025-08-31T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d0"
+    },
+    "name": "USB-C Fast Charging Cable - Compact #3",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 7373,
+    "category": "Electronics",
+    "stock": 477,
+    "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1154,
+    "createdAt": {
+      "$date": "2025-07-18T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d1"
+    },
+    "name": "4K Webcam with Microphone - Pro #3",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 4376,
+    "category": "Clothing",
+    "stock": 52,
+    "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.4,
+    "reviewCount": 285,
+    "createdAt": {
+      "$date": "2025-05-01T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d2"
+    },
+    "name": "Organic Cotton T-Shirt - Plus #3",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 3624,
+    "category": "Home",
+    "stock": 269,
+    "imageUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.2,
+    "reviewCount": 396,
+    "createdAt": {
+      "$date": "2025-10-10T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d3"
+    },
+    "name": "Stainless Steel Water Bottle - Premium #3",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 11830,
+    "category": "Sports",
+    "stock": 185,
+    "imageUrl": "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.5,
+    "reviewCount": 976,
+    "createdAt": {
+      "$date": "2025-06-29T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d4"
+    },
+    "name": "Yoga Mat with Strap - Deluxe #3",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 1243,
+    "category": "Books",
+    "stock": 70,
+    "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.3,
+    "reviewCount": 714,
+    "createdAt": {
+      "$date": "2025-10-28T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d5"
+    },
+    "name": "The Clean Coder - Programming Book - Ultra #3",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2621,
+    "category": "Food",
+    "stock": 17,
+    "imageUrl": "https://images.unsplash.com/photo-1573521193529-7da8fb4ce338?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.5,
+    "reviewCount": 438,
+    "createdAt": {
+      "$date": "2025-07-20T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d6"
+    },
+    "name": "Premium Coffee Beans - Max #3",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 2111,
+    "category": "Toys",
+    "stock": 229,
+    "imageUrl": "https://images.unsplash.com/photo-1531259683007-016efdf6741d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1570,
+    "createdAt": {
+      "$date": "2025-08-03T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d7"
+    },
+    "name": "Wooden Building Blocks Set - Lite #3",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 2870,
+    "category": "Electronics",
+    "stock": 58,
+    "imageUrl": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.3,
+    "reviewCount": 371,
+    "createdAt": {
+      "$date": "2026-01-01T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d8"
+    },
+    "name": "Portable Phone Charger 20000mAh - Compact #3",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 3885,
+    "category": "Clothing",
+    "stock": 167,
+    "imageUrl": "https://images.unsplash.com/photo-1572019614356-f64b42c917a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 835,
+    "createdAt": {
+      "$date": "2025-06-17T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1d9"
+    },
+    "name": "Wireless Bluetooth Headphones - Pro #4",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 10579,
+    "category": "Home",
+    "stock": 100,
+    "imageUrl": "https://images.unsplash.com/photo-1532372320572-cda40c6e5525?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439003",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.3,
+    "reviewCount": 172,
+    "createdAt": {
+      "$date": "2025-08-15T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1da"
+    },
+    "name": "USB-C Fast Charging Cable - Plus #4",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 4809,
+    "category": "Sports",
+    "stock": 457,
+    "imageUrl": "https://images.unsplash.com/photo-1595594007352-5846d62d9abc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439004",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 5,
+    "reviewCount": 1238,
+    "createdAt": {
+      "$date": "2025-08-27T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1db"
+    },
+    "name": "4K Webcam with Microphone - Premium #4",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 2727,
+    "category": "Books",
+    "stock": 26,
+    "imageUrl": "https://images.unsplash.com/photo-1543002588-d4d6c47168b2?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439005",
+    "isActive": false,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.9,
+    "reviewCount": 367,
+    "createdAt": {
+      "$date": "2025-11-30T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1dc"
+    },
+    "name": "Organic Cotton T-Shirt - Deluxe #4",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 2023,
+    "category": "Food",
+    "stock": 272,
+    "imageUrl": "https://images.unsplash.com/photo-1563379091339-03b21ab4a104?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439006",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.6,
+    "reviewCount": 466,
+    "createdAt": {
+      "$date": "2025-05-10T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1dd"
+    },
+    "name": "Stainless Steel Water Bottle - Ultra #4",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 6062,
+    "category": "Toys",
+    "stock": 135,
+    "imageUrl": "https://images.unsplash.com/photo-1609269585289-603ba36f3ee9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439007",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.8,
+    "reviewCount": 814,
+    "createdAt": {
+      "$date": "2025-05-18T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1de"
+    },
+    "name": "Yoga Mat with Strap - Max #4",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 10219,
+    "category": "Electronics",
+    "stock": 103,
+    "imageUrl": "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439008",
+    "isActive": false,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.3,
+    "reviewCount": 736,
+    "createdAt": {
+      "$date": "2025-08-23T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1df"
+    },
+    "name": "The Clean Coder - Programming Book - Lite #4",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2433,
+    "category": "Clothing",
+    "stock": 29,
+    "imageUrl": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439009",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.7,
+    "reviewCount": 463,
+    "createdAt": {
+      "$date": "2025-08-19T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e0"
+    },
+    "name": "Premium Coffee Beans - Compact #4",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 5847,
+    "category": "Home",
+    "stock": 211,
+    "imageUrl": "https://images.unsplash.com/photo-1555672473-d1fd09e25eaa?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd799439010",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 5,
+    "reviewCount": 1608,
+    "createdAt": {
+      "$date": "2025-06-17T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e1"
+    },
+    "name": "Wooden Building Blocks Set - Pro #4",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 4618,
+    "category": "Sports",
+    "stock": 57,
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.3,
+    "reviewCount": 165,
+    "createdAt": {
+      "$date": "2025-09-12T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e2"
+    },
+    "name": "Portable Phone Charger 20000mAh - Plus #4",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 1824,
+    "category": "Books",
+    "stock": 127,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.9,
+    "reviewCount": 864,
+    "createdAt": {
+      "$date": "2025-05-19T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e3"
+    },
+    "name": "Wireless Bluetooth Headphones - Premium #4",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 1859,
+    "category": "Food",
+    "stock": 97,
+    "imageUrl": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 113,
+    "createdAt": {
+      "$date": "2025-07-22T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e4"
+    },
+    "name": "USB-C Fast Charging Cable - Deluxe #4",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 7074,
+    "category": "Toys",
+    "stock": 453,
+    "imageUrl": "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 5,
+    "reviewCount": 1287,
+    "createdAt": {
+      "$date": "2025-07-04T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e5"
+    },
+    "name": "4K Webcam with Microphone - Ultra #4",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 4676,
+    "category": "Electronics",
+    "stock": 58,
+    "imageUrl": "https://images.unsplash.com/photo-1491927750519-058fc557ea54?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.8,
+    "reviewCount": 418,
+    "createdAt": {
+      "$date": "2025-10-01T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e6"
+    },
+    "name": "Organic Cotton T-Shirt - Max #4",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 6255,
+    "category": "Clothing",
+    "stock": 224,
+    "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.1,
+    "reviewCount": 483,
+    "createdAt": {
+      "$date": "2025-11-09T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e7"
+    },
+    "name": "Stainless Steel Water Bottle - Lite #4",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 10406,
+    "category": "Home",
+    "stock": 193,
+    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 5,
+    "reviewCount": 1009,
+    "createdAt": {
+      "$date": "2025-08-24T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e8"
+    },
+    "name": "Yoga Mat with Strap - Compact #4",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 2921,
+    "category": "Sports",
+    "stock": 57,
+    "imageUrl": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.5,
+    "reviewCount": 507,
+    "createdAt": {
+      "$date": "2025-10-08T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1e9"
+    },
+    "name": "The Clean Coder - Programming Book - Pro #4",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 2061,
+    "category": "Books",
+    "stock": 10,
+    "imageUrl": "https://images.unsplash.com/photo-1495446815901-a7297e8b7d6e?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.6,
+    "reviewCount": 332,
+    "createdAt": {
+      "$date": "2025-08-08T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ea"
+    },
+    "name": "Premium Coffee Beans - Plus #4",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 827,
+    "category": "Food",
+    "stock": 201,
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.9,
+    "reviewCount": 1558,
+    "createdAt": {
+      "$date": "2025-10-14T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1eb"
+    },
+    "name": "Wooden Building Blocks Set - Premium #4",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 4964,
+    "category": "Toys",
+    "stock": 31,
+    "imageUrl": "https://images.unsplash.com/photo-1595908352132-efc2f6f30afc?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": false,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.4,
+    "reviewCount": 132,
+    "createdAt": {
+      "$date": "2025-11-19T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ec"
+    },
+    "name": "Portable Phone Charger 20000mAh - Deluxe #4",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 1871,
+    "category": "Electronics",
+    "stock": 139,
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.8,
+    "reviewCount": 952,
+    "createdAt": {
+      "$date": "2025-05-10T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ed"
+    },
+    "name": "Wireless Bluetooth Headphones - Ultra #4",
+    "description": "High-quality wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality.",
+    "price": 3512,
+    "category": "Clothing",
+    "stock": 131,
+    "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "rating": 4.6,
+    "reviewCount": 392,
+    "createdAt": {
+      "$date": "2025-12-11T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ee"
+    },
+    "name": "USB-C Fast Charging Cable - Max #4",
+    "description": "Durable 6ft USB-C cable with fast charging support. Compatible with all USB-C devices.",
+    "price": 16493,
+    "category": "Home",
+    "stock": 456,
+    "imageUrl": "https://images.unsplash.com/photo-1546456073-92b9c080a67c?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "cable",
+      "charging"
+    ],
+    "rating": 5,
+    "reviewCount": 1340,
+    "createdAt": {
+      "$date": "2025-10-01T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1ef"
+    },
+    "name": "4K Webcam with Microphone - Lite #4",
+    "description": "Professional 4K webcam with built-in microphone, wide-angle lens, and auto-focus. Perfect for streaming and meetings.",
+    "price": 11933,
+    "category": "Sports",
+    "stock": 50,
+    "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "webcam",
+      "4k"
+    ],
+    "rating": 4.3,
+    "reviewCount": 440,
+    "createdAt": {
+      "$date": "2025-08-31T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f0"
+    },
+    "name": "Organic Cotton T-Shirt - Compact #4",
+    "description": "Comfortable 100% organic cotton t-shirt available in multiple colors. Machine washable and eco-friendly.",
+    "price": 1418,
+    "category": "Books",
+    "stock": 271,
+    "imageUrl": "https://images.unsplash.com/photo-150784272343-583f20270319?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "clothing",
+      "cotton",
+      "organic"
+    ],
+    "rating": 4.1,
+    "reviewCount": 410,
+    "createdAt": {
+      "$date": "2025-09-09T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f1"
+    },
+    "name": "Stainless Steel Water Bottle - Pro #4",
+    "description": "500ml insulated water bottle keeps drinks hot for 12 hours or cold for 24 hours. Eco-friendly and durable.",
+    "price": 596,
+    "category": "Food",
+    "stock": 171,
+    "imageUrl": "https://images.unsplash.com/photo-1585238341710-4b5ff5c0f4f9?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "home",
+      "water-bottle",
+      "insulated"
+    ],
+    "rating": 4.7,
+    "reviewCount": 831,
+    "createdAt": {
+      "$date": "2025-12-04T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f2"
+    },
+    "name": "Yoga Mat with Strap - Plus #4",
+    "description": "Non-slip yoga mat with carrying strap. 6mm thickness provides excellent cushioning. Made from eco-friendly TPE.",
+    "price": 3856,
+    "category": "Toys",
+    "stock": 100,
+    "imageUrl": "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "sports",
+      "yoga",
+      "fitness"
+    ],
+    "rating": 4.1,
+    "reviewCount": 548,
+    "createdAt": {
+      "$date": "2025-07-10T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f3"
+    },
+    "name": "The Clean Coder - Programming Book - Premium #4",
+    "description": "Essential guide to professional software development by Robert C. Martin. Learn best practices and code quality.",
+    "price": 1214,
+    "category": "Electronics",
+    "stock": 18,
+    "imageUrl": "https://images.unsplash.com/photo-1484033503419-0bf4a0bba1f6?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "books",
+      "programming",
+      "development"
+    ],
+    "rating": 4.4,
+    "reviewCount": 469,
+    "createdAt": {
+      "$date": "2025-12-27T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f4"
+    },
+    "name": "Premium Coffee Beans - Deluxe #4",
+    "description": "Freshly roasted premium coffee beans from Ethiopia. Medium roast with notes of berry and chocolate.",
+    "price": 2800,
+    "category": "Clothing",
+    "stock": 240,
+    "imageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "food",
+      "coffee",
+      "premium"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1606,
+    "createdAt": {
+      "$date": "2025-05-15T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f5"
+    },
+    "name": "Wooden Building Blocks Set - Ultra #4",
+    "description": "Educational wooden blocks for toddlers. 100 blocks in various shapes and colors. Safe and non-toxic.",
+    "price": 6130,
+    "category": "Home",
+    "stock": 35,
+    "imageUrl": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "toys",
+      "educational",
+      "blocks"
+    ],
+    "rating": 4.7,
+    "reviewCount": 245,
+    "createdAt": {
+      "$date": "2025-09-08T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b4b98ffa2348ec966d1f6"
+    },
+    "name": "Portable Phone Charger 20000mAh - Max #4",
+    "description": "High-capacity power bank with dual USB ports and LED display. Fast charging technology and compact design.",
+    "price": 10769,
+    "category": "Sports",
+    "stock": 130,
+    "imageUrl": "https://images.unsplash.com/photo-1539161819572-a2fb3a1381a0?w=400&h=400&fit=crop",
+    "sellerId": "507f1f77bcf86cd7994390011",
+    "isActive": true,
+    "tags": [
+      "electronics",
+      "power-bank",
+      "charging"
+    ],
+    "rating": 4.7,
+    "reviewCount": 973,
+    "createdAt": {
+      "$date": "2025-09-03T04:34:59.375Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-05T04:34:59.375Z"
+    }
+  }
+]

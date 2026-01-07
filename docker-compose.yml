@@ -1,0 +1,120 @@
+version: '3.8'
+
+# ===========================================
+# E-COMMERCE DEVELOPMENT DOCKER COMPOSE
+# Simple setup for local development
+# ===========================================
+
+services:
+  # MongoDB for databases
+  mongodb:
+    image: mongo:7.0
+    container_name: ecommerce-mongodb
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - ecommerce-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Redis for caching and sessions
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    networks:
+      - ecommerce-network
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Main application (all services and frontend)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecommerce-app
+    restart: unless-stopped
+    ports:
+      - '3000:3000' # Shell App
+      - '3001:3001' # Admin App
+      - '3002:3002' # Seller App
+      - '3003:3003' # Storefront
+      - '3010:3010' # Auth Service
+      - '3011:3011' # Product Service
+      - '3012:3012' # Order Service
+      - '3013:3013' # Category Service
+      - '3014:3014' # Coupon Service
+      - '4000:4000' # GraphQL Gateway
+      - '6006:6006' # Storybook
+    environment:
+      NODE_ENV: development
+      # MongoDB
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/ecommerce?authSource=admin
+      # Redis
+      REDIS_URL: redis://redis:6379
+      # CORS
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003
+      # Service URLs (internal)
+      AUTH_SERVICE_URL: http://localhost:3010
+      PRODUCT_SERVICE_URL: http://localhost:3011
+      ORDER_SERVICE_URL: http://localhost:3012
+      CATEGORY_SERVICE_URL: http://localhost:3013
+      COUPON_SERVICE_URL: http://localhost:3014
+      # JWT
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      JWT_EXPIRES_IN: 24h
+      # API URLs for frontend
+      VITE_API_URL: http://localhost:4000/graphql
+      NEXT_PUBLIC_API_URL: http://localhost:4000/graphql
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/apps/admin-app/node_modules
+      - /app/apps/seller-app/node_modules
+      - /app/apps/shell-app/node_modules
+      - /app/apps/storefront-app/node_modules
+      - /app/packages/types/node_modules
+      - /app/packages/ui-library/node_modules
+      - /app/packages/utils/node_modules
+      - /app/services/auth-service/node_modules
+      - /app/services/category-service/node_modules
+      - /app/services/coupon-service/node_modules
+      - /app/services/graphql-gateway/node_modules
+      - /app/services/order-service/node_modules
+      - /app/services/product-service/node_modules
+    networks:
+      - ecommerce-network
+    stdin_open: true
+    tty: true
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  ecommerce-network:
+    driver: bridge

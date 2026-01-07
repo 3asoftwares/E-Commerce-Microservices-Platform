@@ -1,0 +1,185 @@
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useUIStore } from '../store/uiStore';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChartLine,
+  faUsers,
+  faBox,
+  faShoppingCart,
+  faTicket,
+  faBars,
+  IconDefinition,
+  faXmark,
+  faUserCircle,
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+import { Button } from '@e-commerce/ui-library';
+
+interface NavItem {
+  path: string;
+  icon: IconDefinition;
+  label: string;
+}
+
+const navItems: NavItem[] = [
+  { path: '/', icon: faChartLine, label: 'Dashboard' },
+  { path: '/users', icon: faUsers, label: 'Users' },
+  { path: '/products', icon: faBox, label: 'Products' },
+  { path: '/orders', icon: faShoppingCart, label: 'Orders' },
+  { path: '/coupons', icon: faTicket, label: 'Coupons' },
+  { path: '/profile', icon: faUserCircle, label: 'Profile' },
+];
+
+export const Sidebar: React.FC = () => {
+  const location = useLocation();
+  const { sidebarOpen, toggleSidebar } = useUIStore();
+
+  // Close sidebar on mobile when route changes
+  useEffect(() => {
+    if (window.innerWidth < 1024 && sidebarOpen) {
+      toggleSidebar();
+    }
+  }, [location.pathname]);
+
+  // Close sidebar on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && sidebarOpen && window.innerWidth < 1024) {
+        toggleSidebar();
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [sidebarOpen, toggleSidebar]);
+
+  // Prevent body scroll when mobile sidebar is open
+  useEffect(() => {
+    if (sidebarOpen && window.innerWidth < 1024) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [sidebarOpen]);
+
+  return (
+    <>
+      <Button className="!w-auto" size="md" onClick={toggleSidebar}>
+        <FontAwesomeIcon
+          icon={sidebarOpen ? faXmark : faBars}
+          className="w-5 h-5 text-gray-700 dark:text-gray-300"
+        />
+      </Button>
+      <div
+        className={`lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+          sidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={toggleSidebar}
+        aria-hidden="true"
+      />
+      <aside
+        className={`
+          fixed top-[69px] left-0 z-40 h-[calc(100vh-69px)] bg-white dark:bg-gray-900 
+          border-r border-gray-200 dark:border-gray-800 
+          transition-all duration-300 ease-in-out
+          ${sidebarOpen ? 'w-64' : 'w-0 lg:w-20'}
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+          overflow-hidden
+        `}
+      >
+        <div className="flex flex-col h-full">
+          {/* Sidebar Header */}
+          <div
+            className={`p-4 border-b border-gray-100 dark:border-gray-800 ${
+              sidebarOpen ? 'block' : 'hidden lg:block'
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              {sidebarOpen && (
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-lg">A</span>
+                  </div>
+                  <div>
+                    <h2 className="text-sm font-bold text-gray-900 dark:text-white">Admin Panel</h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Navigation</p>
+                  </div>
+                </div>
+              )}
+              {/* Desktop Toggle Button */}
+              <Button className="!w-auto" size="md" onClick={toggleSidebar}>
+                <FontAwesomeIcon
+                  icon={sidebarOpen ? faChevronLeft : faChevronRight}
+                  className="w-3 h-3 text-gray-600 dark:text-gray-400"
+                />
+              </Button>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <nav className="flex-1 p-3 overflow-y-auto">
+            <ul className="space-y-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <li key={item.path}>
+                    <Link
+                      to={item.path}
+                      className={`
+                        group flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200
+                        ${
+                          isActive
+                            ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25'
+                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
+                        }
+                        ${!sidebarOpen ? 'lg:justify-center lg:px-0' : ''}
+                      `}
+                      title={!sidebarOpen ? item.label : undefined}
+                    >
+                      <span
+                        className={`
+                        flex items-center justify-center w-10 h-10 rounded-lg transition-colors
+                        ${
+                          isActive
+                            ? 'bg-white/20'
+                            : 'bg-gray-100 dark:bg-gray-800 group-hover:bg-gray-200 dark:group-hover:bg-gray-700'
+                        }
+                        ${!sidebarOpen ? 'lg:bg-transparent lg:dark:bg-transparent' : ''}
+                      `}
+                      >
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className={`w-5 h-5 ${isActive ? 'text-white' : ''}`}
+                        />
+                      </span>
+                      {sidebarOpen && <span className="font-medium text-sm">{item.label}</span>}
+                      {isActive && sidebarOpen && (
+                        <span className="ml-auto w-2 h-2 rounded-full bg-white"></span>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          {/* Sidebar Footer */}
+          {sidebarOpen && (
+            <div className="p-4 border-t border-gray-100 dark:border-gray-800">
+              <div className="px-3 py-3 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-800/50">
+                <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                  E-Commerce Admin
+                </p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">v1.0.0</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </aside>
+    </>
+  );
+};

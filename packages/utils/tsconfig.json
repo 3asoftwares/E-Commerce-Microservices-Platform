@@ -1,0 +1,12 @@
+{
+  "extends": "./src/config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "moduleResolution": "bundler"
+  },
+  "include": ["src/**/*", "src/assets.d.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

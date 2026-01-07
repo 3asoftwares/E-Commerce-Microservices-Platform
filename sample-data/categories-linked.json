@@ -1,0 +1,167 @@
+[
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439001" },
+    "name": "Electronics",
+    "slug": "electronics",
+    "description": "Electronic devices, gadgets, and equipment",
+    "icon": "laptop",
+    "isActive": true,
+    "productCount": 33,
+    "createdAt": { "$date": "2025-01-01T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-01T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439002" },
+    "name": "Clothing",
+    "slug": "clothing",
+    "description": "Apparel and clothing for all occasions",
+    "icon": "shirt",
+    "isActive": true,
+    "productCount": 30,
+    "createdAt": { "$date": "2025-01-02T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-02T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439003" },
+    "name": "Home",
+    "slug": "home",
+    "description": "Home furnishings and household items",
+    "icon": "home",
+    "isActive": true,
+    "productCount": 30,
+    "createdAt": { "$date": "2025-01-03T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-03T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439004" },
+    "name": "Beauty",
+    "slug": "beauty",
+    "description": "Beauty products and cosmetics",
+    "icon": "sparkles",
+    "isActive": true,
+    "productCount": 25,
+    "createdAt": { "$date": "2025-01-04T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-04T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439005" },
+    "name": "Sports",
+    "slug": "sports",
+    "description": "Sports equipment and athletic gear",
+    "icon": "trophy",
+    "isActive": true,
+    "productCount": 20,
+    "createdAt": { "$date": "2025-01-05T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-05T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439006" },
+    "name": "Books",
+    "slug": "books",
+    "description": "Books, magazines, and publications",
+    "icon": "book",
+    "isActive": true,
+    "productCount": 45,
+    "createdAt": { "$date": "2025-01-06T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-06T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439007" },
+    "name": "Toys",
+    "slug": "toys",
+    "description": "Toys and games for all ages",
+    "icon": "puzzle",
+    "isActive": true,
+    "productCount": 35,
+    "createdAt": { "$date": "2025-01-07T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-07T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439008" },
+    "name": "Automotive",
+    "slug": "automotive",
+    "description": "Automotive parts and accessories",
+    "icon": "car",
+    "isActive": true,
+    "productCount": 18,
+    "createdAt": { "$date": "2025-01-08T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-08T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439009" },
+    "name": "Garden",
+    "slug": "garden",
+    "description": "Garden tools and outdoor equipment",
+    "icon": "flower",
+    "isActive": true,
+    "productCount": 22,
+    "createdAt": { "$date": "2025-01-09T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-09T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439010" },
+    "name": "Health",
+    "slug": "health",
+    "description": "Health and wellness products",
+    "icon": "heart",
+    "isActive": true,
+    "productCount": 28,
+    "createdAt": { "$date": "2025-01-10T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-10T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439011" },
+    "name": "Jewelry",
+    "slug": "jewelry",
+    "description": "Jewelry and accessories",
+    "icon": "gem",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": { "$date": "2025-01-11T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-11T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439012" },
+    "name": "Pet Supplies",
+    "slug": "pet-supplies",
+    "description": "Pet food, accessories, and supplies",
+    "icon": "paw",
+    "isActive": true,
+    "productCount": 24,
+    "createdAt": { "$date": "2025-01-12T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-12T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439013" },
+    "name": "Office Supplies",
+    "slug": "office-supplies",
+    "description": "Office equipment and stationery",
+    "icon": "briefcase",
+    "isActive": true,
+    "productCount": 32,
+    "createdAt": { "$date": "2025-01-13T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-13T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439014" },
+    "name": "Food & Grocery",
+    "slug": "food-grocery",
+    "description": "Food items and grocery products",
+    "icon": "shopping-cart",
+    "isActive": true,
+    "productCount": 50,
+    "createdAt": { "$date": "2025-01-14T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-14T10:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "507f1f77bcf86cd799439015" },
+    "name": "Music",
+    "slug": "music",
+    "description": "Musical instruments and equipment",
+    "icon": "music",
+    "isActive": true,
+    "productCount": 16,
+    "createdAt": { "$date": "2025-01-15T10:00:00.000Z" },
+    "updatedAt": { "$date": "2025-01-15T10:00:00.000Z" }
+  }
+]

@@ -1,0 +1,363 @@
+version: '3.8'
+
+# ===========================================
+# E-COMMERCE PRODUCTION DOCKER COMPOSE
+# ===========================================
+# This configuration is designed for production deployment.
+# For managed services, consider using:
+# - MongoDB Atlas for database
+# - Redis Cloud or AWS ElastiCache for caching
+# - Kubernetes for container orchestration
+# - AWS ALB / Cloudflare for load balancing
+# ===========================================
+
+services:
+  # =========================================
+  # INFRASTRUCTURE SERVICES
+  # =========================================
+  
+  # MongoDB (Use managed service in real production)
+  mongodb:
+    image: mongo:7.0
+    container_name: ecommerce-mongodb-prod
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+      - mongodb_data_prod:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis (Use managed service in real production)
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-redis-prod
+    restart: always
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data_prod:/data
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ['CMD', 'redis-cli', '-a', '${REDIS_PASSWORD}', 'ping']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # =========================================
+  # BACKEND MICROSERVICES
+  # =========================================
+
+  # Auth Service
+  auth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: ecommerce-auth-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3010
+      SERVICE_NAME: auth-service
+      MONGODB_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb:27017/ecommerce?authSource=admin
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+    command: ["node", "services/auth-service/dist/index.js"]
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3010/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Product Service
+  product-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: ecommerce-product-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3011
+      SERVICE_NAME: product-service
+      MONGODB_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb:27017/ecommerce?authSource=admin
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+    command: ["node", "services/product-service/dist/index.js"]
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3011/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Order Service
+  order-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: ecommerce-order-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3012
+      SERVICE_NAME: order-service
+      MONGODB_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb:27017/ecommerce?authSource=admin
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      AUTH_SERVICE_URL: http://auth-service:3010
+      PRODUCT_SERVICE_URL: http://product-service:3011
+    command: ["node", "services/order-service/dist/index.js"]
+    depends_on:
+      - auth-service
+      - product-service
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3012/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Category Service
+  category-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: ecommerce-category-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3013
+      SERVICE_NAME: category-service
+      MONGODB_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb:27017/ecommerce?authSource=admin
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+    command: ["node", "services/category-service/dist/index.js"]
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3013/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Coupon Service
+  coupon-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: ecommerce-coupon-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3014
+      SERVICE_NAME: coupon-service
+      MONGODB_URI: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongodb:27017/ecommerce?authSource=admin
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+    command: ["node", "services/coupon-service/dist/index.js"]
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3014/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # GraphQL Gateway
+  graphql-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: ecommerce-gateway-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      SERVICE_NAME: graphql-gateway
+      AUTH_SERVICE_URL: http://auth-service:3010
+      PRODUCT_SERVICE_URL: http://product-service:3011
+      ORDER_SERVICE_URL: http://order-service:3012
+      CATEGORY_SERVICE_URL: http://category-service:3013
+      COUPON_SERVICE_URL: http://coupon-service:3014
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      GRAPHQL_INTROSPECTION: 'false'
+      GRAPHQL_PLAYGROUND: 'false'
+    command: ["node", "services/graphql-gateway/dist/index.js"]
+    depends_on:
+      - auth-service
+      - product-service
+      - order-service
+      - category-service
+      - coupon-service
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:4000/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # =========================================
+  # FRONTEND APPLICATIONS
+  # =========================================
+
+  # Storefront (Next.js SSR)
+  storefront:
+    build:
+      context: .
+      dockerfile: ./apps/storefront-app/Dockerfile.prod
+    container_name: ecommerce-storefront-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+      NEXT_PUBLIC_AUTH_URL: ${NEXT_PUBLIC_AUTH_URL}
+    depends_on:
+      - graphql-gateway
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3003/']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # =========================================
+  # REVERSE PROXY / LOAD BALANCER
+  # =========================================
+
+  nginx:
+    image: nginx:alpine
+    container_name: ecommerce-nginx-prod
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./apps/admin-app/dist:/usr/share/nginx/html/admin:ro
+      - ./apps/seller-app/dist:/usr/share/nginx/html/seller:ro
+    depends_on:
+      - graphql-gateway
+      - storefront
+    networks:
+      - ecommerce-prod-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# =========================================
+# VOLUMES
+# =========================================
+volumes:
+  mongodb_data_prod:
+    driver: local
+  redis_data_prod:
+    driver: local
+
+# =========================================
+# NETWORKS
+# =========================================
+networks:
+  ecommerce-prod-network:
+    driver: bridge

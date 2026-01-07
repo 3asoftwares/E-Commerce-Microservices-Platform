@@ -1,0 +1,20 @@
+{
+  "extends": "../../packages/utils/src/config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "dist",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "paths": {
+      "@controllers/*": ["controllers/*"],
+      "@use-cases/*": ["use-cases/*"],
+      "@domain/*": ["domain/*"],
+      "@infrastructure/*": ["infrastructure/*"],
+      "@middleware/*": ["middleware/*"],
+      "@routes/*": ["routes/*"],
+      "@config/*": ["config/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

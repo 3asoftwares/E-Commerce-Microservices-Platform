@@ -1,0 +1,93 @@
+# Production Dockerfile - Multi-stage build for optimal image size
+
+# ===== Stage 1: Build Stage =====
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache python3 make g++ git
+
+# Copy package files
+COPY package.json yarn.lock ./
+
+# Copy workspace package.json files
+COPY apps/admin-app/package.json ./apps/admin-app/
+COPY apps/seller-app/package.json ./apps/seller-app/
+COPY apps/shell-app/package.json ./apps/shell-app/
+COPY apps/storefront-app/package.json ./apps/storefront-app/
+COPY packages/types/package.json ./packages/types/
+COPY packages/ui-library/package.json ./packages/ui-library/
+COPY packages/utils/package.json ./packages/utils/
+COPY services/auth-service/package.json ./services/auth-service/
+COPY services/category-service/package.json ./services/category-service/
+COPY services/coupon-service/package.json ./services/coupon-service/
+COPY services/graphql-gateway/package.json ./services/graphql-gateway/
+COPY services/order-service/package.json ./services/order-service/
+COPY services/product-service/package.json ./services/product-service/
+
+# Install all dependencies
+RUN yarn install --frozen-lockfile
+
+# Copy source code
+COPY . .
+
+# Build packages
+RUN yarn workspace @e-commerce/utils build || true
+RUN yarn workspace @e-commerce/types build || true
+
+# Build all services
+RUN yarn build:all
+
+# ===== Stage 2: Production Stage =====
+FROM node:20-alpine AS production
+
+WORKDIR /app
+
+# Install only runtime dependencies
+RUN apk add --no-cache tini
+
+# Copy package files
+COPY package.json yarn.lock ./
+COPY apps/admin-app/package.json ./apps/admin-app/
+COPY apps/seller-app/package.json ./apps/seller-app/
+COPY apps/shell-app/package.json ./apps/shell-app/
+COPY apps/storefront-app/package.json ./apps/storefront-app/
+COPY packages/types/package.json ./packages/types/
+COPY packages/utils/package.json ./packages/utils/
+COPY services/auth-service/package.json ./services/auth-service/
+COPY services/category-service/package.json ./services/category-service/
+COPY services/coupon-service/package.json ./services/coupon-service/
+COPY services/graphql-gateway/package.json ./services/graphql-gateway/
+COPY services/order-service/package.json ./services/order-service/
+COPY services/product-service/package.json ./services/product-service/
+
+# Install production dependencies only
+RUN yarn install --frozen-lockfile --production=true
+
+# Copy built files from builder
+COPY --from=builder /app/apps/admin-app/dist ./apps/admin-app/dist
+COPY --from=builder /app/apps/seller-app/dist ./apps/seller-app/dist
+COPY --from=builder /app/apps/shell-app/dist ./apps/shell-app/dist
+COPY --from=builder /app/apps/storefront-app/.next ./apps/storefront-app/.next
+COPY --from=builder /app/apps/storefront-app/public ./apps/storefront-app/public
+COPY --from=builder /app/packages/types/dist ./packages/types/dist
+COPY --from=builder /app/packages/utils/dist ./packages/utils/dist
+COPY --from=builder /app/services/auth-service/dist ./services/auth-service/dist
+COPY --from=builder /app/services/category-service/dist ./services/category-service/dist
+COPY --from=builder /app/services/coupon-service/dist ./services/coupon-service/dist
+COPY --from=builder /app/services/graphql-gateway/dist ./services/graphql-gateway/dist
+COPY --from=builder /app/services/order-service/dist ./services/order-service/dist
+COPY --from=builder /app/services/product-service/dist ./services/product-service/dist
+
+# Expose ports
+EXPOSE 3000 3001 3002 3003 3010 3011 3012 3013 3014 4000
+
+# Set environment
+ENV NODE_ENV=production
+
+# Use tini as init system
+ENTRYPOINT ["/sbin/tini", "--"]
+
+# Default command
+CMD ["yarn", "start"]

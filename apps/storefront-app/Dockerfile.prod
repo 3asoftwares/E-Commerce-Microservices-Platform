@@ -1,0 +1,65 @@
+# Storefront Production Dockerfile (Next.js)
+
+# ===== Stage 1: Dependencies =====
+FROM node:20-alpine AS deps
+WORKDIR /app
+
+# Install dependencies for native modules
+RUN apk add --no-cache libc6-compat
+
+# Copy package files
+COPY package.json yarn.lock ./
+COPY apps/storefront-app/package.json ./apps/storefront-app/
+COPY packages/types/package.json ./packages/types/
+COPY packages/ui-library/package.json ./packages/ui-library/
+COPY packages/utils/package.json ./packages/utils/
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# ===== Stage 2: Builder =====
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/apps/storefront-app/node_modules ./apps/storefront-app/node_modules
+COPY . .
+
+# Set environment variables for build
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_AUTH_URL
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+ENV NEXT_PUBLIC_AUTH_URL=${NEXT_PUBLIC_AUTH_URL}
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Build packages first
+RUN yarn workspace @e-commerce/utils build || true
+RUN yarn workspace @e-commerce/types build || true
+
+# Build Next.js app
+RUN yarn workspace @e-commerce/storefront-app build
+
+# ===== Stage 3: Runner =====
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Add non-root user for security
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy built app
+COPY --from=builder /app/apps/storefront-app/public ./apps/storefront-app/public
+COPY --from=builder --chown=nextjs:nodejs /app/apps/storefront-app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/storefront-app/.next/static ./apps/storefront-app/.next/static
+
+USER nextjs
+
+EXPOSE 3003
+
+ENV PORT=3003
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "apps/storefront-app/server.js"]

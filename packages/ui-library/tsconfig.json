@@ -1,0 +1,12 @@
+{
+  "extends": "../../packages/utils/src/config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "moduleResolution": "bundler"
+  },
+  "include": ["src/**/*", "tests"],
+  "exclude": ["node_modules", "dist", "**/*.test.tsx"]
+}

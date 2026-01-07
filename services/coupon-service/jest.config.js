@@ -1,0 +1,6 @@
+/** @type {import('jest').Config} */
+const baseConfig = require('../../packages/utils/src/config/jest.backend.config');
+
+module.exports = {
+  ...baseConfig,
+};
