@@ -36,7 +36,7 @@ export const SERVICE_URLS = {
 
 // DATABASE CONFIGURATION
 export const DATABASE_CONFIG = {
-  MONGODB_URI: 'mongodb://localhost:27017/ecommerce',
+  MONGODB_URI: 'mongodb+srv://admin:admin@cluster0.wei5wdz.mongodb.net/ecommerce?appName=Cluster0',
   REDIS_URL: 'redis://localhost:6379',
 };
 

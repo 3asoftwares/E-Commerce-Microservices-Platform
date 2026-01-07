@@ -104,7 +104,7 @@ userSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, salt);
     next();
   } catch (error: unknown) {
-    next(error);
+    next(error as mongoose.CallbackError);
   }
 });
 

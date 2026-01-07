@@ -1,3 +1,5 @@
-// Queries have been moved to @e-commerce/utils
-// Re-export them here for backward compatibility
-export * from '@e-commerce/utils';
+// Query types are now defined in @e-commerce/utils
+// This file is kept for backward compatibility but doesn't re-export to avoid circular dependencies
+// Import queries directly from @e-commerce/utils instead
+
+export {};
