@@ -1,0 +1,16 @@
+{
+  "name": "sample-data-generator",
+  "version": "1.0.0",
+  "description": "Sample data generator for E-Commerce platform",
+  "type": "module",
+  "main": "generate-sample-data.js",
+  "scripts": {
+    "generate": "node generate-sample-data.js",
+    "seed": "node seed-database.js",
+    "setup": "node generate-sample-data.js && node seed-database.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mongodb": "^6.3.0"
+  }
+}

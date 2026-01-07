@@ -1,0 +1,522 @@
+[
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000001"
+    },
+    "code": "SAVE10",
+    "description": "Save with SAVE10 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 10,
+    "minPurchase": 50,
+    "maxDiscount": 100,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 100,
+    "usageCount": 29,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-06-20T21:16:48.331Z"
+    },
+    "updatedAt": {
+      "$date": "2025-03-05T22:06:33.247Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000002"
+    },
+    "code": "WELCOME20",
+    "description": "Save with WELCOME20 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 60,
+    "minPurchase": 60,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 150,
+    "usageCount": 26,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-05-21T02:20:37.035Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-16T05:23:52.349Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000003"
+    },
+    "code": "FLASH30",
+    "description": "Save with FLASH30 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 14,
+    "minPurchase": 70,
+    "maxDiscount": 140,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 200,
+    "usageCount": 47,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-12-07T19:39:13.325Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-18T10:30:21.541Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000004"
+    },
+    "code": "SUMMER15",
+    "description": "Save with SUMMER15 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 80,
+    "minPurchase": 80,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 250,
+    "usageCount": 7,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-01-08T02:58:19.779Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-24T17:42:43.272Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000005"
+    },
+    "code": "WINTER25",
+    "description": "Save with WINTER25 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 18,
+    "minPurchase": 90,
+    "maxDiscount": 180,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 300,
+    "usageCount": 30,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-07-01T21:29:22.639Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-20T07:40:26.083Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000006"
+    },
+    "code": "HOLIDAY50",
+    "description": "Save with HOLIDAY50 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 100,
+    "minPurchase": 100,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 350,
+    "usageCount": 33,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-05-05T19:11:25.293Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-05T12:02:55.716Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000007"
+    },
+    "code": "NEWYEAR",
+    "description": "Save with NEWYEAR - Percentage discount",
+    "discountType": "percentage",
+    "discount": 22,
+    "minPurchase": 110,
+    "maxDiscount": 220,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 400,
+    "usageCount": 13,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-01-01T22:24:03.179Z"
+    },
+    "updatedAt": {
+      "$date": "2025-09-15T21:19:32.541Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000008"
+    },
+    "code": "FIRSTBUY",
+    "description": "Save with FIRSTBUY - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 120,
+    "minPurchase": 120,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 450,
+    "usageCount": 7,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-08-09T00:09:42.025Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-13T13:46:22.688Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000009"
+    },
+    "code": "LOYALTY10",
+    "description": "Save with LOYALTY10 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 26,
+    "minPurchase": 130,
+    "maxDiscount": 260,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 500,
+    "usageCount": 23,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-01-25T13:40:41.282Z"
+    },
+    "updatedAt": {
+      "$date": "2025-01-02T10:47:48.601Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd80000000a"
+    },
+    "code": "VIP20",
+    "description": "Save with VIP20 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 140,
+    "minPurchase": 140,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 550,
+    "usageCount": 4,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-07-16T15:58:31.289Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-28T21:54:57.941Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd80000000b"
+    },
+    "code": "SPECIAL15",
+    "description": "Save with SPECIAL15 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 30,
+    "minPurchase": 150,
+    "maxDiscount": 300,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 600,
+    "usageCount": 35,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-11-19T15:32:31.955Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-29T17:40:24.795Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd80000000c"
+    },
+    "code": "DEAL25",
+    "description": "Save with DEAL25 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 160,
+    "minPurchase": 160,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 650,
+    "usageCount": 34,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-08-08T09:07:45.364Z"
+    },
+    "updatedAt": {
+      "$date": "2025-07-09T02:12:35.559Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd80000000d"
+    },
+    "code": "MEGA30",
+    "description": "Save with MEGA30 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 34,
+    "minPurchase": 170,
+    "maxDiscount": 340,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 700,
+    "usageCount": 19,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-07-29T05:57:21.330Z"
+    },
+    "updatedAt": {
+      "$date": "2025-08-19T06:26:57.977Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd80000000e"
+    },
+    "code": "SUPER40",
+    "description": "Save with SUPER40 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 180,
+    "minPurchase": 180,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 750,
+    "usageCount": 9,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-06-11T18:08:27.545Z"
+    },
+    "updatedAt": {
+      "$date": "2025-07-03T12:08:56.614Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd80000000f"
+    },
+    "code": "ULTRA50",
+    "description": "Save with ULTRA50 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 38,
+    "minPurchase": 190,
+    "maxDiscount": 380,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 800,
+    "usageCount": 20,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-08-27T21:29:45.611Z"
+    },
+    "updatedAt": {
+      "$date": "2025-01-26T12:03:45.153Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000010"
+    },
+    "code": "PRIME10",
+    "description": "Save with PRIME10 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 200,
+    "minPurchase": 200,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 850,
+    "usageCount": 43,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-08-22T14:02:35.940Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-08T18:31:01.172Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000011"
+    },
+    "code": "GOLD15",
+    "description": "Save with GOLD15 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 42,
+    "minPurchase": 210,
+    "maxDiscount": 420,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 900,
+    "usageCount": 29,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-01-23T09:23:15.302Z"
+    },
+    "updatedAt": {
+      "$date": "2025-08-29T23:16:11.702Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000012"
+    },
+    "code": "SILVER20",
+    "description": "Save with SILVER20 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 220,
+    "minPurchase": 220,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 950,
+    "usageCount": 21,
+    "isActive": true,
+    "createdAt": {
+      "$date": "2024-05-20T06:39:42.119Z"
+    },
+    "updatedAt": {
+      "$date": "2025-03-17T04:29:48.394Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000013"
+    },
+    "code": "BRONZE25",
+    "description": "Save with BRONZE25 - Percentage discount",
+    "discountType": "percentage",
+    "discount": 46,
+    "minPurchase": 230,
+    "maxDiscount": 460,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 1000,
+    "usageCount": 8,
+    "isActive": false,
+    "createdAt": {
+      "$date": "2024-02-18T07:04:38.288Z"
+    },
+    "updatedAt": {
+      "$date": "2025-08-30T04:44:46.093Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "608f1f77bcf86cd800000014"
+    },
+    "code": "PLAT30",
+    "description": "Save with PLAT30 - Fixed amount discount",
+    "discountType": "fixed",
+    "discount": 240,
+    "minPurchase": 240,
+    "maxDiscount": null,
+    "validFrom": {
+      "$date": "2025-01-01T00:00:00.000Z"
+    },
+    "validTo": {
+      "$date": "2026-12-31T23:59:59.000Z"
+    },
+    "usageLimit": 1050,
+    "usageCount": 9,
+    "isActive": false,
+    "createdAt": {
+      "$date": "2024-05-26T19:44:53.219Z"
+    },
+    "updatedAt": {
+      "$date": "2025-07-10T14:02:42.066Z"
+    }
+  }
+]

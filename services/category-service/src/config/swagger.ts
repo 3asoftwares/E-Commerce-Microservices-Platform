@@ -2,6 +2,7 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { Application } from 'express';
 import path from 'path';
+import { PORT_CONFIG } from '@e-commerce/utils';
 
 const options: swaggerJsdoc.Options = {
   definition: {
@@ -16,7 +17,7 @@ const options: swaggerJsdoc.Options = {
     },
     servers: [
       {
-        url: 'http://localhost:3013',
+        url: `http://localhost:${PORT_CONFIG.CATEGORY_SERVICE}`,
         description: 'Development server',
       },
     ],
