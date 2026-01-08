@@ -1,0 +1,342 @@
+[
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000001"
+    },
+    "name": "Electronics",
+    "slug": "electronics",
+    "description": "Electronic devices, gadgets, and equipment",
+    "icon": "laptop",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-01-22T16:46:52.621Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-05T20:16:18.400Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000002"
+    },
+    "name": "Clothing",
+    "slug": "clothing",
+    "description": "Apparel and clothing for all occasions",
+    "icon": "shirt",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-11-19T04:43:28.759Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-09T00:32:42.691Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000003"
+    },
+    "name": "Home & Kitchen",
+    "slug": "home-kitchen",
+    "description": "Home furnishings and kitchen essentials",
+    "icon": "home",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-12-20T08:51:26.327Z"
+    },
+    "updatedAt": {
+      "$date": "2025-07-04T13:31:50.341Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000004"
+    },
+    "name": "Beauty & Personal Care",
+    "slug": "beauty-personal-care",
+    "description": "Beauty products and cosmetics",
+    "icon": "sparkles",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-01-26T11:14:16.263Z"
+    },
+    "updatedAt": {
+      "$date": "2025-03-04T23:00:53.355Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000005"
+    },
+    "name": "Sports & Outdoors",
+    "slug": "sports-outdoors",
+    "description": "Sports equipment and outdoor gear",
+    "icon": "trophy",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-01-04T22:04:52.003Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-02T23:26:54.454Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000006"
+    },
+    "name": "Books & Media",
+    "slug": "books-media",
+    "description": "Books, magazines, and digital media",
+    "icon": "book",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-07-04T17:28:34.101Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-13T02:31:17.096Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000007"
+    },
+    "name": "Toys & Games",
+    "slug": "toys-games",
+    "description": "Toys and games for all ages",
+    "icon": "puzzle",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-03-31T04:50:32.883Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-09T19:17:34.626Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000008"
+    },
+    "name": "Automotive",
+    "slug": "automotive",
+    "description": "Auto parts and accessories",
+    "icon": "car",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-10-07T17:37:09.308Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-28T16:00:34.561Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000009"
+    },
+    "name": "Garden & Outdoor",
+    "slug": "garden-outdoor",
+    "description": "Garden tools and outdoor equipment",
+    "icon": "flower",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-07-23T06:35:38.261Z"
+    },
+    "updatedAt": {
+      "$date": "2025-12-05T15:25:11.270Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd70000000a"
+    },
+    "name": "Health & Wellness",
+    "slug": "health-wellness",
+    "description": "Health supplements and wellness products",
+    "icon": "heart",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-06-15T21:41:57.388Z"
+    },
+    "updatedAt": {
+      "$date": "2025-02-07T01:21:06.461Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd70000000b"
+    },
+    "name": "Jewelry & Watches",
+    "slug": "jewelry-watches",
+    "description": "Fine jewelry and watches",
+    "icon": "gem",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-05-21T08:50:39.977Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-10T18:02:12.355Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd70000000c"
+    },
+    "name": "Pet Supplies",
+    "slug": "pet-supplies",
+    "description": "Pet food and accessories",
+    "icon": "paw",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-08-24T06:29:27.605Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-04T00:32:37.680Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd70000000d"
+    },
+    "name": "Office Supplies",
+    "slug": "office-supplies",
+    "description": "Office equipment and supplies",
+    "icon": "briefcase",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-01-16T17:14:23.052Z"
+    },
+    "updatedAt": {
+      "$date": "2025-07-27T07:22:49.199Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd70000000e"
+    },
+    "name": "Food & Grocery",
+    "slug": "food-grocery",
+    "description": "Food items and groceries",
+    "icon": "shopping-cart",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-06-13T21:27:01.932Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-09T04:39:47.230Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd70000000f"
+    },
+    "name": "Baby & Kids",
+    "slug": "baby-kids",
+    "description": "Baby products and kids items",
+    "icon": "baby",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-03-30T20:58:31.046Z"
+    },
+    "updatedAt": {
+      "$date": "2025-06-20T23:32:59.708Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000010"
+    },
+    "name": "Furniture",
+    "slug": "furniture",
+    "description": "Indoor and outdoor furniture",
+    "icon": "couch",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-07-08T08:11:16.483Z"
+    },
+    "updatedAt": {
+      "$date": "2025-02-04T12:35:05.092Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000011"
+    },
+    "name": "Music & Instruments",
+    "slug": "music-instruments",
+    "description": "Musical instruments and accessories",
+    "icon": "music",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-05-18T21:18:56.060Z"
+    },
+    "updatedAt": {
+      "$date": "2025-03-30T06:22:05.166Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000012"
+    },
+    "name": "Art & Crafts",
+    "slug": "art-crafts",
+    "description": "Art supplies and crafting materials",
+    "icon": "palette",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-01-31T21:00:08.135Z"
+    },
+    "updatedAt": {
+      "$date": "2025-04-09T23:12:27.434Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000013"
+    },
+    "name": "Travel & Luggage",
+    "slug": "travel-luggage",
+    "description": "Travel gear and luggage",
+    "icon": "plane",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-05-13T16:00:21.487Z"
+    },
+    "updatedAt": {
+      "$date": "2025-05-04T06:35:50.356Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "507f1f77bcf86cd700000014"
+    },
+    "name": "Smart Home",
+    "slug": "smart-home",
+    "description": "Smart home devices and automation",
+    "icon": "cpu",
+    "isActive": true,
+    "productCount": 15,
+    "createdAt": {
+      "$date": "2024-03-01T13:14:55.497Z"
+    },
+    "updatedAt": {
+      "$date": "2025-03-27T08:17:06.666Z"
+    }
+  }
+]

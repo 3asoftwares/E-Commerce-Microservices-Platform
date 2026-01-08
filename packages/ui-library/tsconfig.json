@@ -8,5 +8,12 @@
     "moduleResolution": "bundler"
   },
   "include": ["src/**/*", "tests"],
-  "exclude": ["node_modules", "dist", "**/*.test.tsx"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "src/stories"
+  ]
 }

@@ -183,9 +183,6 @@ export { ShippingMethod } from './enums/shippingMethod';
 export { LogLevel } from './enums/logLevel';
 export { ErrorType } from './enums/errorType';
 
-// Queries
-export * from './queries';
-
 // Utility Types (APIs, Logger, Error Handlers)
 export type {
   GraphQLResponse,
