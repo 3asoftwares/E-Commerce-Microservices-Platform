@@ -37,8 +37,16 @@ export const SERVICE_URLS = {
 // DATABASE CONFIGURATION
 // Note: Actual values should come from environment variables
 export const DATABASE_CONFIG = {
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerce',
-  REDIS_URL: process.env.REDIS_URL || 'redis://localhost:6379',
+  get MONGODB_URI() {
+    return typeof process !== 'undefined' && process.env?.MONGODB_URI
+      ? process.env.MONGODB_URI
+      : 'mongodb://localhost:27017/ecommerce';
+  },
+  get REDIS_URL() {
+    return typeof process !== 'undefined' && process.env?.REDIS_URL
+      ? process.env.REDIS_URL
+      : 'redis://localhost:6379';
+  },
 };
 
 // CORS ALLOWED ORIGINS
