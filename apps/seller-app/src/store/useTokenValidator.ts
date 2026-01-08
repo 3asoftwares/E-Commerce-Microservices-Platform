@@ -90,7 +90,7 @@ export function useTokenValidator() {
 
     // Redirect to shell app
     if (typeof window !== 'undefined') {
-      window.location.href = `${SHELL_APP_URL}?logout=true`;
+      window.location.href = `${process.env.SHELL_APP_URL || SHELL_APP_URL}?logout=true`;
     }
   }, []);
 

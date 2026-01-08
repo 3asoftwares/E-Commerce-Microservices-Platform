@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { SERVICE_URLS, SHELL_APP_URL, getAccessToken } from '@3asoftwares/utils';
 
-const AUTH_API = import.meta.env.VITE_AUTH_API || SERVICE_URLS.AUTH_SERVICE;
-const PRODUCT_API = import.meta.env.VITE_PRODUCT_API || SERVICE_URLS.PRODUCT_SERVICE;
-const ORDER_API = import.meta.env.VITE_ORDER_API || SERVICE_URLS.ORDER_SERVICE;
-const CATEGORY_API = import.meta.env.VITE_CATEGORY_API || SERVICE_URLS.CATEGORY_SERVICE;
+const AUTH_SERVICE = import.meta.env.VITE_AUTH_SERVICE || SERVICE_URLS.AUTH_SERVICE;
+const PRODUCT_SERVICE = import.meta.env.VITE_PRODUCT_SERVICE || SERVICE_URLS.PRODUCT_SERVICE;
+const ORDER_SERVICE = import.meta.env.VITE_ORDER_SERVICE || SERVICE_URLS.ORDER_SERVICE;
+const CATEGORY_SERVICE = import.meta.env.VITE_CATEGORY_SERVICE || SERVICE_URLS.CATEGORY_SERVICE;
 
 const createApiClient = (baseURL: string) => {
   const client = axios.create({
@@ -23,10 +23,10 @@ const createApiClient = (baseURL: string) => {
   return client;
 };
 
-const authClient = createApiClient(AUTH_API);
-const productClient = createApiClient(PRODUCT_API);
-const orderClient = createApiClient(ORDER_API);
-const categoryClient = createApiClient(CATEGORY_API);
+const authClient = createApiClient(AUTH_SERVICE);
+const productClient = createApiClient(PRODUCT_SERVICE);
+const orderClient = createApiClient(ORDER_SERVICE);
+const categoryClient = createApiClient(CATEGORY_SERVICE);
 
 export const authApi = {
   getUserById: async (userId: string) => {
@@ -85,7 +85,7 @@ export const categoryApi = {
 export const handleApiError = (error: any): string => {
   if (axios.isAxiosError(error)) {
     if (error.response?.data?.message === 'Invalid or expired token') {
-      // window.location.href = `${SHELL_APP_URL}?logout=true`;
+      window.location.href = `${process.env.SHELL_APP_URL || SHELL_APP_URL}?logout=true`;
     }
     return error.response?.data?.message || error.message;
   }

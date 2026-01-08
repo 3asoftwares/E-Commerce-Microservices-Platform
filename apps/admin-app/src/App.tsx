@@ -39,7 +39,7 @@ const AppContent: React.FC = () => {
 
   const clearAndLogout = () => {
     clearAuth();
-    window.location.href = `${SHELL_APP_URL}?logout=true`;
+    window.location.href = `${process.env.SHELL_APP_URL || SHELL_APP_URL}?logout=true`;
   };
 
   useEffect(() => {

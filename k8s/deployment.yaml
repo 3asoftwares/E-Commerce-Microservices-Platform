@@ -76,7 +76,7 @@ spec:
           env:
             - name: PORT
               value: '3011'
-            - name: MONGODB_URI
+            - name: MONGODB_URL
               valueFrom:
                 secretKeyRef:
                   name: ecommerce-secrets
@@ -153,7 +153,7 @@ spec:
           env:
             - name: PORT
               value: '3011'
-            - name: MONGODB_URI
+            - name: MONGODB_URL
               valueFrom:
                 secretKeyRef:
                   name: ecommerce-secrets
@@ -280,7 +280,7 @@ spec:
           env:
             - name: NODE_ENV
               value: 'production'
-            - name: NEXT_PUBLIC_API_URL
+            - name: NEXT_PUBLIC_SERVICE_URL
               value: 'https://api.yourdomain.com/graphql'
           resources:
             requests:

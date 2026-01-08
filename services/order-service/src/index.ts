@@ -22,7 +22,7 @@ Logger.configure({
 });
 
 const app: Application = express();
-const PORT = process.env.PORT || PORT_CONFIG.ORDER_SERVICE;
+const PORT = process.env.PORT || PORT_CONFIG.ORDER;
 
 const httpServer = createServer(app);
 initializeWebSocket(httpServer);

@@ -21,7 +21,7 @@ Logger.configure({
 });
 
 const app: Application = express();
-const PORT = process.env.PORT || PORT_CONFIG.PRODUCT_SERVICE;
+const PORT = process.env.PORT || PORT_CONFIG.PRODUCT;
 
 app.use(helmet());
 app.use(

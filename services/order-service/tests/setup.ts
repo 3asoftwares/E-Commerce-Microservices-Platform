@@ -2,9 +2,9 @@
 import { jest } from '@jest/globals';
 
 // Set environment variables for testing
-process.env.MONGODB_URI = 'mongodb://localhost:27017/test-orders';
+process.env.MONGODB_URL = 'mongodb://localhost:27017/ecommerce';
 process.env.JWT_SECRET = 'test-jwt-secret-key-12345';
-process.env.PORT = '3013';
+process.env.PORT = '3015';
 
 // Increase timeout for async tests
 jest.setTimeout(10000);

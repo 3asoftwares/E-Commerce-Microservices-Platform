@@ -78,7 +78,7 @@ yarn test:coverage # Run tests with coverage
 ## Environment Variables
 
 ```env
-REACT_APP_API_URL=http://localhost:4000
+REACT_APP_SERVICE_URL=http://localhost:4000
 REACT_APP_ADMIN_URL=http://localhost:3001
 REACT_APP_SELLER_URL=http://localhost:3002
 ```

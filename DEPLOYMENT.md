@@ -145,7 +145,7 @@ npm install -g vercel
 **Auth Service:**
 
 ```
-MONGODB_URI=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
+MONGODB_URL=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
 JWT_SECRET=your-super-secret-jwt-key-min-32-chars
 JWT_REFRESH_SECRET=your-refresh-secret-key-min-32-chars
 JWT_EXPIRES_IN=1h
@@ -157,28 +157,28 @@ NODE_ENV=production
 **Product Service:**
 
 ```
-MONGODB_URI=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
+MONGODB_URL=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
 NODE_ENV=production
 ```
 
 **Order Service:**
 
 ```
-MONGODB_URI=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
+MONGODB_URL=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
 NODE_ENV=production
 ```
 
 **Category Service:**
 
 ```
-MONGODB_URI=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
+MONGODB_URL=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
 NODE_ENV=production
 ```
 
 **Coupon Service:**
 
 ```
-MONGODB_URI=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
+MONGODB_URL=mongodb+srv://admin:admin@cluster0.xxxxx.mongodb.net/ecommerce
 NODE_ENV=production
 ```
 
@@ -326,7 +326,7 @@ npm run build-storybook
 
 | Variable                 | Description                           | Required  |
 | ------------------------ | ------------------------------------- | --------- |
-| `MONGODB_URI`            | MongoDB Atlas connection string       | Yes       |
+| `MONGODB_URL`            | MongoDB Atlas connection string       | Yes       |
 | `JWT_SECRET`             | Secret for JWT signing (32+ chars)    | Auth only |
 | `JWT_REFRESH_SECRET`     | Secret for refresh tokens             | Auth only |
 | `JWT_EXPIRES_IN`         | JWT expiration (e.g., `1h`)           | Auth only |

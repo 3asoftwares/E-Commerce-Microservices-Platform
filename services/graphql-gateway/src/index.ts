@@ -20,7 +20,7 @@ Logger.configure({
   logLevel: process.env.LOG_LEVEL || 'debug',
 });
 
-const PORT = process.env.PORT || PORT_CONFIG.GRAPHQL_GATEWAY;
+const PORT = process.env.PORT || PORT_CONFIG.GRAPHQL;
 
 async function startApolloServer() {
   Logger.info('Starting GraphQL Gateway...', undefined, 'Server');

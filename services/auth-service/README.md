@@ -102,7 +102,7 @@ yarn lint        # Run ESLint
 
 ```env
 PORT=4001
-MONGODB_URI=mongodb://localhost:27017/ecommerce_auth
+MONGODB_URL=mongodb://localhost:27017/ecommerce
 JWT_SECRET=your-secret-key
 JWT_EXPIRES_IN=15m
 JWT_REFRESH_SECRET=your-refresh-secret

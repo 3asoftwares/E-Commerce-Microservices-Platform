@@ -14,19 +14,19 @@ import {
 describe('Constants', () => {
   describe('PORT_CONFIG', () => {
     it('should have all service ports defined', () => {
-      expect(PORT_CONFIG.AUTH_SERVICE).toBe(3011);
-      expect(PORT_CONFIG.PRODUCT_SERVICE).toBe(3014);
-      expect(PORT_CONFIG.ORDER_SERVICE).toBe(3015);
-      expect(PORT_CONFIG.CATEGORY_SERVICE).toBe(3012);
-      expect(PORT_CONFIG.COUPON_SERVICE).toBe(3013);
-      expect(PORT_CONFIG.GRAPHQL_GATEWAY).toBe(4000);
+      expect(PORT_CONFIG.AUTH).toBe(3011);
+      expect(PORT_CONFIG.PRODUCT).toBe(3014);
+      expect(PORT_CONFIG.ORDER).toBe(3015);
+      expect(PORT_CONFIG.CATEGORY).toBe(3012);
+      expect(PORT_CONFIG.COUPON).toBe(3013);
+      expect(PORT_CONFIG.GRAPHQL).toBe(4000);
     });
 
     it('should have all app ports defined', () => {
-      expect(PORT_CONFIG.STOREFRONT_APP).toBe(3000);
-      expect(PORT_CONFIG.ADMIN_APP).toBe(3001);
-      expect(PORT_CONFIG.SELLER_APP).toBe(3002);
-      expect(PORT_CONFIG.SHELL_APP).toBe(3003);
+      expect(PORT_CONFIG.STOREFRONT).toBe(3000);
+      expect(PORT_CONFIG.ADMIN).toBe(3001);
+      expect(PORT_CONFIG.SELLER).toBe(3002);
+      expect(PORT_CONFIG.SHELL).toBe(3003);
     });
   });
 

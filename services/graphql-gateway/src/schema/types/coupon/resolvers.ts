@@ -16,7 +16,7 @@ export const couponResolvers = {
     coupons: async (_: any, args: any, context: any) => {
       const authHeader = requireAuth(context);
       const { page, limit, search, isActive } = args;
-      const response = await couponClient.get('/coupons', {
+      const response = await couponClient.get('/api/coupons', {
         params: { page, limit, search, isActive },
         ...authHeader,
       });
@@ -26,14 +26,14 @@ export const couponResolvers = {
     // Admin only - get coupon by ID
     coupon: async (_: any, { id }: any, context: any) => {
       const authHeader = requireAuth(context);
-      const response = await couponClient.get(`/coupons/${id}`, authHeader);
+      const response = await couponClient.get(`/api/coupons/${id}`, authHeader);
       return response.data.data;
     },
 
     // Public - validate coupon for checkout
     validateCoupon: async (_: any, { code, orderTotal }: { code: string; orderTotal: number }) => {
       try {
-        const response = await couponClient.post('/coupons/validate', { code, orderTotal });
+        const response = await couponClient.post('/api/coupons/validate', { code, orderTotal });
         const data = response.data.data || response.data;
         return {
           valid: data?.valid ?? true,
@@ -90,19 +90,19 @@ export const couponResolvers = {
   Mutation: {
     createCoupon: async (_: any, { input }: any, context: any) => {
       const authHeader = requireAuth(context);
-      const response = await couponClient.post('/coupons', input, authHeader);
+      const response = await couponClient.post('/api/coupons', input, authHeader);
       return response.data.data;
     },
 
     updateCoupon: async (_: any, { id, input }: any, context: any) => {
       const authHeader = requireAuth(context);
-      const response = await couponClient.put(`/coupons/${id}`, input, authHeader);
+      const response = await couponClient.put(`/api/coupons/${id}`, input, authHeader);
       return response.data.data;
     },
 
     deleteCoupon: async (_: any, { id }: any, context: any) => {
       const authHeader = requireAuth(context);
-      await couponClient.delete(`/coupons/${id}`, authHeader);
+      await couponClient.delete(`/api/coupons/${id}`, authHeader);
       return true;
     },
   },

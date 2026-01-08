@@ -20,7 +20,7 @@ Logger.configure({
 });
 
 const app: Application = express();
-const PORT = process.env.PORT || PORT_CONFIG.COUPON_SERVICE;
+const PORT = process.env.PORT || PORT_CONFIG.COUPON;
 
 app.use(helmet());
 app.use(

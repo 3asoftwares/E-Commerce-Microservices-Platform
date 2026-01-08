@@ -13,7 +13,7 @@ import {
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
-const API_BASE = process.env.NEXT_PUBLIC_AUTH_API_URL || 'http://localhost:3011/api/auth';
+const API_BASE = process.env.NEXT_PUBLIC_AUTH_SERVICE_URL || 'http://localhost:3011/api/auth';
 
 function VerifyEmailContent() {
   const searchParams = useSearchParams();

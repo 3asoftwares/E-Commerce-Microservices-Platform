@@ -110,7 +110,7 @@ yarn test:coverage # Run tests with coverage
 
 ```env
 PORT=4003
-MONGODB_URI=mongodb://localhost:27017/ecommerce_orders
+MONGODB_URL=mongodb://localhost:27017/ecommerce
 JWT_SECRET=your-jwt-secret
 SOCKET_CORS_ORIGIN=http://localhost:3000
 ```

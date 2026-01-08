@@ -3,10 +3,11 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { Logger } from '@3asoftwares/utils/server';
+import { DATABASE_CONFIG } from '@3asoftwares/utils';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerce';
+const MONGODB_URL = process.env.MONGODB_URL || DATABASE_CONFIG.MONGODB_URL;
 
 export const connectDatabase = async (): Promise<void> => {
   try {
@@ -16,7 +17,7 @@ export const connectDatabase = async (): Promise<void> => {
       socketTimeoutMS: 45000,
     };
 
-    await mongoose.connect(MONGODB_URI, options);
+    await mongoose.connect(MONGODB_URL, options);
     Logger.info('MongoDB connected successfully', undefined, 'Database');
 
     mongoose.connection.on('error', (err) => {

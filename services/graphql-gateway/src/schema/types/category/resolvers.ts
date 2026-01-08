@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SERVICE_URLS } from '@3asoftwares/utils';
 
-const CATEGORY_SERVICE_URL = process.env.CATEGORY_SERVICE_URL || SERVICE_URLS.CATEGORY_API;
+const CATEGORY_SERVICE_URL = process.env.CATEGORY_SERVICE_URL || SERVICE_URLS.CATEGORY_SERVICE;
 
 // Helper to normalize category data with proper id and timestamps
 const normalizeCategory = (category: any) => {
@@ -25,7 +25,7 @@ export const categoryResolvers = {
   Query: {
     categories: async (_: any, { filter }: any) => {
       try {
-        let url = `${CATEGORY_SERVICE_URL}/categories`;
+        let url = `${CATEGORY_SERVICE_URL}/api/categories`;
         const params = new URLSearchParams();
 
         if (filter?.search) {

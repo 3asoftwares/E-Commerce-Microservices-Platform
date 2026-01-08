@@ -1,7 +1,7 @@
 // Mock for @3asoftwares/utils
 export const SHELL_APP_URL = 'http://localhost:3000';
 export const API_BASE_URL = 'http://localhost:4000';
-export const AUTH_API_BASE_URL = 'http://localhost:4000/api/auth';
+export const AUTH_SERVICE_BASE_URL = 'http://localhost:4000/api/auth';
 
 export const clearAuth = jest.fn();
 export const storeAuth = jest.fn();
@@ -20,7 +20,7 @@ export const Logger = {
 export default {
   SHELL_APP_URL,
   API_BASE_URL,
-  AUTH_API_BASE_URL,
+  AUTH_SERVICE_BASE_URL,
   clearAuth,
   storeAuth,
   getStoredAuth,

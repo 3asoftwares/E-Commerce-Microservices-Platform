@@ -4,48 +4,33 @@ export const SELLER_APP_URL = 'http://localhost:3002';
 export const STOREFRONT_APP_URL = 'http://localhost:3003';
 
 // PORT CONFIGURATIONS
-// auth-3011, category-3012, coupon-3013, product-3014, order-3015, graphql-4000
 export const PORT_CONFIG = {
-  AUTH_SERVICE: 3011,
-  CATEGORY_SERVICE: 3012,
-  COUPON_SERVICE: 3013,
-  PRODUCT_SERVICE: 3014,
-  ORDER_SERVICE: 3015,
-  GRAPHQL_GATEWAY: 4000,
-  STOREFRONT_APP: 3000,
-  ADMIN_APP: 3001,
-  SELLER_APP: 3002,
-  SHELL_APP: 3003,
+  AUTH: 3011,
+  CATEGORY: 3012,
+  COUPON: 3013,
+  PRODUCT: 3014,
+  ORDER: 3015,
+  GRAPHQL: 4000,
+  STOREFRONT: 3000,
+  ADMIN: 3001,
+  SELLER: 3002,
+  SHELL: 3003,
 };
 
 // SERVICE URLS
 export const SERVICE_URLS = {
-  AUTH_SERVICE: `http://localhost:${PORT_CONFIG.AUTH_SERVICE}`,
-  CATEGORY_SERVICE: `http://localhost:${PORT_CONFIG.CATEGORY_SERVICE}`,
-  COUPON_SERVICE: `http://localhost:${PORT_CONFIG.COUPON_SERVICE}`,
-  PRODUCT_SERVICE: `http://localhost:${PORT_CONFIG.PRODUCT_SERVICE}`,
-  ORDER_SERVICE: `http://localhost:${PORT_CONFIG.ORDER_SERVICE}`,
-  GRAPHQL_GATEWAY: `http://localhost:${PORT_CONFIG.GRAPHQL_GATEWAY}/graphql`,
-  AUTH_API: `http://localhost:${PORT_CONFIG.AUTH_SERVICE}/api`,
-  CATEGORY_API: `http://localhost:${PORT_CONFIG.CATEGORY_SERVICE}/api`,
-  COUPON_API: `http://localhost:${PORT_CONFIG.COUPON_SERVICE}/api`,
-  PRODUCT_API: `http://localhost:${PORT_CONFIG.PRODUCT_SERVICE}/api`,
-  ORDER_API: `http://localhost:${PORT_CONFIG.ORDER_SERVICE}/api`,
+  AUTH_SERVICE: `http://localhost:${PORT_CONFIG.AUTH}`,
+  CATEGORY_SERVICE: `http://localhost:${PORT_CONFIG.CATEGORY}`,
+  COUPON_SERVICE: `http://localhost:${PORT_CONFIG.COUPON}`,
+  PRODUCT_SERVICE: `http://localhost:${PORT_CONFIG.PRODUCT}`,
+  ORDER_SERVICE: `http://localhost:${PORT_CONFIG.ORDER}`,
+  GRAPHQL_GATEWAY: `http://localhost:${PORT_CONFIG.GRAPHQL}/graphql`,
 };
 
 // DATABASE CONFIGURATION
-// Note: Actual values should come from environment variables
 export const DATABASE_CONFIG = {
-  get MONGODB_URI() {
-    return typeof process !== 'undefined' && process.env?.MONGODB_URI
-      ? process.env.MONGODB_URI
-      : 'mongodb://localhost:27017/ecommerce';
-  },
-  get REDIS_URL() {
-    return typeof process !== 'undefined' && process.env?.REDIS_URL
-      ? process.env.REDIS_URL
-      : 'redis://localhost:6379';
-  },
+  REDIS_URL: 'redis://localhost:6379',
+  MONGODB_URL: 'mongodb://localhost:27017/ecommerce',
 };
 
 // CORS ALLOWED ORIGINS
@@ -298,23 +283,4 @@ export const REGEX_PATTERNS = {
   COUPON_CODE: /^[A-Z0-9]{6,20}$/,
   PRODUCT_SKU: /^[A-Z0-9\-]{3,20}$/,
   URL: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/,
-};
-
-// ENVIRONMENT PRESETS
-export const ENV_PRESETS = {
-  DEVELOPMENT: {
-    corsOrigins: DEFAULT_CORS_ORIGINS,
-    logLevel: 'debug',
-    apiTimeout: TIMEOUT_CONFIG.API_REQUEST,
-  },
-  PRODUCTION: {
-    corsOrigins: ['https://ecommerce.example.com', 'https://admin.ecommerce.example.com'],
-    logLevel: 'info',
-    apiTimeout: TIMEOUT_CONFIG.API_REQUEST,
-  },
-  TESTING: {
-    corsOrigins: ['http://localhost:*'],
-    logLevel: 'error',
-    apiTimeout: TIMEOUT_CONFIG.API_REQUEST,
-  },
 };

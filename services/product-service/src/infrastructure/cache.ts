@@ -1,8 +1,9 @@
 import Redis from 'ioredis';
 import dotenv from 'dotenv';
+import { DATABASE_CONFIG } from '@3asoftwares/utils';
 dotenv.config();
 
-const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379';
+const REDIS_URL = process.env.REDIS_URL || DATABASE_CONFIG.REDIS_URL;
 
 export const redisClient = new Redis(REDIS_URL, {
   retryStrategy: (times: number) => {

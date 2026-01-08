@@ -4,11 +4,11 @@ import { Logger } from '@3asoftwares/utils/server';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerce';
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/ecommerce';
 
 export const connectDatabase = async (): Promise<void> => {
   try {
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URL);
     Logger.info('MongoDB connected successfully', undefined, 'Database');
 
     mongoose.connection.on('error', (err) => {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getAccessToken } from '@3asoftwares/utils';
 
-const API_BASE = process.env.VITE_AUTH_API_BASE || 'http://localhost:3011/api/auth';
+const API_BASE = process.env.VITE_AUTH_SERVICE_BASE || 'http://localhost:3011/api/auth';
 
 // Create authenticated client
 const createAuthClient = () => {

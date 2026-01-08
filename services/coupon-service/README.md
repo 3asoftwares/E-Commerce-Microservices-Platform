@@ -95,7 +95,7 @@ yarn test:coverage # Run tests with coverage
 
 ```env
 PORT=4005
-MONGODB_URI=mongodb://localhost:27017/ecommerce_coupons
+MONGODB_URL=mongodb://localhost:27017/ecommerce
 JWT_SECRET=your-jwt-secret
 ```
 

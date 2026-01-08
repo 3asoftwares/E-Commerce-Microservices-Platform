@@ -88,7 +88,7 @@ yarn test:coverage # Run tests with coverage
 ## Environment Variables
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:4000
+NEXT_PUBLIC_SERVICE_URL=http://localhost:4000
 NEXT_PUBLIC_GRAPHQL_URL=http://localhost:4000/graphql
 ```
 
