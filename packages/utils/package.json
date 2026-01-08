@@ -71,7 +71,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@3asoftwares/types": "^1.0.0"
+    "@3asoftwares/types": "^1.0.1"
   },
   "peerDependencies": {
     "express": "^4.18.2",
