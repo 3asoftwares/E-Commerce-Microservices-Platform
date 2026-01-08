@@ -1,3 +1,4 @@
+import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '../../src/test-utils';
 import { ProductCard } from '../../src/components/ProductCard/ProductCard';
@@ -11,13 +12,11 @@ const mockProduct: Product = {
   price: 99.99,
   compareAtPrice: 129.99,
   inventory: 10,
-  images: [
-    { id: '1', url: '/test.jpg', alt: 'Test', isPrimary: true },
-  ],
+  images: [{ id: '1', url: '/test.jpg', alt: 'Test', isPrimary: true, order: 1 }],
   rating: 4.5,
   reviewCount: 100,
   categoryId: 'cat1',
-  category: { id: 'cat1', name: 'Electronics', slug: 'electronics' } as any,
+  category: { id: 'cat1', name: 'Electronics', slug: 'electronics' } as Product['category'],
   sellerId: 'seller1',
   isFeatured: true,
   isActive: true,
@@ -25,6 +24,12 @@ const mockProduct: Product = {
   variants: [],
   createdAt: new Date(),
   updatedAt: new Date(),
+  slug: 'test-product',
+  sku: 'TP-001',
+  sellerName: 'Test Seller',
+  lowStockThreshold: 5,
+  totalSold: 50,
+  status: 'draft',
 };
 
 describe('ProductCard', () => {
@@ -106,6 +111,5 @@ describe('ProductCard', () => {
   it('calls onQuickView when provided', () => {
     const onQuickView = vi.fn();
     render(<ProductCard product={mockProduct} onQuickView={onQuickView} />);
-    
   });
 });

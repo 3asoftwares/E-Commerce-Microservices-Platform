@@ -49,7 +49,7 @@ describe('Admin Header Component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (useUIStore as jest.Mock).mockReturnValue({
+    (useUIStore as any).mockReturnValue({
       theme: 'light',
       toggleTheme: mockToggleTheme,
       language: 'en',
@@ -129,7 +129,7 @@ describe('Admin Header Component', () => {
   });
 
   it('should render with dark theme', () => {
-    (useUIStore as jest.Mock).mockReturnValue({
+    (useUIStore as any).mockReturnValue({
       theme: 'dark',
       toggleTheme: mockToggleTheme,
       language: 'en',

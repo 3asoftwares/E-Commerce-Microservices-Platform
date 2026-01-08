@@ -29,7 +29,7 @@ describe('Admin Sidebar Component', () => {
     jest.clearAllMocks();
     mockWindowInnerWidth(1024);
     document.body.style.overflow = '';
-    (useUIStore as jest.Mock).mockReturnValue({
+    (useUIStore as any).mockReturnValue({
       sidebarOpen: true,
       toggleSidebar: mockToggleSidebar,
     });
@@ -102,7 +102,7 @@ describe('Admin Sidebar Component', () => {
     });
 
     it('should have correct classes when sidebar is closed', () => {
-      (useUIStore as jest.Mock).mockReturnValue({
+      (useUIStore as any).mockReturnValue({
         sidebarOpen: false,
         toggleSidebar: mockToggleSidebar,
       });
@@ -128,7 +128,7 @@ describe('Admin Sidebar Component', () => {
     });
 
     it('should hide overlay when sidebar is closed', () => {
-      (useUIStore as jest.Mock).mockReturnValue({
+      (useUIStore as any).mockReturnValue({
         sidebarOpen: false,
         toggleSidebar: mockToggleSidebar,
       });
@@ -163,7 +163,7 @@ describe('Admin Sidebar Component', () => {
     });
 
     it('should show collapsed sidebar when closed on desktop', () => {
-      (useUIStore as jest.Mock).mockReturnValue({
+      (useUIStore as any).mockReturnValue({
         sidebarOpen: false,
         toggleSidebar: mockToggleSidebar,
       });

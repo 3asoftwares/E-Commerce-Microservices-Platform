@@ -15,7 +15,7 @@ describe('ProtectedRoute Component', () => {
   const LoginPage = () => <div data-testid="login-page">Login Page</div>;
 
   const renderWithRouter = (isAuthenticated: boolean) => {
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       isAuthenticated,
     });
 
@@ -56,7 +56,7 @@ describe('ProtectedRoute Component', () => {
 
   it('should navigate with replace prop to prevent back navigation', () => {
     // When isAuthenticated is false, Navigate component should have replace prop
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       isAuthenticated: false,
     });
 
@@ -87,7 +87,7 @@ describe('ProtectedRoute Component', () => {
     expect(screen.getByTestId('protected-content')).toBeInTheDocument();
 
     // Update mock to not authenticated
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       isAuthenticated: false,
     });
 
@@ -112,7 +112,7 @@ describe('ProtectedRoute Component', () => {
   });
 
   it('should render nested components when authenticated', () => {
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       isAuthenticated: true,
     });
 

@@ -24,7 +24,7 @@ import { useSellerAuthStore } from '../../src/store/authStore';
 describe('Seller Header Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       user: mockUser,
       clearAuth: mockClearAuth,
     });
@@ -55,7 +55,7 @@ describe('Seller Header Component', () => {
   });
 
   it('should not display user name when not logged in', () => {
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       user: null,
       clearAuth: mockClearAuth,
     });

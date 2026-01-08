@@ -34,7 +34,7 @@ describe('Sidebar Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockWindowInnerWidth(1024); // Desktop by default
-    (useSellerAuthStore as jest.Mock).mockReturnValue({
+    (useSellerAuthStore as any).mockReturnValue({
       user: mockUser,
       clearAuth: mockClearAuth,
     });
