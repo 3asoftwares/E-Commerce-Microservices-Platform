@@ -105,7 +105,6 @@ function App() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {isAuthenticated && (
         <Header
-          logoUrl="https://res.cloudinary.com/dpdfyou3r/image/upload/v1767265363/logo/3A_gczh29.png"
           appName="Seller Portal"
           onLogout={() => clearAuth()}
           user={user ? { name: user.name } : undefined}

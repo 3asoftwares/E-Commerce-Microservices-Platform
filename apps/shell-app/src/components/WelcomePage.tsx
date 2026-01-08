@@ -37,7 +37,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               Your Complete E-Commerce Platform Solution
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              A modern, scalable, and feature-rich e-commerce platform built with cutting-edge
+              A modern, scalable, and feature-rich 3asoftwares platform built with cutting-edge
               technologies to help businesses grow and succeed in the digital marketplace.
             </p>
           </div>
@@ -67,7 +67,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Admin Portal</h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Comprehensive dashboard to manage your entire e-commerce platform with powerful
+              Comprehensive dashboard to manage your entire 3asoftwares platform with powerful
               analytics and reporting tools.
             </p>
             <ul className="space-y-2 text-gray-600 dark:text-gray-400 mb-6">
@@ -171,7 +171,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
         <div className="flex flex-col items-center max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 rounded-2xl shadow-2xl p-12 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-blue-100 mb-8">
-            Sign up today and experience the power of our e-commerce platform
+            Sign up today and experience the power of our 3asoftwares platform
           </p>
           <div className="flex flex-wrap gap-4 justify-center w-[300px]">
             <Button

@@ -11,10 +11,19 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: {
     default: '3A Softwares - Your One-Stop E-Commerce Destination',
-    template: '%s | 3A Softwares'
+    template: '%s | 3A Softwares',
   },
-  description: 'Shop quality products at competitive prices. Browse electronics, clothing, home goods, and more with fast shipping and easy returns.',
-  keywords: ['e-commerce', 'online shopping', 'products', 'deals', 'electronics', 'fashion', 'home goods'],
+  description:
+    'Shop quality products at competitive prices. Browse electronics, clothing, home goods, and more with fast shipping and easy returns.',
+  keywords: [
+    '3asoftwares',
+    'online shopping',
+    'products',
+    'deals',
+    'electronics',
+    'fashion',
+    'home goods',
+  ],
   authors: [{ name: '3A Softwares Team' }],
   creator: '3A Softwares',
   publisher: '3A Softwares',

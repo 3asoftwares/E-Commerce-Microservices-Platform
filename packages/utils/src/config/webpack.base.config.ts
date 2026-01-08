@@ -68,7 +68,7 @@ export function createBaseWebpackConfig(options: WebpackBaseOptions): WebpackCon
               },
             },
           ],
-          exclude: /node_modules\/(?!@e-commerce)/,
+          exclude: /node_modules\/(?!@3asoftwares)/,
         },
         {
           test: /\.css$/,

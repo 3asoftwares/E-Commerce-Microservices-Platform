@@ -32,7 +32,7 @@ describe('WelcomePage Component', () => {
 
   it('should display platform description', () => {
     render(<WelcomePage onSignupClick={mockOnSignupClick} />);
-    expect(screen.getByText(/complete e-commerce platform solution/i)).toBeInTheDocument();
+    expect(screen.getByText(/complete 3asoftwares platform solution/i)).toBeInTheDocument();
   });
 
   it('should render Get Started button', () => {

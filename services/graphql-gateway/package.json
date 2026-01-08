@@ -1,5 +1,5 @@
 {
-  "name": "@e-commerce/graphql-gateway",
+  "name": "@3asoftwares/graphql-gateway",
   "license": "ISC",
   "version": "1.0.0",
   "description": "GraphQL Gateway aggregating all backend services",

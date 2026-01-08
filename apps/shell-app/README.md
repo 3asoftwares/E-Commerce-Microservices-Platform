@@ -2,7 +2,7 @@
 
 ## Overview
 
-Central launcher and dashboard for navigating to all other applications - serves as the main entry point and authentication gateway for the e-commerce platform.
+Central launcher and dashboard for navigating to all other applications - serves as the main entry point and authentication gateway for the 3asoftwares platform.
 
 ## Tech Stack
 

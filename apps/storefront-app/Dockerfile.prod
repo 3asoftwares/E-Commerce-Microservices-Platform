@@ -37,7 +37,7 @@ RUN yarn workspace @3asoftwares/utils build || true
 RUN yarn workspace @3asoftwares/types build || true
 
 # Build Next.js app
-RUN yarn workspace @e-commerce/storefront-app build
+RUN yarn workspace @3asoftwares/storefront-app build
 
 # ===== Stage 3: Runner =====
 FROM node:20-alpine AS runner

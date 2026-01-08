@@ -2,7 +2,7 @@
 
 ## 🚀 Project Overview
 
-A comprehensive, enterprise-grade e-commerce platform built with modern microservices architecture, featuring multiple frontend applications and backend services. The platform supports three user roles: **Customers**, **Sellers**, and **Administrators**.
+A comprehensive, enterprise-grade 3asoftwares platform built with modern microservices architecture, featuring multiple frontend applications and backend services. The platform supports three user roles: **Customers**, **Sellers**, and **Administrators**.
 
 **Key Highlights:**
 
@@ -51,7 +51,7 @@ A comprehensive, enterprise-grade e-commerce platform built with modern microser
 ## 📦 Monorepo Structure
 
 ```
-e-commerce/
+3asoftwares/
 ├── apps/                          # Frontend Applications
 │   ├── shell-app/                 # Main launcher & auth gateway
 │   ├── admin-app/                 # Admin dashboard
@@ -199,7 +199,7 @@ e-commerce/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd e-commerce
+cd 3asoftwares
 
 # Install dependencies
 yarn install
@@ -297,10 +297,10 @@ yarn test:coverage:backend
 **Copy this prompt when starting a new conversation with an AI assistant:**
 
 ```
-I'm working on a comprehensive e-commerce platform. Here's the context:
+I'm working on a comprehensive 3asoftwares platform. Here's the context:
 
 ## Project Overview
-- Enterprise-grade e-commerce platform with microservices architecture
+- Enterprise-grade 3asoftwares platform with microservices architecture
 - Yarn workspaces monorepo structure
 - Three user roles: Customer, Seller, Admin
 - 4 frontend apps + 6 backend services + 3 shared packages

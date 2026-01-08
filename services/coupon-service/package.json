@@ -1,5 +1,5 @@
 {
-  "name": "@e-commerce/coupon-service",
+  "name": "@3asoftwares/coupon-service",
   "license": "ISC",
   "version": "1.0.0",
   "description": "Coupon service with CRUD operations",

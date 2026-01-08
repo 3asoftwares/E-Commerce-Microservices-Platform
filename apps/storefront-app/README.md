@@ -2,7 +2,7 @@
 
 ## Overview
 
-Customer-facing e-commerce storefront with product browsing, cart management, and checkout functionality - the main shopping experience for end users.
+Customer-facing 3asoftwares storefront with product browsing, cart management, and checkout functionality - the main shopping experience for end users.
 
 ## Tech Stack
 

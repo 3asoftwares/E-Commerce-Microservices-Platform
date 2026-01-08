@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd ../.. && yarn workspace @3asoftwares/types build && yarn workspace @3asoftwares/utils build && yarn workspace @3asoftwares/ui-library build && yarn workspace @e-commerce/storefront-app build",
+  "buildCommand": "cd ../.. && yarn workspace @3asoftwares/types build && yarn workspace @3asoftwares/utils build && yarn workspace @3asoftwares/ui-library build && yarn workspace @3asoftwares/storefront-app build",
   "outputDirectory": ".next",
   "installCommand": "cd ../.. && yarn install --production=false",
   "framework": "nextjs",

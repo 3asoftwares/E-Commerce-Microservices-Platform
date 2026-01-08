@@ -5,7 +5,7 @@ import { Header } from '../../src/components/Header/Header';
 describe('Header', () => {
   it('renders logo and title', () => {
     render(<Header />);
-    expect(screen.getByAltText('3A Softwares')).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: '3A Softwares' })).toBeInTheDocument();
     expect(screen.getByText('3A Softwares')).toBeInTheDocument();
   });
 

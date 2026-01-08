@@ -2,7 +2,7 @@
 
 ## Overview
 
-Shared TypeScript type definitions used across all frontend and backend applications in the e-commerce platform.
+Shared TypeScript type definitions used across all frontend and backend applications in the 3asoftwares platform.
 
 ## Tech Stack
 

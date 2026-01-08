@@ -33,7 +33,7 @@ export default function AboutPage() {
             <p className="text-lg leading-relaxed">
               Founded in 2020, 3A Softwares started with a simple mission: to make online shopping
               accessible, enjoyable, and trustworthy for everyone. What began as a small startup has
-              grown into a thriving e-commerce platform serving thousands of satisfied customers
+              grown into a thriving 3asoftwares platform serving thousands of satisfied customers
               worldwide.
             </p>
             <p className="text-lg leading-relaxed">

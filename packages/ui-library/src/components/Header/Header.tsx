@@ -30,7 +30,7 @@ export const Header = ({
   onLogout,
   onCreateAccount,
   extraContent,
-  logoUrl,
+  logoUrl = 'https://res.cloudinary.com/dpdfyou3r/image/upload/v1767265363/logo/3A_gczh29.png',
   appName = '3A Softwares',
   theme = 'light',
   onToggleTheme,

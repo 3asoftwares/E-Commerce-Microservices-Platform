@@ -13,7 +13,6 @@ export const Header: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-40 shadow bg-white dark:bg-gray-900">
       <UIHeader
-        logoUrl=""
         appName="Seller Portal"
         user={user ? { name: user.name } : undefined}
         onLogout={handleLogout}

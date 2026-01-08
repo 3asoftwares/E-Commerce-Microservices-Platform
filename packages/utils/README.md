@@ -2,7 +2,7 @@
 
 ## Overview
 
-Shared utility functions and helpers used across all frontend and backend applications in the e-commerce platform.
+Shared utility functions and helpers used across all frontend and backend applications in the 3asoftwares platform.
 
 ## Tech Stack
 

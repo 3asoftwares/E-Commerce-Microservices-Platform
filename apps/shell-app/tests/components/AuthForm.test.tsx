@@ -148,7 +148,7 @@ describe('AuthForm Component', () => {
       fireEvent.click(submitButton);
 
       await waitFor(() => {
-        expect(mockForgotPassword).toHaveBeenCalledWith('test@example.com');
+        expect(mockForgotPassword).toHaveBeenCalledWith('test@example.com', 'seller');
       });
     });
 
