@@ -32,6 +32,5 @@ module.exports = {
   verbose: true,
   moduleNameMapper: {
     '^@3asoftwares/utils/server$': '<rootDir>/tests/__mocks__/utils.ts',
-    '^@3asoftwares/types$': '<rootDir>/../../packages/types/src/index.ts',
   },
 };

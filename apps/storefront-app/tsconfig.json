@@ -15,11 +15,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@3asoftwares/ui-library": ["../../packages/ui-library/src"],
-      "@3asoftwares/ui-library/*": ["../../packages/ui-library/src/*"],
-      "@3asoftwares/types": ["../../packages/types/src"],
-      "@3asoftwares/types/*": ["../../packages/types/src/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [

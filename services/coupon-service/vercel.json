@@ -1,8 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "installCommand": "cd ../.. && yarn install",
-  "buildCommand": "cd ../.. && yarn workspace @3asoftwares/types build && yarn workspace @3asoftwares/utils build",
   "builds": [
     {
       "src": "api/index.ts",

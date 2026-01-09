@@ -19,14 +19,6 @@ module.exports = {
   ...baseConfig,
   resolve: {
     ...baseConfig.resolve,
-    alias: {
-      '@3asoftwares/ui-library': path.resolve(
-        __dirname,
-        '../../packages/ui-library/dist/ui-library.es.js'
-      ),
-      '@3asoftwares/utils': path.resolve(__dirname, '../../packages/utils/dist/client.mjs'),
-      '@3asoftwares/types': path.resolve(__dirname, '../../packages/types/dist'),
-    },
     fallback: {
       crypto: false,
       url: false,

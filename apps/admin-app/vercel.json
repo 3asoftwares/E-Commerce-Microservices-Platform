@@ -1,7 +1,6 @@
 {
-  "buildCommand": "cd ../.. && yarn workspace @3asoftwares/types build && yarn workspace @3asoftwares/utils build && yarn workspace @3asoftwares/ui-library build && yarn workspace @3asoftwares/admin-app build",
+  "buildCommand": "yarn build",
   "outputDirectory": "dist",
-  "installCommand": "cd ../.. && yarn install --production=false",
   "framework": "vite",
   "devCommand": "yarn dev",
   "regions": ["iad1"],

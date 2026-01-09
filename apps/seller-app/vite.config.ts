@@ -48,11 +48,4 @@ export default defineConfig({
   css: {
     postcss: path.resolve(__dirname, 'postcss.config.js'),
   },
-  resolve: {
-    alias: {
-      '@3asoftwares/ui-library': path.resolve(__dirname, '../../packages/ui-library/src'),
-      '@3asoftwares/types': path.resolve(__dirname, '../../packages/types/src'),
-      '@3asoftwares/utils': path.resolve(__dirname, '../../packages/utils/src'),
-    },
-  },
 });

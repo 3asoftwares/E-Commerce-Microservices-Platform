@@ -11,8 +11,8 @@
     "test": "echo \"No tests yet\""
   },
   "dependencies": {
-    "@3asoftwares/types": "*",
-    "@3asoftwares/utils": "*",
+    "@3asoftwares/types": "^1.0.1",
+    "@3asoftwares/utils": "^1.0.3",
     "@apollo/server": "^4.10.0",
     "@as-integrations/next": "^3.0.0",
     "graphql": "^16.8.1",

@@ -40,9 +40,6 @@ export function createBrowserVitestConfig(rootDir: string, options?: {
     resolve: {
       alias: {
         '@': path.resolve(rootDir, './src'),
-        '@3asoftwares/ui-library': path.resolve(rootDir, '../../packages/ui-library/src'),
-        '@3asoftwares/utils': path.resolve(rootDir, '../../packages/utils/src'),
-        '@3asoftwares/types': path.resolve(rootDir, '../../packages/types/src'),
       },
     },
   });

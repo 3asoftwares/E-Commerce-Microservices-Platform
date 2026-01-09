@@ -8,13 +8,6 @@ export function createBaseViteConfig(rootDir: string): UserConfig {
     css: {
       postcss: path.resolve(rootDir, 'postcss.config.js'),
     },
-    resolve: {
-      alias: {
-        '@3asoftwares/ui-library': path.resolve(rootDir, '../../packages/ui-library/src'),
-        '@3asoftwares/types': path.resolve(rootDir, '../../packages/types/src'),
-        '@3asoftwares/utils': path.resolve(rootDir, '../../packages/utils/src'),
-      },
-    },
   });
 }
 

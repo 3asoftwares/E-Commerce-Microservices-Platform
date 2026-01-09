@@ -23,14 +23,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "types": ["vite/client"],
-    "paths": {
-      "@3asoftwares/types": ["../../packages/types/src"],
-      "@3asoftwares/types/*": ["../../packages/types/src/*"],
-      "@3asoftwares/ui-library": ["../../packages/ui-library/src"],
-      "@3asoftwares/ui-library/*": ["../../packages/ui-library/src/*"],
-      "@3asoftwares/utils": ["../../packages/utils/src"],
-      "@3asoftwares/utils/*": ["../../packages/utils/src/*"]
-    }
+    "types": ["vite/client"]
   }
 }
