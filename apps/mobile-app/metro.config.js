@@ -2,24 +2,27 @@ const { getDefaultConfig } = require('expo/metro-config');
 const path = require('path');
 
 const projectRoot = __dirname;
-const workspaceRoot = path.resolve(projectRoot, '../..');
-
 const config = getDefaultConfig(projectRoot);
 
-// Don't watch workspace root - only watch projectRoot (automatic)
-// This prevents file watcher timeout on Windows
+// Force Metro to only use mobile-app's node_modules
+// This prevents conflicts with workspace root packages
+config.resolver.nodeModulesPaths = [path.resolve(projectRoot, 'node_modules')];
+
+// Disable watching other folders to improve performance on Windows
 config.watchFolders = [];
 
-// Let Metro know where to resolve packages
-config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules'),
-];
+// Enable web support and mjs files
+config.resolver.sourceExts = [...config.resolver.sourceExts, 'mjs'];
 
-// Force resolving react & react-native from mobile-app's node_modules
+// Force specific packages to resolve from local node_modules only
+const localNodeModules = path.resolve(projectRoot, 'node_modules');
 config.resolver.extraNodeModules = {
-  react: path.resolve(projectRoot, 'node_modules/react'),
-  'react-native': path.resolve(projectRoot, 'node_modules/react-native'),
+  react: path.resolve(localNodeModules, 'react'),
+  'react-dom': path.resolve(localNodeModules, 'react-dom'),
+  'react-native': path.resolve(localNodeModules, 'react-native'),
+  'react-native-web': path.resolve(localNodeModules, 'react-native-web'),
+  expo: path.resolve(localNodeModules, 'expo'),
+  'expo-router': path.resolve(localNodeModules, 'expo-router'),
 };
 
 module.exports = config;
