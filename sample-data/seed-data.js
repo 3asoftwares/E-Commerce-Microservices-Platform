@@ -27,7 +27,7 @@ const COLLECTIONS = {
 };
 
 // MongoDB Atlas Connection String
-const MONGODB_URI =
+const MONGODB_URL =
   'mongodb+srv://admin:admin@cluster0.wei5wdz.mongodb.net/ecommerce?appName=Cluster0';
 
 // Read JSON file and parse MongoDB extended JSON format
@@ -94,7 +94,7 @@ async function seedDatabase() {
 
   try {
     console.log('Connecting to MongoDB Atlas...');
-    client = new MongoClient(MONGODB_URI);
+    client = new MongoClient(MONGODB_URL);
     await client.connect();
     console.log('Connected to MongoDB Atlas\n');
 

@@ -68,7 +68,7 @@ services:
       COUPON_PORT: 3014
       GATEWAY_PORT: 4000
       # MongoDB
-      MONGODB_URI: mongodb://admin:password@mongodb:27017/ecommerce?authSource=admin
+      MONGODB_URL: mongodb://admin:password@mongodb:27017/ecommerce?authSource=admin
       # Redis
       REDIS_URL: redis://redis:6379
       # CORS

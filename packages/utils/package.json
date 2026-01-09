@@ -17,9 +17,9 @@
       "require": "./dist/client.js"
     },
     "./server": {
-      "types": "./dist/validation/server.d.ts",
-      "import": "./dist/validation/server.mjs",
-      "require": "./dist/validation/server.js"
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.mjs",
+      "require": "./dist/server.js"
     },
     "./config/jest.backend": "./src/config/jest.backend.config.js",
     "./config/jest.frontend": "./src/config/jest.frontend.config.js",

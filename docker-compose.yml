@@ -67,7 +67,7 @@ services:
     environment:
       NODE_ENV: development
       # MongoDB
-      MONGODB_URI: mongodb://admin:password@mongodb:27017/ecommerce?authSource=admin
+      MONGODB_URL: mongodb://admin:password@mongodb:27017/ecommerce?authSource=admin
       # Redis
       REDIS_URL: redis://redis:6379
       # CORS
