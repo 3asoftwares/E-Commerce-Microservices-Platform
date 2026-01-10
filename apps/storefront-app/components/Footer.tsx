@@ -11,9 +11,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
                 <img
-                  src={
-                    'https://res.cloudinary.com/dpdfyou3r/image/upload/v1767265363/logo/3A_gczh29.png'
-                  }
+                  src={process.env.NEXT_PUBLIC_LOGO_URL}
                   alt={'3A Softwares'}
                   className="object-contain w-16"
                 />

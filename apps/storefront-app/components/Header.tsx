@@ -65,9 +65,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-14 sm:h-16">
           <Link href="/" className="flex items-center gap-1 sm:gap-2 group flex-shrink-0">
             <img
-              src={
-                'https://res.cloudinary.com/dpdfyou3r/image/upload/v1767265363/logo/3A_gczh29.png'
-              }
+              src={process.env.NEXT_PUBLIC_LOGO_URL}
               alt={'3A Softwares'}
               className="object-contain w-16"
             />

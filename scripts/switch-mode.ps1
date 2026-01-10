@@ -51,25 +51,34 @@ function Switch-ToLocal {
     if (Test-Path ".env.local") {
         Write-Info -text "Copying root .env.local to .env"
         Copy-Item ".env.local" ".env" -Force
+        Write-Success -text "Created root .env from .env.local"
+    } else {
+        Write-Warn -text "Missing root .env.local"
     }
     
-    # Check .env.local for each app
+    # Copy .env.local to .env for each app
     $apps = @("admin-app", "seller-app", "shell-app", "storefront-app")
     foreach ($app in $apps) {
         $envLocal = "apps/$app/.env.local"
+        $envTarget = "apps/$app/.env"
         if (Test-Path $envLocal) {
-            Write-Success -text "Found $envLocal"
+            Write-Info -text "Copying $envLocal to $envTarget"
+            Copy-Item $envLocal $envTarget -Force
+            Write-Success -text "Created $envTarget"
         } else {
             Write-Warn -text "Missing $envLocal"
         }
     }
     
-    # Check .env.local for each service
+    # Copy .env.local to .env for each service
     $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "graphql-gateway")
     foreach ($service in $services) {
         $envLocal = "services/$service/.env.local"
+        $envTarget = "services/$service/.env"
         if (Test-Path $envLocal) {
-            Write-Success -text "Found $envLocal"
+            Write-Info -text "Copying $envLocal to $envTarget"
+            Copy-Item $envLocal $envTarget -Force
+            Write-Success -text "Created $envTarget"
         } else {
             Write-Warn -text "Missing $envLocal"
         }
@@ -98,31 +107,34 @@ function Switch-ToProduction {
     if (Test-Path ".env.production") {
         Write-Info -text "Copying root .env.production to .env"
         Copy-Item ".env.production" ".env" -Force
+        Write-Success -text "Created root .env from .env.production"
+    } else {
+        Write-Warn -text "Missing root .env.production"
     }
     
-    # Copy .env.production for each app
+    # Copy .env.production to .env for each app
     $apps = @("admin-app", "seller-app", "shell-app", "storefront-app")
     foreach ($app in $apps) {
         $envProd = "apps/$app/.env.production"
-        $envLocal = "apps/$app/.env.local"
+        $envTarget = "apps/$app/.env"
         if (Test-Path $envProd) {
-            Write-Info -text "Copying $envProd to $envLocal"
-            Copy-Item $envProd $envLocal -Force
-            Write-Success -text "Copied $envProd"
+            Write-Info -text "Copying $envProd to $envTarget"
+            Copy-Item $envProd $envTarget -Force
+            Write-Success -text "Created $envTarget"
         } else {
             Write-Warn -text "Missing $envProd"
         }
     }
     
-    # Copy .env.production for each service
+    # Copy .env.production to .env for each service
     $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "graphql-gateway")
     foreach ($service in $services) {
         $envProd = "services/$service/.env.production"
-        $envLocal = "services/$service/.env.local"
+        $envTarget = "services/$service/.env"
         if (Test-Path $envProd) {
-            Write-Info -text "Copying $envProd to $envLocal"
-            Copy-Item $envProd $envLocal -Force
-            Write-Success -text "Copied $envProd"
+            Write-Info -text "Copying $envProd to $envTarget"
+            Copy-Item $envProd $envTarget -Force
+            Write-Success -text "Created $envTarget"
         } else {
             Write-Warn -text "Missing $envProd"
         }

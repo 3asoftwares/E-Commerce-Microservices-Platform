@@ -1,10 +1,9 @@
 
 
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import { Logger } from '@3asoftwares/utils/server';
 
-dotenv.config();
+// Don't call dotenv.config() here - it's already loaded in index.ts
 
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/ecommerce';
 

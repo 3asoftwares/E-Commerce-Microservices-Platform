@@ -1,14 +1,11 @@
 
 
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import { Logger } from '@3asoftwares/utils/server';
 import { DATABASE_CONFIG } from '@3asoftwares/utils';
 
-dotenv.config();
-
 const MONGODB_URL = process.env.MONGODB_URL || DATABASE_CONFIG.MONGODB_URL;
-
+console.log('Using MongoDB URL:', MONGODB_URL);
 export const connectDatabase = async (): Promise<void> => {
   try {
     const options = {

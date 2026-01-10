@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import fs from 'fs';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -12,14 +11,9 @@ import reviewRoutes from './routes/reviewRoutes';
 import { PORT_CONFIG, DEFAULT_CORS_ORIGINS } from '@3asoftwares/utils';
 import { Logger } from '@3asoftwares/utils/server';
 
-// Load .env.local first, then .env as fallback
-const envLocalPath = path.resolve(__dirname, '../.env.local');
+// Load environment variables from .env file
 const envPath = path.resolve(__dirname, '../.env');
-if (fs.existsSync(envLocalPath)) {
-  dotenv.config({ path: envLocalPath });
-} else {
-  dotenv.config({ path: envPath });
-}
+dotenv.config({ path: envPath });
 
 // Configure logger for Product service
 Logger.configure({

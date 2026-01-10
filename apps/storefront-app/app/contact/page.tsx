@@ -37,9 +37,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col items-center w-full">
             <img
-              src={
-                'https://res.cloudinary.com/dpdfyou3r/image/upload/v1767265363/logo/3A_gczh29.png'
-              }
+              src={process.env.NEXT_PUBLIC_LOGO_URL}
               alt={'3A Softwares'}
               className="object-contain w-28"
             />
