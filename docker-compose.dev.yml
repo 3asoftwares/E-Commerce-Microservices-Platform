@@ -72,7 +72,7 @@ services:
       # Redis
       REDIS_URL: redis://redis:6379
       # CORS
-      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:8081,http://localhost:8082
       # Service URLs (internal Docker network)
       AUTH_SERVICE_URL: http://backend:3011
       PRODUCT_SERVICE_URL: http://backend:3011

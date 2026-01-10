@@ -71,7 +71,7 @@ services:
       NODE_ENV: development
       MONGODB_URL: mongodb://admin:password@mongodb:27017/ecommerce?authSource=admin
       REDIS_URL: redis://redis:6379
-      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:6006
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:8081,http://localhost:8082
       AUTH_SERVICE_URL: http://localhost:3011
       CATEGORY_SERVICE_URL: http://localhost:3012
       COUPON_SERVICE_URL: http://localhost:3013

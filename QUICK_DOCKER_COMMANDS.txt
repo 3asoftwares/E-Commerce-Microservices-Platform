@@ -156,7 +156,7 @@ Databases:   27017 (MongoDB), 6379 (Redis)
 NODE_ENV=development
 MONGODB_URL=mongodb://localhost:27017/ecommerce
 REDIS_URL=redis://localhost:6379
-ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:8081,http://localhost:8082
 ```
 
 ### Critical Production Variables (UPDATE THESE!)

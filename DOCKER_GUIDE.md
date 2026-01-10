@@ -269,7 +269,7 @@ ORDER_SERVICE_URL=http://localhost:3015
 GRAPHQL_GATEWAY_URL=http://localhost:4000
 
 # CORS & API URLs
-ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:6006
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:8081,http://localhost:8082
 VITE_API_URL=http://localhost:4000/graphql
 NEXT_PUBLIC_API_URL=http://localhost:4000/graphql
 

@@ -31,6 +31,8 @@ async function startApolloServer() {
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    introspection: true, // Enable GraphQL introspection
+    includeStacktraceInErrorResponses: process.env.NODE_ENV === 'development', // Better error messages in dev
   });
 
   await server.start();
@@ -49,6 +51,17 @@ async function startApolloServer() {
       },
     })
   );
+
+  // Root path handler
+  app.get('/', (_req, res) => {
+    res.json({
+      success: true,
+      message: 'GraphQL Gateway API',
+      graphqlEndpoint: '/graphql',
+      healthEndpoint: '/health',
+      timestamp: new Date().toISOString(),
+    });
+  });
 
   app.get('/health', (_req, res) => {
     res.json({
