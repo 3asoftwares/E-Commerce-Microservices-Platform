@@ -236,6 +236,7 @@ export const getProfile = async (req: Request, res: Response): Promise<void> => 
           id: user._id,
           email: user.email,
           name: user.name,
+          phone: user.phone,
           role: user.role,
           isActive: user.isActive,
           emailVerified: user.emailVerified,
@@ -257,11 +258,15 @@ export const getProfile = async (req: Request, res: Response): Promise<void> => 
 export const updateProfile = async (req: Request, res: Response): Promise<void> => {
   try {
     const userId = req.user?.userId;
-    const { name } = req.body;
+    const { name, phone } = req.body;
 
-    Logger.info('Updating user profile', { userId, name }, 'Auth');
+    const updateData: { name?: string; phone?: string } = {};
+    if (name) updateData.name = name;
+    if (phone !== undefined) updateData.phone = phone;
 
-    const user = await User.findByIdAndUpdate(userId, { name }, { new: true, runValidators: true });
+    Logger.info('Updating user profile', { userId, name, phone }, 'Auth');
+
+    const user = await User.findByIdAndUpdate(userId, updateData, { new: true, runValidators: true });
 
     if (!user) {
       Logger.warn('Profile update failed - user not found', { userId }, 'Auth');
@@ -282,6 +287,7 @@ export const updateProfile = async (req: Request, res: Response): Promise<void> 
           id: user._id,
           email: user.email,
           name: user.name,
+          phone: user.phone,
           role: user.role,
           isActive: user.isActive,
           emailVerified: user.emailVerified,

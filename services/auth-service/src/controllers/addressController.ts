@@ -38,14 +38,14 @@ export const addAddress = async (req: Request, res: Response): Promise<void> => 
       return;
     }
 
-    const { street, city, state, zip, country, isDefault, label } = req.body;
+    const { name, mobile, email, street, city, state, zip, country, isDefault, label } = req.body;
 
     Logger.debug('Add Address Request Body', req.body, 'Address');
     // Validation
-    if (!street || !city || !state || !zip || !country) {
+    if (!name || !mobile || !street || !city || !state || !zip || !country) {
       res.status(400).json({
         success: false,
-        message: 'All address fields are required',
+        message: 'Name, mobile, and all address fields are required',
       });
       return;
     }
@@ -61,6 +61,9 @@ export const addAddress = async (req: Request, res: Response): Promise<void> => 
 
     const address = new Address({
       userId: new mongoose.Types.ObjectId(userId),
+      name,
+      mobile,
+      email,
       street,
       city,
       state,
@@ -97,7 +100,7 @@ export const updateAddress = async (req: Request, res: Response): Promise<void> 
       return;
     }
 
-    const { street, city, state, zip, country, isDefault, label } = req.body;
+    const { name, mobile, email, street, city, state, zip, country, isDefault, label } = req.body;
 
     // Check if address belongs to user
     const existingAddress = await Address.findOne({ _id: addressId, userId });
@@ -118,6 +121,9 @@ export const updateAddress = async (req: Request, res: Response): Promise<void> 
     const updatedAddress = await Address.findByIdAndUpdate(
       addressId,
       {
+        name: name || existingAddress.name,
+        mobile: mobile || existingAddress.mobile,
+        email: email ?? existingAddress.email,
         street: street || existingAddress.street,
         city: city || existingAddress.city,
         state: state || existingAddress.state,

@@ -31,6 +31,9 @@ export const orderTypeDefs = `#graphql
   }
 
   type Address {
+    name: String
+    mobile: String
+    email: String
     street: String
     city: String
     state: String
@@ -87,6 +90,9 @@ export const orderTypeDefs = `#graphql
   }
 
   input AddressInput {
+    name: String
+    mobile: String
+    email: String
     street: String!
     city: String!
     state: String!

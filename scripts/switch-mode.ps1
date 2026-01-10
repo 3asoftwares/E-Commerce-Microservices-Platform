@@ -1,9 +1,9 @@
-# Package Resolution Mode Switcher (PowerShell Version)
-# Switch between local (source) and production (node_modules) modes
+# Environment Mode Switcher (PowerShell Version)
+# Switch between local and production environment configurations
 
 param(
     [Parameter(Position=0)]
-    [ValidateSet("local", "production", "status", "env", "help")]
+    [ValidateSet("local", "production", "status", "help")]
     [string]$Command = "help"
 )
 
@@ -33,23 +33,17 @@ function Write-Warn {
 # Get current mode
 function Get-CurrentMode {
     if (Test-Path ".env") {
-        $content = Get-Content ".env" -Raw
-        if ($content -match "RESOLVE_FROM_SOURCE=true") {
-            return "local"
-        } else {
-            return "production"
-        }
+        return "configured"
     }
     return "unknown"
 }
 
 # Switch to local development mode
 function Switch-ToLocal {
-    Write-Header -text "Switching to LOCAL mode (source packages)"
+    Write-Header -text "Switching to LOCAL mode"
     
     # Copy root .env.local to .env
     if (Test-Path ".env.local") {
-        Write-Info -text "Copying root .env.local to .env"
         Copy-Item ".env.local" ".env" -Force
         Write-Success -text "Created root .env from .env.local"
     } else {
@@ -62,7 +56,6 @@ function Switch-ToLocal {
         $envLocal = "apps/$app/.env.local"
         $envTarget = "apps/$app/.env"
         if (Test-Path $envLocal) {
-            Write-Info -text "Copying $envLocal to $envTarget"
             Copy-Item $envLocal $envTarget -Force
             Write-Success -text "Created $envTarget"
         } else {
@@ -76,7 +69,6 @@ function Switch-ToLocal {
         $envLocal = "services/$service/.env.local"
         $envTarget = "services/$service/.env"
         if (Test-Path $envLocal) {
-            Write-Info -text "Copying $envLocal to $envTarget"
             Copy-Item $envLocal $envTarget -Force
             Write-Success -text "Created $envTarget"
         } else {
@@ -84,28 +76,15 @@ function Switch-ToLocal {
         }
     }
     
-    Write-Info -text "Setting package resolution to SOURCE"
-    if (Test-Path ".env") {
-        $content = Get-Content ".env" -Raw
-        $content = $content -replace "RESOLVE_FROM_SOURCE=false", "RESOLVE_FROM_SOURCE=true"
-        $content = $content -replace "PACKAGE_MODE=production", "PACKAGE_MODE=local"
-        $content = $content -replace "NODE_ENV=production", "NODE_ENV=development"
-        Set-Content ".env" $content
-    }
-    
     Write-Success -text "Switched to LOCAL mode"
 }
 
 # Switch to production mode
 function Switch-ToProduction {
-    Write-Header -text "Switching to PRODUCTION mode (pre-built packages)"
-    
-    Write-Info -text "Building packages first"
-    yarn build:package
+    Write-Header -text "Switching to PRODUCTION mode"
     
     # Copy root .env.production to .env
     if (Test-Path ".env.production") {
-        Write-Info -text "Copying root .env.production to .env"
         Copy-Item ".env.production" ".env" -Force
         Write-Success -text "Created root .env from .env.production"
     } else {
@@ -118,7 +97,6 @@ function Switch-ToProduction {
         $envProd = "apps/$app/.env.production"
         $envTarget = "apps/$app/.env"
         if (Test-Path $envProd) {
-            Write-Info -text "Copying $envProd to $envTarget"
             Copy-Item $envProd $envTarget -Force
             Write-Success -text "Created $envTarget"
         } else {
@@ -132,7 +110,6 @@ function Switch-ToProduction {
         $envProd = "services/$service/.env.production"
         $envTarget = "services/$service/.env"
         if (Test-Path $envProd) {
-            Write-Info -text "Copying $envProd to $envTarget"
             Copy-Item $envProd $envTarget -Force
             Write-Success -text "Created $envTarget"
         } else {
@@ -140,45 +117,51 @@ function Switch-ToProduction {
         }
     }
     
-    Write-Info -text "Setting package resolution to NODE_MODULES"
-    if (Test-Path ".env") {
-        $content = Get-Content ".env" -Raw
-        $content = $content -replace "RESOLVE_FROM_SOURCE=true", "RESOLVE_FROM_SOURCE=false"
-        $content = $content -replace "PACKAGE_MODE=local", "PACKAGE_MODE=production"
-        Set-Content ".env" $content
-    }
-    
     Write-Success -text "Switched to PRODUCTION mode"
 }
 
 # Show current mode
 function Show-Status {
-    Write-Header -text "Package Resolution Status"
+    Write-Header -text "Environment Status"
     
-    $mode = Get-CurrentMode
-    
-    if ($mode -eq "local") {
-        Write-Host "Current Mode: LOCAL DEVELOPMENT" -ForegroundColor Green
-    } elseif ($mode -eq "production") {
-        Write-Host "Current Mode: PRODUCTION" -ForegroundColor Yellow
+    if (Test-Path ".env") {
+        Write-Host "Root .env: EXISTS" -ForegroundColor Green
     } else {
-        Write-Host "Unknown Mode" -ForegroundColor Red
-        Write-Host "No valid environment file found"
+        Write-Host "Root .env: MISSING" -ForegroundColor Red
+    }
+    
+    $apps = @("admin-app", "seller-app", "shell-app", "storefront-app")
+    foreach ($app in $apps) {
+        if (Test-Path "apps/$app/.env") {
+            Write-Host "apps/$app/.env: EXISTS" -ForegroundColor Green
+        } else {
+            Write-Host "apps/$app/.env: MISSING" -ForegroundColor Yellow
+        }
+    }
+    
+    $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "graphql-gateway")
+    foreach ($service in $services) {
+        if (Test-Path "services/$service/.env") {
+            Write-Host "services/$service/.env: EXISTS" -ForegroundColor Green
+        } else {
+            Write-Host "services/$service/.env: MISSING" -ForegroundColor Yellow
+        }
     }
 }
 
 # Show help
 function Show-Help {
-    Write-Host "Package Resolution Mode Switcher"
+    Write-Host "Environment Mode Switcher"
     Write-Host ""
     Write-Host "Commands:"
     Write-Host "  help               Show this help message"
-    Write-Host "  status             Show current mode status"
-    Write-Host "  local              Switch to LOCAL mode (source packages)"
-    Write-Host "  production         Switch to PRODUCTION mode (pre-built packages)"
+    Write-Host "  status             Show .env file status"
+    Write-Host "  local              Copy .env.local files to .env"
+    Write-Host "  production         Copy .env.production files to .env"
     Write-Host ""
     Write-Host "Examples:"
     Write-Host "  .\switch-mode.ps1 local"
+    Write-Host "  .\switch-mode.ps1 status"
 }
 
 # Main switch

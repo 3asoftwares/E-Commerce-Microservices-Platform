@@ -223,15 +223,19 @@ export const userResolvers = {
       return true;
     },
 
-    updateProfile: async (_: any, { input }: { input: { name: string } }, context: any) => {
+    updateProfile: async (_: any, { input }: { input: { name?: string; phone?: string } }, context: any) => {
       if (!context.token) {
         throw new Error('Not authenticated');
       }
       try {
         const authHeader = addAuthHeader(context.token);
+        const updateData: { name?: string; phone?: string } = {};
+        if (input.name) updateData.name = input.name;
+        if (input.phone !== undefined) updateData.phone = input.phone;
+        
         const response = await authClient.put(
           '/api/auth/me',
-          { name: input.name },
+          updateData,
           { headers: authHeader.headers }
         );
         const user = response.data.data?.user;
@@ -243,6 +247,7 @@ export const userResolvers = {
                 id: user.id || user._id,
                 email: user.email,
                 name: user.name,
+                phone: user.phone,
                 role: user.role,
                 isActive: user.isActive,
                 emailVerified: user.emailVerified,

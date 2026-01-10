@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import App from './App';
+import '@3asoftwares/ui/styles.css';
 import './index.css';
 
 const queryClient = new QueryClient({

@@ -6,6 +6,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   name: string;
+  phone?: string;
   role: UserRole;
   isActive: boolean;
   emailVerified: boolean;
@@ -44,6 +45,10 @@ const userSchema = new Schema<IUser>(
       trim: true,
       minlength: [2, 'Name must be at least 2 characters'],
       maxlength: [100, 'Name cannot exceed 100 characters'],
+    },
+    phone: {
+      type: String,
+      trim: true,
     },
     role: {
       type: String,

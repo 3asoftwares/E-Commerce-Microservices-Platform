@@ -3,6 +3,7 @@ export const userTypeDefs = `#graphql
     id: ID!
     email: String!
     name: String!
+    phone: String
     role: String!
     isActive: Boolean!
     emailVerified: Boolean!
@@ -93,7 +94,8 @@ export const userTypeDefs = `#graphql
   }
 
   input UpdateProfileInput {
-    name: String!
+    name: String
+    phone: String
   }
 
   input ChangePasswordInput {

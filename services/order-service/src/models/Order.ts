@@ -28,6 +28,9 @@ export interface IOrder extends Document {
   paymentStatus: PaymentStatus;
   paymentMethod: string;
   shippingAddress: {
+    name?: string;
+    mobile?: string;
+    email?: string;
     street: string;
     city: string;
     state: string;
@@ -111,6 +114,9 @@ const orderSchema = new Schema<IOrder>(
       required: true,
     },
     shippingAddress: {
+      name: { type: String },
+      mobile: { type: String },
+      email: { type: String },
       street: { type: String, required: true },
       city: { type: String, required: true },
       state: { type: String, required: true },

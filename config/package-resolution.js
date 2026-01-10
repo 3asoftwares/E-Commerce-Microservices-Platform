@@ -18,9 +18,8 @@ const typesLocation = resolveFromSource
   ? './packages/types/src/index.ts'
   : '@3asoftwares/types';
 
-const uiLibraryLocation = resolveFromSource
-  ? './packages/ui-library/src/index.ts'
-  : '@3asoftwares/ui';
+// UI Library always loads from npm package (never local)
+const uiLibraryLocation = '@3asoftwares/ui';
 
 // Server-side utils location
 const serverUtilsLocation = resolveFromSource
@@ -46,8 +45,8 @@ const tsconfigPaths = {
   '@3asoftwares/utils/*': [resolveFromSource ? 'packages/utils/src/*' : 'node_modules/@3asoftwares/utils/*'],
   '@3asoftwares/types': [resolveFromSource ? 'packages/types/src' : 'node_modules/@3asoftwares/types'],
   '@3asoftwares/types/*': [resolveFromSource ? 'packages/types/src/*' : 'node_modules/@3asoftwares/types/*'],
-  '@3asoftwares/ui': [resolveFromSource ? 'packages/ui-library/src' : 'node_modules/@3asoftwares/ui'],
-  '@3asoftwares/ui/*': [resolveFromSource ? 'packages/ui-library/src/*' : 'node_modules/@3asoftwares/ui/*'],
+  '@3asoftwares/ui': ['node_modules/@3asoftwares/ui'],
+  '@3asoftwares/ui/*': ['node_modules/@3asoftwares/ui/*'],
 };
 
 module.exports = {
