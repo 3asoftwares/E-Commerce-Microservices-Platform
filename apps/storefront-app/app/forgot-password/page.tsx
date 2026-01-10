@@ -28,7 +28,7 @@ export default function ForgotPasswordPage() {
     }
 
     try {
-      const result = await forgotPassword({ email, role: 'customer' });
+      const result = await forgotPassword({ email, domain: window.location.origin });
       if (result.success) {
         setSuccess(true);
       } else {

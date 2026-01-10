@@ -283,6 +283,10 @@ export const updateProfile = async (req: Request, res: Response): Promise<void> 
           email: user.email,
           name: user.name,
           role: user.role,
+          isActive: user.isActive,
+          emailVerified: user.emailVerified,
+          createdAt: user.createdAt,
+          lastLogin: user.lastLogin,
         },
       },
     });
@@ -624,7 +628,7 @@ export const verifyEmail = async (req: Request, res: Response): Promise<void> =>
  */
 export const forgotPassword = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, role } = req.body;
+    const { email, domain } = req.body;
     Logger.info(`Password reset requested for email: ${email}`, undefined, 'Auth');
 
     const user = await User.findOne({ email: email.toLowerCase() });
@@ -644,8 +648,8 @@ export const forgotPassword = async (req: Request, res: Response): Promise<void>
     user.passwordResetExpires = new Date(Date.now() + 60 * 60 * 1000);
     await user.save();
 
-    const frontendUrl = role === 'customer' ? 'http://localhost:3003' : 'http://localhost:3000';
-    const resetUrl = `${frontendUrl}/reset-password?token=${resetToken}`;
+    // Use domain directly from frontend, fallback to default
+    const resetUrl = `${domain}/reset-password?token=${resetToken}`;
 
     try {
       const emailResult = await sendPasswordResetEmailTemplate(user.email, user.name, resetUrl);

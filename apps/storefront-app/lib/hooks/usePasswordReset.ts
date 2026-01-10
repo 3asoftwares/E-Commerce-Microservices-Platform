@@ -11,10 +11,10 @@ import type {
 
 export function useForgotPassword() {
   const mutation = useMutation({
-    mutationFn: async ({ email, role }: { email: string; role: string }) => {
+    mutationFn: async ({ email, domain }: { email: string; domain: string }) => {
       const { data } = await apolloClient.mutate<ForgotPasswordResponse>({
         mutation: GQL_QUERIES.FORGOT_PASSWORD_MUTATION,
-        variables: { email, role },
+        variables: { email, domain },
       });
 
       if (!data?.forgotPassword) {

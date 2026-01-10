@@ -260,6 +260,33 @@ export const userResolvers = {
       }
     },
 
+    changePassword: async (
+      _: any,
+      { input }: { input: { currentPassword: string; newPassword: string } },
+      context: any
+    ) => {
+      if (!context.token) {
+        throw new Error('Not authenticated');
+      }
+      try {
+        const authHeader = addAuthHeader(context.token);
+        const response = await authClient.post(
+          '/api/auth/change-password',
+          { currentPassword: input.currentPassword, newPassword: input.newPassword },
+          { headers: authHeader.headers }
+        );
+        return {
+          success: response.data.success,
+          message: response.data.message,
+        };
+      } catch (error: any) {
+        return {
+          success: false,
+          message: error.response?.data?.message || 'Failed to change password',
+        };
+      }
+    },
+
     updateUserRole: async (_: any, { id, role }: any, context: any) => {
       if (!context.token) {
         throw new Error('Not authenticated');
@@ -367,9 +394,9 @@ export const userResolvers = {
       }
     },
 
-    forgotPassword: async (_: any, { email, role }: { email: string; role: string }) => {
+    forgotPassword: async (_: any, { email, domain }: { email: string; domain: string }) => {
       try {
-        const response = await authClient.post('/api/auth/forgot-password', { email, role });
+        const response = await authClient.post('/api/auth/forgot-password', { email, domain });
         return {
           success: response.data.success,
           message: response.data.message,

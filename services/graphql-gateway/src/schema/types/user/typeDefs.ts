@@ -96,6 +96,16 @@ export const userTypeDefs = `#graphql
     name: String!
   }
 
+  input ChangePasswordInput {
+    currentPassword: String!
+    newPassword: String!
+  }
+
+  type ChangePasswordResponse {
+    success: Boolean!
+    message: String
+  }
+
   input GoogleAuthInput {
     idToken: String!
   }
@@ -120,12 +130,13 @@ export const userTypeDefs = `#graphql
     googleAuth(input: GoogleAuthInput!): AuthPayload!
     logout: Boolean!
     updateProfile(input: UpdateProfileInput!): UpdateProfileResponse!
+    changePassword(input: ChangePasswordInput!): ChangePasswordResponse!
     updateUserRole(id: ID!, role: String!): User!
     deleteUser(id: ID!): Boolean!
     sendVerificationEmail(source: String): VerificationResponse!
     verifyEmail: VerifyEmailResponse!
     verifyEmailByToken(token: String!): VerifyEmailByTokenResponse!
-    forgotPassword(email: String!, role: String!): ForgotPasswordResponse!
+    forgotPassword(email: String!, domain: String!): ForgotPasswordResponse!
     resetPassword(token: String!, password: String!, confirmPassword: String!): ResetPasswordResponse!
   }
 `;

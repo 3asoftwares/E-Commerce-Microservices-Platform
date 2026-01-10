@@ -184,8 +184,8 @@ export const VERIFY_EMAIL_MUTATION = `
 `;
 
 export const FORGOT_PASSWORD_MUTATION = `
-  mutation ForgotPassword($email: String!, $role: String!) {
-    forgotPassword(email: $email, role: $role) {
+  mutation ForgotPassword($email: String!, $domain: String!) {
+    forgotPassword(email: $email, domain: $domain) {
       success
       message
       resetToken
