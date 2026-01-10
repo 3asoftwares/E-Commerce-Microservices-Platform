@@ -40,7 +40,7 @@ describe('Environment Configuration', () => {
     });
 
     it('should use test database URL', () => {
-      expect(process.env.MONGODB_URL).toContain('test-products');
+      expect(process.env.MONGODB_URL).toContain('ecommerce');
     });
 
     it('should use default MongoDB URL if not set', () => {
