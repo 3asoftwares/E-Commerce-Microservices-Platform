@@ -982,7 +982,7 @@ export const googleAuth = async (req: Request, res: Response): Promise<void> => 
         throw new Error('Invalid Google token');
       }
 
-      const tokenInfo = await response.json();
+      const tokenInfo:any = await response.json();
 
       // Verify the audience (client ID)
       const expectedClientId = process.env.GOOGLE_CLIENT_ID;
