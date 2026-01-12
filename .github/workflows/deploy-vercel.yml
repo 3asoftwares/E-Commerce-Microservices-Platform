@@ -39,30 +39,59 @@ jobs:
           echo "Proceeding with Vercel deployments..." >> $GITHUB_STEP_SUMMARY
 
   # ===========================================
-  # DETECT CHANGES (Disabled - Deploy All)
+  # DETECT CHANGES
   # ===========================================
   detect-changes:
     name: Detect Changes
     runs-on: ubuntu-latest
     needs: verify-ci
     outputs:
-      admin-app: ${{ steps.set-outputs.outputs.admin-app }}
-      seller-app: ${{ steps.set-outputs.outputs.seller-app }}
-      shell-app: ${{ steps.set-outputs.outputs.shell-app }}
+      admin-app: ${{ steps.result.outputs.admin-app }}
+      seller-app: ${{ steps.result.outputs.seller-app }}
+      shell-app: ${{ steps.result.outputs.shell-app }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           fetch-depth: 2
 
-      - name: Force Deploy All
-        id: set-outputs
-        if: github.event_name == 'workflow_dispatch' || true
+      - name: Detect File Changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            admin-app:
+              - 'apps/admin-app/**'
+              - 'packages/**'
+            seller-app:
+              - 'apps/seller-app/**'
+              - 'packages/**'
+            shell-app:
+              - 'apps/shell-app/**'
+              - 'packages/**'
+
+      - name: Set Outputs
+        id: result
         run: |
-          echo "Deploying all apps..."
-          echo "admin-app=true" >> $GITHUB_OUTPUT
-          echo "seller-app=true" >> $GITHUB_OUTPUT
-          echo "shell-app=true" >> $GITHUB_OUTPUT
+          if [ "${{ github.event.inputs.deploy_all }}" == "true" ]; then
+            echo "Manual deploy all requested"
+            echo "admin-app=true" >> $GITHUB_OUTPUT
+            echo "seller-app=true" >> $GITHUB_OUTPUT
+            echo "shell-app=true" >> $GITHUB_OUTPUT
+          else
+            echo "admin-app=${{ steps.filter.outputs.admin-app }}" >> $GITHUB_OUTPUT
+            echo "seller-app=${{ steps.filter.outputs.seller-app }}" >> $GITHUB_OUTPUT
+            echo "shell-app=${{ steps.filter.outputs.shell-app }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Show Detection Results
+        run: |
+          echo "## Change Detection" >> $GITHUB_STEP_SUMMARY
+          echo "| App | Deploy |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Admin | ${{ steps.result.outputs.admin-app }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Seller | ${{ steps.result.outputs.seller-app }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Shell | ${{ steps.result.outputs.shell-app }} |" >> $GITHUB_STEP_SUMMARY
 
   # ===========================================
   # DEPLOY ADMIN APP

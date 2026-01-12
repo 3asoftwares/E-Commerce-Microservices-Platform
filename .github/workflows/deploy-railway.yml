@@ -15,6 +15,22 @@ env:
   # Set to 'true' to enable Railway deployments
   RAILWAY_ENABLED: 'true'
 
+# ============================================================
+# IMPORTANT: Disable Railway Git-based Auto-Deploy
+# ============================================================
+# To ensure deployments ONLY happen via GitHub Actions:
+#
+# 1. Go to Railway Dashboard (railway.app)
+# 2. Select your project
+# 3. For EACH service (auth, category, coupon, gateway, order, product):
+#    - Click on the service
+#    - Go to Settings tab
+#    - Under "Source" section, disable "Automatic Deployments"
+#    - Or disconnect the GitHub repo if connected directly
+#
+# This ensures Railway only deploys when triggered by this workflow.
+# ============================================================
+
 jobs:
   # ===========================================
   # VERIFY CI PASSED
