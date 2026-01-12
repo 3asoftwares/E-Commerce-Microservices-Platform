@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
+console.log('[GraphQL Gateway] v1.0.2 - Starting up...');
+
 // Load environment variables from .env file FIRST before any other imports
 const envPath = path.resolve(__dirname, '../.env');
 dotenv.config({ path: envPath });
