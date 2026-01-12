@@ -11,10 +11,72 @@ env:
 
 jobs:
   # ===========================================
-  # BUILD & TEST PACKAGES
+  # CHANGE DETECTION
   # ===========================================
-  build-packages:
+  detect-changes:
+    name: 🔍 Detect Changes
     runs-on: ubuntu-latest
+    outputs:
+      packages-types: ${{ steps.filter.outputs.packages-types }}
+      packages-utils: ${{ steps.filter.outputs.packages-utils }}
+      packages-ui: ${{ steps.filter.outputs.packages-ui }}
+      services-auth: ${{ steps.filter.outputs.services-auth }}
+      services-category: ${{ steps.filter.outputs.services-category }}
+      services-coupon: ${{ steps.filter.outputs.services-coupon }}
+      services-gateway: ${{ steps.filter.outputs.services-gateway }}
+      services-order: ${{ steps.filter.outputs.services-order }}
+      services-product: ${{ steps.filter.outputs.services-product }}
+      apps-admin: ${{ steps.filter.outputs.apps-admin }}
+      apps-seller: ${{ steps.filter.outputs.apps-seller }}
+      apps-shell: ${{ steps.filter.outputs.apps-shell }}
+      any-packages: ${{ steps.filter.outputs.any-packages }}
+      any-services: ${{ steps.filter.outputs.any-services }}
+      any-apps: ${{ steps.filter.outputs.any-apps }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            packages-types:
+              - 'packages/types/**'
+            packages-utils:
+              - 'packages/utils/**'
+            packages-ui:
+              - 'packages/ui-library/**'
+            services-auth:
+              - 'services/auth-service/**'
+            services-category:
+              - 'services/category-service/**'
+            services-coupon:
+              - 'services/coupon-service/**'
+            services-gateway:
+              - 'services/graphql-gateway/**'
+            services-order:
+              - 'services/order-service/**'
+            services-product:
+              - 'services/product-service/**'
+            apps-admin:
+              - 'apps/admin-app/**'
+            apps-seller:
+              - 'apps/seller-app/**'
+            apps-shell:
+              - 'apps/shell-app/**'
+            any-packages:
+              - 'packages/**'
+            any-services:
+              - 'services/**'
+            any-apps:
+              - 'apps/**'
+
+  # ===========================================
+  # SETUP & INSTALL
+  # ===========================================
+  setup:
+    name: 📦 Setup & Install
+    runs-on: ubuntu-latest
+    needs: detect-changes
     steps:
       - uses: actions/checkout@v4
 
@@ -27,125 +89,395 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build packages
-        run: |
-          yarn build:types
-          yarn build:utils
-
-      - name: Test types package
-        run: yarn workspace @3asoftwares/types run test:coverage
-
-      - name: Test utils package
-        run: yarn workspace @3asoftwares/utils run test:coverage
-
-      - name: Test UI library
-        run: yarn workspace @3asoftwares/ui run test run
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
 
   # ===========================================
-  # BUILD & TEST BACKEND SERVICES
+  # BUILD PACKAGES
+  # ===========================================
+  build-types:
+    name: 🔨 Build Types Package
+    runs-on: ubuntu-latest
+    needs: [detect-changes, setup]
+    if: needs.detect-changes.outputs.packages-types == 'true' || needs.detect-changes.outputs.any-services == 'true' || needs.detect-changes.outputs.any-apps == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+
+  build-utils:
+    name: 🔨 Build Utils Package
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-types]
+    if: always() && (needs.detect-changes.outputs.packages-utils == 'true' || needs.detect-changes.outputs.any-services == 'true' || needs.detect-changes.outputs.any-apps == 'true')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+
+  build-ui:
+    name: 🔨 Build UI Library
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-utils]
+    if: always() && (needs.detect-changes.outputs.packages-ui == 'true' || needs.detect-changes.outputs.any-apps == 'true')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn build:storybook
+
+  # ===========================================
+  # TEST PACKAGES
+  # ===========================================
+  test-types:
+    name: 🧪 Test Types Package
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-types]
+    if: always() && needs.build-types.result == 'success' && needs.detect-changes.outputs.packages-types == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn workspace @3asoftwares/types run test:coverage
+
+  test-utils:
+    name: 🧪 Test Utils Package
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-utils]
+    if: always() && needs.build-utils.result == 'success' && needs.detect-changes.outputs.packages-utils == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn workspace @3asoftwares/utils run test:coverage
+
+  test-ui:
+    name: 🧪 Test UI Library
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-ui]
+    if: always() && needs.build-ui.result == 'success' && needs.detect-changes.outputs.packages-ui == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn workspace @3asoftwares/ui run test run
+
+  # ===========================================
+  # BUILD BACKEND SERVICES
   # ===========================================
   build-backend:
+    name: 🔨 Build Backend Services
     runs-on: ubuntu-latest
-    needs: build-packages
+    needs: [detect-changes, build-utils]
+    if: always() && needs.build-utils.result == 'success' && needs.detect-changes.outputs.any-services == 'true'
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build packages first
-        run: |
-          yarn build:types
-          yarn build:utils
-
-      - name: Build all backend services
-        run: yarn build:backend
-
-      - name: Test auth-service
-        run: yarn test:auth --passWithNoTests
-
-      - name: Test category-service
-        run: yarn test:category --passWithNoTests
-
-      - name: Test coupon-service
-        run: yarn test:coupon --passWithNoTests
-
-      - name: Test graphql-gateway
-        run: yarn test:gateway --passWithNoTests
-
-      - name: Test order-service
-        run: yarn test:order --passWithNoTests
-
-      - name: Test product-service
-        run: yarn test:product --passWithNoTests
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn build:backend
 
   # ===========================================
-  # BUILD & TEST FRONTEND APPS
+  # TEST BACKEND SERVICES
+  # ===========================================
+  test-auth:
+    name: 🧪 Test Auth Service
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-backend]
+    if: always() && needs.build-backend.result == 'success' && needs.detect-changes.outputs.services-auth == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:auth --passWithNoTests
+
+  test-category:
+    name: 🧪 Test Category Service
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-backend]
+    if: always() && needs.build-backend.result == 'success' && needs.detect-changes.outputs.services-category == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:category --passWithNoTests
+
+  test-coupon:
+    name: 🧪 Test Coupon Service
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-backend]
+    if: always() && needs.build-backend.result == 'success' && needs.detect-changes.outputs.services-coupon == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:coupon --passWithNoTests
+
+  test-gateway:
+    name: 🧪 Test GraphQL Gateway
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-backend]
+    if: always() && needs.build-backend.result == 'success' && needs.detect-changes.outputs.services-gateway == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:gateway --passWithNoTests
+
+  test-order:
+    name: 🧪 Test Order Service
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-backend]
+    if: always() && needs.build-backend.result == 'success' && needs.detect-changes.outputs.services-order == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:order --passWithNoTests
+
+  test-product:
+    name: 🧪 Test Product Service
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-backend]
+    if: always() && needs.build-backend.result == 'success' && needs.detect-changes.outputs.services-product == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:product --passWithNoTests
+
+  # ===========================================
+  # BUILD FRONTEND APPS
   # ===========================================
   build-frontend:
+    name: 🔨 Build Frontend Apps
     runs-on: ubuntu-latest
-    needs: build-packages
+    needs: [detect-changes, build-ui]
+    if: always() && needs.build-ui.result == 'success' && needs.detect-changes.outputs.any-apps == 'true'
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build packages first
-        run: |
-          yarn build:types
-          yarn build:utils
-          yarn build:storybook
-
-      - name: Build frontend apps
-        run: yarn build:frontend
-
-      - name: Test admin-app
-        run: yarn test:admin --passWithNoTests
-
-      - name: Test seller-app
-        run: yarn test:seller --passWithNoTests
-
-      - name: Test shell-app
-        run: yarn test:shell --passWithNoTests
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn build:storybook
+      - run: yarn build:frontend
 
   # ===========================================
-  # CI STATUS CHECK
+  # TEST FRONTEND APPS
   # ===========================================
-  ci-status:
+  test-admin:
+    name: 🧪 Test Admin App
     runs-on: ubuntu-latest
-    needs: [build-packages, build-backend, build-frontend]
-    if: always()
+    needs: [detect-changes, build-frontend]
+    if: always() && needs.build-frontend.result == 'success' && needs.detect-changes.outputs.apps-admin == 'true'
     steps:
-      - name: Check CI Status
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:admin --passWithNoTests
+
+  test-seller:
+    name: 🧪 Test Seller App
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-frontend]
+    if: always() && needs.build-frontend.result == 'success' && needs.detect-changes.outputs.apps-seller == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:seller --passWithNoTests
+
+  test-shell:
+    name: 🧪 Test Shell App
+    runs-on: ubuntu-latest
+    needs: [detect-changes, build-frontend]
+    if: always() && needs.build-frontend.result == 'success' && needs.detect-changes.outputs.apps-shell == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build:types
+      - run: yarn build:utils
+      - run: yarn test:shell --passWithNoTests
+
+  # ===========================================
+  # CI STATUS - FINAL CHECK
+  # ===========================================
+  ci-complete:
+    name: ✅ CI Complete
+    runs-on: ubuntu-latest
+    needs:
+      - detect-changes
+      - setup
+      - build-types
+      - build-utils
+      - build-ui
+      - test-types
+      - test-utils
+      - test-ui
+      - build-backend
+      - test-auth
+      - test-category
+      - test-coupon
+      - test-gateway
+      - test-order
+      - test-product
+      - build-frontend
+      - test-admin
+      - test-seller
+      - test-shell
+    if: always()
+    outputs:
+      packages-types: ${{ needs.detect-changes.outputs.packages-types }}
+      packages-utils: ${{ needs.detect-changes.outputs.packages-utils }}
+      packages-ui: ${{ needs.detect-changes.outputs.packages-ui }}
+      services-auth: ${{ needs.detect-changes.outputs.services-auth }}
+      services-category: ${{ needs.detect-changes.outputs.services-category }}
+      services-coupon: ${{ needs.detect-changes.outputs.services-coupon }}
+      services-gateway: ${{ needs.detect-changes.outputs.services-gateway }}
+      services-order: ${{ needs.detect-changes.outputs.services-order }}
+      services-product: ${{ needs.detect-changes.outputs.services-product }}
+      apps-admin: ${{ needs.detect-changes.outputs.apps-admin }}
+      apps-seller: ${{ needs.detect-changes.outputs.apps-seller }}
+      apps-shell: ${{ needs.detect-changes.outputs.apps-shell }}
+    steps:
+      - name: Check All Tests Passed
         run: |
           echo "## 📊 CI Pipeline Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
-          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| build-packages | ${{ needs.build-packages.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| build-backend | ${{ needs.build-backend.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| build-frontend | ${{ needs.build-frontend.result }} |" >> $GITHUB_STEP_SUMMARY
+          
+          echo "### Changes Detected" >> $GITHUB_STEP_SUMMARY
+          echo "| Area | Changed |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|---------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Types | ${{ needs.detect-changes.outputs.packages-types }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Utils | ${{ needs.detect-changes.outputs.packages-utils }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| UI | ${{ needs.detect-changes.outputs.packages-ui }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Services | ${{ needs.detect-changes.outputs.any-services }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Apps | ${{ needs.detect-changes.outputs.any-apps }} |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          # Check if any job failed
-          if [ "${{ needs.build-packages.result }}" == "failure" ] || \
-             [ "${{ needs.build-backend.result }}" == "failure" ] || \
-             [ "${{ needs.build-frontend.result }}" == "failure" ]; then
-            echo "❌ CI Pipeline failed" >> $GITHUB_STEP_SUMMARY
+          echo "### Build Status" >> $GITHUB_STEP_SUMMARY
+          echo "| Component | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Types | ${{ needs.build-types.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Utils | ${{ needs.build-utils.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| UI | ${{ needs.build-ui.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend | ${{ needs.build-backend.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Frontend | ${{ needs.build-frontend.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          echo "### Test Status" >> $GITHUB_STEP_SUMMARY
+          echo "| Test | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| types | ${{ needs.test-types.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| utils | ${{ needs.test-utils.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ui | ${{ needs.test-ui.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| auth | ${{ needs.test-auth.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| category | ${{ needs.test-category.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| coupon | ${{ needs.test-coupon.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| gateway | ${{ needs.test-gateway.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| order | ${{ needs.test-order.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| product | ${{ needs.test-product.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| admin | ${{ needs.test-admin.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| seller | ${{ needs.test-seller.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| shell | ${{ needs.test-shell.result }} |" >> $GITHUB_STEP_SUMMARY
+          
+          # Check for failures (not skipped)
+          failed=false
+          for result in "${{ needs.build-types.result }}" "${{ needs.build-utils.result }}" "${{ needs.build-ui.result }}" "${{ needs.build-backend.result }}" "${{ needs.build-frontend.result }}" "${{ needs.test-types.result }}" "${{ needs.test-utils.result }}" "${{ needs.test-ui.result }}" "${{ needs.test-auth.result }}" "${{ needs.test-category.result }}" "${{ needs.test-coupon.result }}" "${{ needs.test-gateway.result }}" "${{ needs.test-order.result }}" "${{ needs.test-product.result }}" "${{ needs.test-admin.result }}" "${{ needs.test-seller.result }}" "${{ needs.test-shell.result }}"; do
+            if [ "$result" == "failure" ]; then
+              failed=true
+              break
+            fi
+          done
+          
+          if [ "$failed" == "true" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **CI Pipeline FAILED**" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
           
-          echo "✅ CI Pipeline passed - all checks completed successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **CI Pipeline PASSED**" >> $GITHUB_STEP_SUMMARY

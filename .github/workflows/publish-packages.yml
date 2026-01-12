@@ -1,322 +1,437 @@
-# Publish Packages to npm
-# Triggers on: CI workflow completion (success) on main branch, releases, manual dispatch
-# Required secrets:
-#   - NPM_TOKEN: npm access token with publish permissions
-
-name: Publish Packages to npm
+name: Publish NPM Packages
 
 on:
   workflow_run:
-    workflows: ["CI Pipeline"]
-    types:
-      - completed
-    branches:
-      - main
-  release:
-    types: [published]
-  workflow_dispatch:
-    inputs:
-      package:
-        description: 'Package to publish'
-        required: true
-        default: 'all'
-        type: choice
-        options:
-          - types
-          - utils
-          - ui-library
-          - all
-      version_bump:
-        description: 'Version bump type'
-        required: false
-        type: choice
-        options:
-          - none
-          - patch
-          - minor
-          - major
-        default: 'none'
+    workflows: ['CI Pipeline']
+    types: [completed]
+    branches: [main]
 
 env:
   NODE_VERSION: '20'
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  DEPLOY_COOLDOWN_HOURS: 3
 
 jobs:
   # ===========================================
-  # CHECK IF CI PASSED
+  # VERIFY CI PASSED
   # ===========================================
-  check-ci:
+  verify-ci:
+    name: ✅ Verify CI Passed
     runs-on: ubuntu-latest
-    outputs:
-      should_publish: ${{ steps.check.outputs.should_publish }}
+    if: github.event.workflow_run.conclusion == 'success'
     steps:
-      - name: Check CI status
-        id: check
+      - name: CI Verification
         run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "Manual trigger, proceeding..."
-            echo "should_publish=true" >> $GITHUB_OUTPUT
-          elif [ "${{ github.event_name }}" == "release" ]; then
-            echo "Release trigger, proceeding..."
-            echo "should_publish=true" >> $GITHUB_OUTPUT
-          elif [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
-            echo "CI passed with all checks, proceeding with publish..."
-            echo "should_publish=true" >> $GITHUB_OUTPUT
-          else
-            echo "CI did not pass (conclusion: ${{ github.event.workflow_run.conclusion }}), skipping publish..."
-            echo "should_publish=false" >> $GITHUB_OUTPUT
-          fi
+          echo "## ✅ CI Pipeline Passed" >> $GITHUB_STEP_SUMMARY
+          echo "Proceeding with NPM publishing..." >> $GITHUB_STEP_SUMMARY
+
+  # ===========================================
+  # DETECT CHANGES
+  # ===========================================
+  detect-changes:
+    name: 🔍 Detect Changes
+    runs-on: ubuntu-latest
+    needs: verify-ci
+    outputs:
+      packages-types: ${{ steps.filter.outputs.packages-types }}
+      packages-utils: ${{ steps.filter.outputs.packages-utils }}
+      packages-ui: ${{ steps.filter.outputs.packages-ui }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 2
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            packages-types:
+              - 'packages/types/**'
+            packages-utils:
+              - 'packages/utils/**'
+            packages-ui:
+              - 'packages/ui-library/**'
 
   # ===========================================
   # VALIDATE SECRETS
   # ===========================================
   validate-secrets:
-    needs: check-ci
-    if: needs.check-ci.outputs.should_publish == 'true'
+    name: 🔐 Validate Secrets
     runs-on: ubuntu-latest
+    needs: detect-changes
     steps:
-      - name: Validate npm token
+      - name: Check NPM Token
         run: |
           if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
-            echo "::error::NPM_TOKEN secret is not set"
+            echo "❌ Missing NPM_TOKEN secret" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
-          echo "✅ NPM_TOKEN is configured"
+          echo "✅ NPM token is configured" >> $GITHUB_STEP_SUMMARY
 
   # ===========================================
-  # PUBLISH @3asoftwares/types
+  # PUBLISH TYPES PACKAGE
   # ===========================================
   publish-types:
-    needs: [check-ci, validate-secrets]
+    name: 📦 Publish Types Package
     runs-on: ubuntu-latest
-    if: |
-      needs.check-ci.outputs.should_publish == 'true' &&
-      (github.event_name == 'workflow_run' || github.event_name == 'release' ||
-       (github.event_name == 'workflow_dispatch' && (github.event.inputs.package == 'types' || github.event.inputs.package == 'all')))
+    needs: [detect-changes, validate-secrets]
+    if: needs.detect-changes.outputs.packages-types == 'true'
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Restore Publish State
+        uses: actions/cache/restore@v4
+        with:
+          path: .publish-state-types
+          key: publish-state-types-
+          restore-keys: publish-state-types-
+
+      - name: Check Cooldown and Last Status
+        id: check-cooldown
+        run: |
+          should_publish="true"
+          
+          if [ -f .publish-state-types ]; then
+            last_publish=$(sed -n '1p' .publish-state-types)
+            last_status=$(sed -n '2p' .publish-state-types)
+            current_time=$(date +%s)
+            diff=$((current_time - last_publish))
+            cooldown_seconds=$((${{ env.DEPLOY_COOLDOWN_HOURS }} * 3600))
+            
+            if [ "$last_status" = "success" ] && [ $diff -lt $cooldown_seconds ]; then
+              remaining=$(((cooldown_seconds - diff) / 60))
+              echo "⏳ Publish cooldown active. Wait $remaining more minutes." >> $GITHUB_STEP_SUMMARY
+              should_publish="false"
+            elif [ "$last_status" = "failed" ]; then
+              echo "🔄 Last publish failed, retrying..." >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          
+          echo "publish=$should_publish" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
+        if: steps.check-cooldown.outputs.publish == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies from root
-        run: yarn install --frozen-lockfile || yarn install
+      - name: Install dependencies
+        if: steps.check-cooldown.outputs.publish == 'true'
+        run: yarn install --frozen-lockfile
 
-      - name: Build types package
+      - name: Build types
+        if: steps.check-cooldown.outputs.publish == 'true'
         run: yarn build:types
 
       - name: Run tests
+        if: steps.check-cooldown.outputs.publish == 'true'
         run: yarn workspace @3asoftwares/types run test:coverage
 
-      - name: Bump version (if specified)
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.version_bump != 'none'
-        working-directory: packages/types
-        run: npm version ${{ github.event.inputs.version_bump }} --no-git-tag-version
-
-      - name: Check if version exists
-        id: check-version
-        working-directory: packages/types
+      - name: Check version exists
+        if: steps.check-cooldown.outputs.publish == 'true'
+        id: check
         run: |
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          
-          if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version 2>/dev/null; then
-            echo "Version $PACKAGE_VERSION already exists on npm"
+          cd packages/types
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if npm view "$PKG_NAME@$PKG_VERSION" version 2>/dev/null; then
             echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⏭️ Types v$PKG_VERSION already published" >> $GITHUB_STEP_SUMMARY
           else
-            echo "Version $PACKAGE_VERSION is new"
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to npm
-        if: steps.check-version.outputs.exists != 'true'
-        working-directory: packages/types
-        run: npm publish --access public
+      - name: Publish
+        if: steps.check-cooldown.outputs.publish == 'true' && steps.check.outputs.exists != 'true'
+        run: |
+          cd packages/types
+          npm publish --access public
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          echo "### ✅ Types v$PKG_VERSION published" >> $GITHUB_STEP_SUMMARY
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish Summary
+      - name: Save Publish State (Success)
+        if: steps.check-cooldown.outputs.publish == 'true' && success()
         run: |
-          if [ "${{ steps.check-version.outputs.exists }}" == "true" ]; then
-            echo "### ⏭️ Types Package Skipped (version exists)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "### 📦 Types Package Published" >> $GITHUB_STEP_SUMMARY
-          fi
+          echo "$(date +%s)" > .publish-state-types
+          echo "success" >> .publish-state-types
+
+      - name: Save Publish State (Failed)
+        if: steps.check-cooldown.outputs.publish == 'true' && failure()
+        run: |
+          echo "$(date +%s)" > .publish-state-types
+          echo "failed" >> .publish-state-types
+
+      - name: Cache Publish State
+        if: steps.check-cooldown.outputs.publish == 'true' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: .publish-state-types
+          key: publish-state-types-${{ github.run_id }}
 
   # ===========================================
-  # PUBLISH @3asoftwares/utils
+  # PUBLISH UTILS PACKAGE
   # ===========================================
   publish-utils:
-    needs: [check-ci, validate-secrets, publish-types]
+    name: 📦 Publish Utils Package
     runs-on: ubuntu-latest
-    if: |
-      always() && needs.validate-secrets.result == 'success' &&
-      needs.check-ci.outputs.should_publish == 'true' &&
-      (github.event_name == 'workflow_run' || github.event_name == 'release' ||
-       (github.event_name == 'workflow_dispatch' && (github.event.inputs.package == 'utils' || github.event.inputs.package == 'all')))
+    needs: [detect-changes, publish-types]
+    if: always() && needs.detect-changes.outputs.packages-utils == 'true'
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Restore Publish State
+        uses: actions/cache/restore@v4
+        with:
+          path: .publish-state-utils
+          key: publish-state-utils-
+          restore-keys: publish-state-utils-
+
+      - name: Check Cooldown and Last Status
+        id: check-cooldown
+        run: |
+          should_publish="true"
+          
+          if [ -f .publish-state-utils ]; then
+            last_publish=$(sed -n '1p' .publish-state-utils)
+            last_status=$(sed -n '2p' .publish-state-utils)
+            current_time=$(date +%s)
+            diff=$((current_time - last_publish))
+            cooldown_seconds=$((${{ env.DEPLOY_COOLDOWN_HOURS }} * 3600))
+            
+            if [ "$last_status" = "success" ] && [ $diff -lt $cooldown_seconds ]; then
+              remaining=$(((cooldown_seconds - diff) / 60))
+              echo "⏳ Publish cooldown active. Wait $remaining more minutes." >> $GITHUB_STEP_SUMMARY
+              should_publish="false"
+            elif [ "$last_status" = "failed" ]; then
+              echo "🔄 Last publish failed, retrying..." >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          
+          echo "publish=$should_publish" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
+        if: steps.check-cooldown.outputs.publish == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies from root
-        run: yarn install --frozen-lockfile || yarn install
+      - name: Install dependencies
+        if: steps.check-cooldown.outputs.publish == 'true'
+        run: yarn install --frozen-lockfile
 
-      - name: Build utils package
-        run: yarn build:types && yarn build:utils
+      - name: Build dependencies
+        if: steps.check-cooldown.outputs.publish == 'true'
+        run: |
+          yarn build:types
+          yarn build:utils
 
       - name: Run tests
+        if: steps.check-cooldown.outputs.publish == 'true'
         run: yarn workspace @3asoftwares/utils run test:coverage
 
-      - name: Bump version (if specified)
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.version_bump != 'none'
-        working-directory: packages/utils
-        run: npm version ${{ github.event.inputs.version_bump }} --no-git-tag-version
-
-      - name: Check if version exists
-        id: check-version
-        working-directory: packages/utils
+      - name: Check version exists
+        if: steps.check-cooldown.outputs.publish == 'true'
+        id: check
         run: |
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          
-          if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version 2>/dev/null; then
-            echo "Version $PACKAGE_VERSION already exists on npm"
+          cd packages/utils
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if npm view "$PKG_NAME@$PKG_VERSION" version 2>/dev/null; then
             echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⏭️ Utils v$PKG_VERSION already published" >> $GITHUB_STEP_SUMMARY
           else
-            echo "Version $PACKAGE_VERSION is new"
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to npm
-        if: steps.check-version.outputs.exists != 'true'
-        working-directory: packages/utils
-        run: npm publish --access public
+      - name: Publish
+        if: steps.check-cooldown.outputs.publish == 'true' && steps.check.outputs.exists != 'true'
+        run: |
+          cd packages/utils
+          npm publish --access public
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          echo "### ✅ Utils v$PKG_VERSION published" >> $GITHUB_STEP_SUMMARY
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish Summary
+      - name: Save Publish State (Success)
+        if: steps.check-cooldown.outputs.publish == 'true' && success()
         run: |
-          if [ "${{ steps.check-version.outputs.exists }}" == "true" ]; then
-            echo "### ⏭️ Utils Package Skipped (version exists)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "### 📦 Utils Package Published" >> $GITHUB_STEP_SUMMARY
-          fi
+          echo "$(date +%s)" > .publish-state-utils
+          echo "success" >> .publish-state-utils
+
+      - name: Save Publish State (Failed)
+        if: steps.check-cooldown.outputs.publish == 'true' && failure()
+        run: |
+          echo "$(date +%s)" > .publish-state-utils
+          echo "failed" >> .publish-state-utils
+
+      - name: Cache Publish State
+        if: steps.check-cooldown.outputs.publish == 'true' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: .publish-state-utils
+          key: publish-state-utils-${{ github.run_id }}
 
   # ===========================================
-  # PUBLISH @3asoftwares/ui
+  # PUBLISH UI LIBRARY
   # ===========================================
-  publish-ui-library:
-    needs: [check-ci, validate-secrets, publish-utils]
+  publish-ui:
+    name: 📦 Publish UI Library
     runs-on: ubuntu-latest
-    if: |
-      always() && needs.validate-secrets.result == 'success' &&
-      needs.check-ci.outputs.should_publish == 'true' &&
-      (github.event_name == 'workflow_run' || github.event_name == 'release' ||
-       (github.event_name == 'workflow_dispatch' && (github.event.inputs.package == 'ui-library' || github.event.inputs.package == 'all')))
+    needs: [detect-changes, publish-utils]
+    if: always() && needs.detect-changes.outputs.packages-ui == 'true'
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Restore Publish State
+        uses: actions/cache/restore@v4
+        with:
+          path: .publish-state-ui
+          key: publish-state-ui-
+          restore-keys: publish-state-ui-
+
+      - name: Check Cooldown and Last Status
+        id: check-cooldown
+        run: |
+          should_publish="true"
+          
+          if [ -f .publish-state-ui ]; then
+            last_publish=$(sed -n '1p' .publish-state-ui)
+            last_status=$(sed -n '2p' .publish-state-ui)
+            current_time=$(date +%s)
+            diff=$((current_time - last_publish))
+            cooldown_seconds=$((${{ env.DEPLOY_COOLDOWN_HOURS }} * 3600))
+            
+            if [ "$last_status" = "success" ] && [ $diff -lt $cooldown_seconds ]; then
+              remaining=$(((cooldown_seconds - diff) / 60))
+              echo "⏳ Publish cooldown active. Wait $remaining more minutes." >> $GITHUB_STEP_SUMMARY
+              should_publish="false"
+            elif [ "$last_status" = "failed" ]; then
+              echo "🔄 Last publish failed, retrying..." >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          
+          echo "publish=$should_publish" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
+        if: steps.check-cooldown.outputs.publish == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies from root
-        run: yarn install --frozen-lockfile || yarn install
+      - name: Install dependencies
+        if: steps.check-cooldown.outputs.publish == 'true'
+        run: yarn install --frozen-lockfile
 
-      - name: Build ui-library package
+      - name: Build dependencies
+        if: steps.check-cooldown.outputs.publish == 'true'
         run: |
           yarn build:types
           yarn build:utils
           yarn build:storybook
 
       - name: Run tests
+        if: steps.check-cooldown.outputs.publish == 'true'
         run: yarn workspace @3asoftwares/ui run test run
 
-      - name: Bump version (if specified)
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.version_bump != 'none'
-        working-directory: packages/ui-library
-        run: npm version ${{ github.event.inputs.version_bump }} --no-git-tag-version
-
-      - name: Check if version exists
-        id: check-version
-        working-directory: packages/ui-library
+      - name: Check version exists
+        if: steps.check-cooldown.outputs.publish == 'true'
+        id: check
         run: |
-          PACKAGE_NAME=$(node -p "require('./package.json').name")
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          
-          if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version 2>/dev/null; then
-            echo "Version $PACKAGE_VERSION already exists on npm"
+          cd packages/ui-library
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if npm view "$PKG_NAME@$PKG_VERSION" version 2>/dev/null; then
             echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⏭️ UI v$PKG_VERSION already published" >> $GITHUB_STEP_SUMMARY
           else
-            echo "Version $PACKAGE_VERSION is new"
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to npm
-        if: steps.check-version.outputs.exists != 'true'
-        working-directory: packages/ui-library
-        run: npm publish --access public
+      - name: Publish
+        if: steps.check-cooldown.outputs.publish == 'true' && steps.check.outputs.exists != 'true'
+        run: |
+          cd packages/ui-library
+          npm publish --access public
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          echo "### ✅ UI v$PKG_VERSION published" >> $GITHUB_STEP_SUMMARY
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish Summary
+      - name: Save Publish State (Success)
+        if: steps.check-cooldown.outputs.publish == 'true' && success()
         run: |
-          if [ "${{ steps.check-version.outputs.exists }}" == "true" ]; then
-            echo "### ⏭️ UI Library Package Skipped (version exists)" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "### 📦 UI Library Package Published" >> $GITHUB_STEP_SUMMARY
-          fi
+          echo "$(date +%s)" > .publish-state-ui
+          echo "success" >> .publish-state-ui
 
-  # ===========================================
-  # PUBLISH SKIPPED
-  # ===========================================
-  skip-notification:
-    needs: check-ci
-    if: needs.check-ci.outputs.should_publish == 'false'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish Skipped
+      - name: Save Publish State (Failed)
+        if: steps.check-cooldown.outputs.publish == 'true' && failure()
         run: |
-          echo "## ⏭️ npm Publish Skipped" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "CI workflow did not pass all checks." >> $GITHUB_STEP_SUMMARY
-          echo "Fix the failing checks and push again." >> $GITHUB_STEP_SUMMARY
+          echo "$(date +%s)" > .publish-state-ui
+          echo "failed" >> .publish-state-ui
+
+      - name: Cache Publish State
+        if: steps.check-cooldown.outputs.publish == 'true' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: .publish-state-ui
+          key: publish-state-ui-${{ github.run_id }}
 
   # ===========================================
   # PUBLISH SUMMARY
   # ===========================================
-  summary:
-    needs: [check-ci, publish-types, publish-utils, publish-ui-library]
-    if: always() && needs.check-ci.outputs.should_publish == 'true'
+  publish-summary:
+    name: 📊 Publish Summary
     runs-on: ubuntu-latest
+    needs: [detect-changes, publish-types, publish-utils, publish-ui]
+    if: always()
     steps:
-      - name: Publish Summary
+      - name: Generate Summary
         run: |
-          echo "## 📊 npm Publish Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 NPM Publish Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Changes Detected" >> $GITHUB_STEP_SUMMARY
+          echo "| Package | Changed |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|---------|" >> $GITHUB_STEP_SUMMARY
+          echo "| types | ${{ needs.detect-changes.outputs.packages-types }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| utils | ${{ needs.detect-changes.outputs.packages-utils }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ui | ${{ needs.detect-changes.outputs.packages-ui }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Publish Status" >> $GITHUB_STEP_SUMMARY
           echo "| Package | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|---------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| @3asoftwares/types | ${{ needs.publish-types.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| @3asoftwares/utils | ${{ needs.publish-utils.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| @3asoftwares/ui | ${{ needs.publish-ui-library.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| @3asoftwares/ui | ${{ needs.publish-ui.result }} |" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.publish-types.result }}" == "failure" ] || \
+             [ "${{ needs.publish-utils.result }}" == "failure" ] || \
+             [ "${{ needs.publish-ui.result }}" == "failure" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **Some packages failed to publish**" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **NPM publish workflow completed**" >> $GITHUB_STEP_SUMMARY
