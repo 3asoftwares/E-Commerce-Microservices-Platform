@@ -47,7 +47,7 @@
     "src/config"
   ],
   "scripts": {
-    "build": "npx tsup",
+    "build": "yarn tsup",
     "build:backend": "npx tsup --config tsup.backend.config.ts",
     "build:full": "npx tsup",
     "prepublishOnly": "npm run build",
