@@ -1,6 +1,6 @@
 {
-  "installCommand": "cd ../.. && yarn install",
-  "buildCommand": "cd ../.. && cd packages/types && npx tsup src/index.ts --format cjs,esm --dts --clean && cd ../utils && npx tsup src/index.ts --format cjs,esm --dts --clean && cd ../ui-library && yarn build && cd ../../apps/shell-app && yarn build",
+  "installCommand": "cd ../.. && yarn install --frozen-lockfile",
+  "buildCommand": "cd ../.. && yarn build:types && yarn build:utils && yarn build:storybook && yarn build:shell",
   "outputDirectory": "dist",
   "framework": null,
   "devCommand": "yarn dev",
