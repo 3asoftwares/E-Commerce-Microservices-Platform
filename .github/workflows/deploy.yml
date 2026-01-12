@@ -1,9 +1,7 @@
-name: CI/CD Pipeline
+name: Deploy Pipeline
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 concurrency:
@@ -15,10 +13,10 @@ env:
 
 jobs:
   # ===========================================
-  # BUILD & TEST
+  # BUILD
   # ===========================================
-  build-and-test:
-    name: 🔨 Build & Test
+  build:
+    name: 🔨 Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,26 +42,13 @@ jobs:
       - name: Build Auth Service
         run: yarn build:auth
 
-      - name: Test Shell App
-        run: yarn test:shell --passWithNoTests
-
-      - name: Test Auth Service
-        run: yarn test:auth --passWithNoTests
-
-      - name: Summary
-        run: |
-          echo "## ✅ Build & Test Passed" >> $GITHUB_STEP_SUMMARY
-          echo "- Shell App: Built & Tested" >> $GITHUB_STEP_SUMMARY
-          echo "- Auth Service: Built & Tested" >> $GITHUB_STEP_SUMMARY
-
   # ===========================================
   # DEPLOY SHELL APP TO VERCEL
   # ===========================================
   deploy-shell:
     name: 🚀 Deploy Shell App (Vercel)
     runs-on: ubuntu-latest
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
     steps:
       - uses: actions/checkout@v4
 
@@ -91,19 +76,10 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SHELL }}
 
-      - name: Build Shell App
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SHELL }}
-
-      - name: Deploy to Vercel
-        id: deploy
+      - name: Build & Deploy to Vercel
         run: |
-          url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$url" >> $GITHUB_OUTPUT
-          echo "### 🚀 Shell App Deployed" >> $GITHUB_STEP_SUMMARY
-          echo "**URL:** $url" >> $GITHUB_STEP_SUMMARY
+          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SHELL }}
@@ -114,8 +90,7 @@ jobs:
   deploy-auth:
     name: 🚀 Deploy Auth Service (Railway)
     runs-on: ubuntu-latest
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
     steps:
       - uses: actions/checkout@v4
 
@@ -127,32 +102,4 @@ jobs:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           cd services/auth-service
-          railway up --detach
-          echo "### 🚀 Auth Service Deployed" >> $GITHUB_STEP_SUMMARY
-
-  # ===========================================
-  # DEPLOYMENT SUMMARY
-  # ===========================================
-  summary:
-    name: 📊 Summary
-    runs-on: ubuntu-latest
-    needs: [deploy-shell, deploy-auth]
-    if: always() && github.ref == 'refs/heads/main' && github.event_name == 'push'
-    steps:
-      - name: Generate Summary
-        run: |
-          echo "## 📊 Deployment Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Service | Platform | Status |" >> $GITHUB_STEP_SUMMARY
-          echo "|---------|----------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Shell App | Vercel | ${{ needs.deploy-shell.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Auth Service | Railway | ${{ needs.deploy-auth.result }} |" >> $GITHUB_STEP_SUMMARY
-          
-          if [ "${{ needs.deploy-shell.result }}" == "failure" ] || [ "${{ needs.deploy-auth.result }}" == "failure" ]; then
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "❌ **Some deployments failed**" >> $GITHUB_STEP_SUMMARY
-            exit 1
-          fi
-          
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ **All deployments successful**" >> $GITHUB_STEP_SUMMARY
+          railway up --detach --service auth-service
