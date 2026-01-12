@@ -1,0 +1,158 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  # ===========================================
+  # BUILD & TEST
+  # ===========================================
+  build-and-test:
+    name: 🔨 Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build packages
+        run: |
+          yarn build:types
+          yarn build:utils
+          yarn build:storybook
+
+      - name: Build Shell App
+        run: yarn build:shell
+
+      - name: Build Auth Service
+        run: yarn build:auth
+
+      - name: Test Shell App
+        run: yarn test:shell --passWithNoTests
+
+      - name: Test Auth Service
+        run: yarn test:auth --passWithNoTests
+
+      - name: Summary
+        run: |
+          echo "## ✅ Build & Test Passed" >> $GITHUB_STEP_SUMMARY
+          echo "- Shell App: Built & Tested" >> $GITHUB_STEP_SUMMARY
+          echo "- Auth Service: Built & Tested" >> $GITHUB_STEP_SUMMARY
+
+  # ===========================================
+  # DEPLOY SHELL APP TO VERCEL
+  # ===========================================
+  deploy-shell:
+    name: 🚀 Deploy Shell App (Vercel)
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build packages
+        run: |
+          yarn build:types
+          yarn build:utils
+          yarn build:storybook
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Config
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SHELL }}
+
+      - name: Build Shell App
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SHELL }}
+
+      - name: Deploy to Vercel
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$url" >> $GITHUB_OUTPUT
+          echo "### 🚀 Shell App Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "**URL:** $url" >> $GITHUB_STEP_SUMMARY
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SHELL }}
+
+  # ===========================================
+  # DEPLOY AUTH SERVICE TO RAILWAY
+  # ===========================================
+  deploy-auth:
+    name: 🚀 Deploy Auth Service (Railway)
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          cd services/auth-service
+          railway up --detach
+          echo "### 🚀 Auth Service Deployed" >> $GITHUB_STEP_SUMMARY
+
+  # ===========================================
+  # DEPLOYMENT SUMMARY
+  # ===========================================
+  summary:
+    name: 📊 Summary
+    runs-on: ubuntu-latest
+    needs: [deploy-shell, deploy-auth]
+    if: always() && github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Generate Summary
+        run: |
+          echo "## 📊 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Service | Platform | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|----------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Shell App | Vercel | ${{ needs.deploy-shell.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Auth Service | Railway | ${{ needs.deploy-auth.result }} |" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.deploy-shell.result }}" == "failure" ] || [ "${{ needs.deploy-auth.result }}" == "failure" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **Some deployments failed**" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **All deployments successful**" >> $GITHUB_STEP_SUMMARY
