@@ -1,0 +1,31 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Admin User",
+            "email": "admin@3asoftwares.com",
+            "password": "admin123",
+            "role": "admin",
+            "status": "active",
+            "avatar": "https://ui-avatars.com/api/?name=Admin+User&background=1a1a1a&color=fff"
+        },
+        {
+            "id": 2,
+            "name": "Support Agent 1",
+            "email": "support1@3asoftwares.com",
+            "password": "support123",
+            "role": "agent",
+            "status": "active",
+            "avatar": "https://ui-avatars.com/api/?name=Support+Agent&background=333333&color=fff"
+        },
+        {
+            "id": 3,
+            "name": "Support Agent 2",
+            "email": "support2@3asoftwares.com",
+            "password": "support123",
+            "role": "agent",
+            "status": "active",
+            "avatar": "https://ui-avatars.com/api/?name=Support+Two&background=555555&color=fff"
+        }
+    ]
+}

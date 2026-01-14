@@ -1,0 +1,108 @@
+{
+    "tickets": [
+        {
+            "id": 1001,
+            "subject": "Unable to process payment",
+            "description": "I tried to make a payment for my order but it keeps showing an error message. I have tried multiple cards but the issue persists.",
+            "customer": "John Smith",
+            "email": "john.smith@email.com",
+            "category": "billing",
+            "priority": "high",
+            "status": "open",
+            "assignee": "admin",
+            "createdAt": "2026-01-12T10:30:00",
+            "updatedAt": "2026-01-12T10:30:00"
+        },
+        {
+            "id": 1002,
+            "subject": "Product not received",
+            "description": "I ordered a laptop 10 days ago and it still has not arrived. The tracking shows it was delivered but I never received it.",
+            "customer": "Sarah Johnson",
+            "email": "sarah.j@email.com",
+            "category": "general",
+            "priority": "high",
+            "status": "in-progress",
+            "assignee": "support1",
+            "createdAt": "2026-01-11T14:20:00",
+            "updatedAt": "2026-01-12T09:15:00"
+        },
+        {
+            "id": 1003,
+            "subject": "Request for refund",
+            "description": "I would like to request a refund for my recent purchase. The product does not match the description on the website.",
+            "customer": "Mike Brown",
+            "email": "mike.brown@email.com",
+            "category": "billing",
+            "priority": "medium",
+            "status": "open",
+            "assignee": null,
+            "createdAt": "2026-01-10T16:45:00",
+            "updatedAt": "2026-01-10T16:45:00"
+        },
+        {
+            "id": 1004,
+            "subject": "Login issues on mobile app",
+            "description": "I cannot login to the mobile application. It keeps showing 'Invalid credentials' even though I can login on the website.",
+            "customer": "Emily Davis",
+            "email": "emily.d@email.com",
+            "category": "technical",
+            "priority": "medium",
+            "status": "in-progress",
+            "assignee": "admin",
+            "createdAt": "2026-01-09T11:00:00",
+            "updatedAt": "2026-01-10T14:30:00"
+        },
+        {
+            "id": 1005,
+            "subject": "Feature request: Dark mode",
+            "description": "It would be great if you could add a dark mode option to the application. It would help reduce eye strain during night time usage.",
+            "customer": "Alex Wilson",
+            "email": "alex.w@email.com",
+            "category": "feature",
+            "priority": "low",
+            "status": "resolved",
+            "assignee": "support2",
+            "createdAt": "2026-01-08T09:30:00",
+            "updatedAt": "2026-01-11T16:00:00"
+        },
+        {
+            "id": 1006,
+            "subject": "Account verification pending",
+            "description": "I submitted my documents for account verification 5 days ago but it is still showing as pending. Please expedite the process.",
+            "customer": "Lisa Anderson",
+            "email": "lisa.a@email.com",
+            "category": "general",
+            "priority": "medium",
+            "status": "resolved",
+            "assignee": "admin",
+            "createdAt": "2026-01-07T13:15:00",
+            "updatedAt": "2026-01-09T10:45:00"
+        },
+        {
+            "id": 1007,
+            "subject": "API integration help needed",
+            "description": "We are trying to integrate your API into our system but facing issues with authentication. Can you provide technical support?",
+            "customer": "Tech Corp",
+            "email": "support@techcorp.com",
+            "category": "technical",
+            "priority": "high",
+            "status": "open",
+            "assignee": null,
+            "createdAt": "2026-01-13T08:00:00",
+            "updatedAt": "2026-01-13T08:00:00"
+        },
+        {
+            "id": 1008,
+            "subject": "Billing discrepancy",
+            "description": "I was charged twice for my last order. Please investigate and process a refund for the duplicate charge.",
+            "customer": "Robert Taylor",
+            "email": "robert.t@email.com",
+            "category": "billing",
+            "priority": "high",
+            "status": "in-progress",
+            "assignee": "support1",
+            "createdAt": "2026-01-12T15:30:00",
+            "updatedAt": "2026-01-13T09:00:00"
+        }
+    ]
+}

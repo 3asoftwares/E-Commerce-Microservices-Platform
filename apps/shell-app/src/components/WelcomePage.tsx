@@ -9,6 +9,7 @@ import {
   faPhone,
   faClock,
 } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from '../i18n/I18nContext';
 
 interface WelcomePageProps {
   onSignupClick?: () => void;
@@ -16,6 +17,7 @@ interface WelcomePageProps {
 
 export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
   const [showSupportModal, setShowSupportModal] = useState(false);
+  const { t } = useTranslation();
 
   const scrollToPlatform = () => {
     document.getElementById('platform-features')?.scrollIntoView({ behavior: 'smooth' });
@@ -31,14 +33,13 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Welcome to <span className="text-blue-600 dark:text-blue-400">3A Softwares</span>
+              {t('welcome.title')} <span className="text-blue-600 dark:text-blue-400">{t('welcome.brandName')}</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
-              Your Complete E-Commerce Platform Solution
+              {t('welcome.subtitle')}
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              A modern, scalable, and feature-rich 3asoftwares platform built with cutting-edge
-              technologies to help businesses grow and succeed in the digital marketplace.
+              {t('welcome.description')}
             </p>
           </div>
 
@@ -49,7 +50,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               className="shadow-lg hover:shadow-xl"
               onClick={scrollToPlatform}
             >
-              Get Started
+              {t('welcome.getStarted')}
             </Button>
           </div>
         </div>
@@ -57,7 +58,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
 
       <section id="platform-features" className="container mx-auto px-4 py-16">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-          Platform Features
+          {t('features.title')}
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -65,23 +66,22 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
             <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-6">
               <FontAwesomeIcon icon={faCog} className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Admin Portal</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('features.adminPortal.title')}</h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Comprehensive dashboard to manage your entire 3asoftwares platform with powerful
-              analytics and reporting tools.
+              {t('features.adminPortal.description')}
             </p>
             <ul className="space-y-2 text-gray-600 dark:text-gray-400 mb-6">
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
-                <span>User & seller management</span>
+                <span>{t('features.adminPortal.features.userManagement')}</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
-                <span>Real-time analytics</span>
+                <span>{t('features.adminPortal.features.analytics')}</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">✓</span>
-                <span>Order tracking & management</span>
+                <span>{t('features.adminPortal.features.orderTracking')}</span>
               </li>
             </ul>
             <Button
@@ -89,7 +89,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               className="w-full !bg-blue-600 !border-blue-600 !hover:bg-blue-700"
               onClick={() => openApp('http://localhost:3001')}
             >
-              Open Admin Portal
+              {t('features.adminPortal.button')}
             </Button>
           </div>
 
@@ -100,23 +100,22 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
                 className="w-8 h-8 text-green-600 dark:text-green-400"
               />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Seller Portal</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('features.sellerPortal.title')}</h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Easy-to-use interface for sellers to manage their products, inventory, and orders
-              efficiently.
+              {t('features.sellerPortal.description')}
             </p>
             <ul className="space-y-2 text-gray-600 dark:text-gray-400 mb-6">
               <li className="flex items-start">
                 <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
-                <span>Product catalog management</span>
+                <span>{t('features.sellerPortal.features.productCatalog')}</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
-                <span>Inventory tracking</span>
+                <span>{t('features.sellerPortal.features.inventoryTracking')}</span>
               </li>
               <li className="flex items-start">
                 <span className="text-green-600 dark:text-green-400 mr-2">✓</span>
-                <span>Sales analytics</span>
+                <span>{t('features.sellerPortal.features.salesAnalytics')}</span>
               </li>
             </ul>
             <Button
@@ -124,7 +123,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               className="w-full !bg-green-600 !border-green-600 !hover:bg-green-700"
               onClick={() => openApp('http://localhost:3002')}
             >
-              Open Seller Portal
+              {t('features.sellerPortal.button')}
             </Button>
           </div>
 
@@ -136,24 +135,23 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Customer Storefront
+              {t('features.storefront.title')}
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Beautiful and responsive storefront providing seamless shopping experience for
-              customers.
+              {t('features.storefront.description')}
             </p>
             <ul className="space-y-2 text-gray-600 dark:text-gray-400 mb-6">
               <li className="flex items-start">
                 <span className="text-purple-600 dark:text-purple-400 mr-2">✓</span>
-                <span>Advanced product search</span>
+                <span>{t('features.storefront.features.productSearch')}</span>
               </li>
               <li className="flex items-start">
                 <span className="text-purple-600 dark:text-purple-400 mr-2">✓</span>
-                <span>Secure checkout process</span>
+                <span>{t('features.storefront.features.secureCheckout')}</span>
               </li>
               <li className="flex items-start">
                 <span className="text-purple-600 dark:text-purple-400 mr-2">✓</span>
-                <span>Order tracking</span>
+                <span>{t('features.storefront.features.orderTracking')}</span>
               </li>
             </ul>
             <Button
@@ -161,7 +159,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               className="w-full !bg-purple-600 !border-purple-600 !hover:bg-purple-700"
               onClick={() => openApp('http://localhost:3003')}
             >
-              Open Storefront
+              {t('features.storefront.button')}
             </Button>
           </div>
         </div>
@@ -169,9 +167,9 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
 
       <section className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 rounded-2xl shadow-2xl p-12 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">{t('cta.title')}</h2>
           <p className="text-xl text-blue-100 mb-8">
-            Sign up today and experience the power of our 3asoftwares platform
+            {t('cta.description')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center w-[300px]">
             <Button
@@ -180,7 +178,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               className="shadow-lg hover:shadow-xl bg-white text-blue-600 hover:bg-gray-100 border-0"
               onClick={onSignupClick}
             >
-              Create Account
+              {t('cta.createAccount')}
             </Button>
             <Button
               size="lg"
@@ -188,7 +186,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
               className="shadow-lg hover:shadow-xl text-white border-2 border-white hover:bg-white hover:text-blue-600"
               onClick={() => setShowSupportModal(true)}
             >
-              Support
+              {t('cta.support')}
             </Button>
           </div>
         </div>
@@ -197,17 +195,14 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
       <Modal
         isOpen={showSupportModal}
         onClose={() => setShowSupportModal(false)}
-        title="Contact Support"
+        title={t('support.title')}
         size="md"
       >
         <div className="space-y-6 py-2">
           <div className="text-center">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-              We're Here to Help!
+              {t('support.description')}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Get in touch with our support team for any questions or assistance.
-            </p>
           </div>
 
           <div className="space-y-4">
@@ -219,12 +214,12 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
                 />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-gray-900 dark:text-white mb-1">Email</h4>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-1">{t('support.email')}</h4>
                 <a
-                  href="mailto:support3asoftwares.com"
+                  href={`mailto:${t('support.emailAddress')}`}
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
-                  support3asoftwares.com
+                  {t('support.emailAddress')}
                 </a>
               </div>
             </div>
@@ -237,12 +232,12 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
                 />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-gray-900 dark:text-white mb-1">Phone</h4>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-1">{t('support.phone')}</h4>
                 <a
-                  href="tel:+1234567890"
+                  href={`tel:${t('support.phoneNumber')}`}
                   className="text-green-700 dark:text-green-400 hover:underline font-semibold"
                 >
-                  +1 (234) 567-890
+                  {t('support.phoneNumber')}
                 </a>
               </div>
             </div>
@@ -255,11 +250,9 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
                 />
               </div>
               <div className="flex-1">
-                <h4 className="font-bold text-gray-900 dark:text-white mb-1">Business Hours</h4>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-1">{t('support.hours')}</h4>
                 <p className="text-gray-700 dark:text-gray-300 font-medium">
-                  Monday - Friday: 9:00 AM - 6:00 PM
-                  <br />
-                  Saturday: 10:00 AM - 4:00 PM
+                  {t('support.hoursValue')}
                 </p>
               </div>
             </div>

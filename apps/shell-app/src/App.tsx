@@ -4,6 +4,8 @@ import { Modal, Header, ToasterBox } from '@3asoftwares/ui';
 import { useUIStore } from './store/uiStore';
 import { useTokenValidator } from './store/useTokenValidator';
 import { changeTheme, renderApp } from './utils';
+import { I18nProvider, useTranslation } from './i18n/I18nContext';
+import { LanguageSelector } from './components/LanguageSelector';
 
 const Footer = React.lazy(() =>
   import('./components/Footer').then((m) => ({ default: (m as any).Footer ?? (m as any).default }))
@@ -29,8 +31,9 @@ const AuthForm = React.lazy(() =>
   }>
 >;
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const { theme, toggleTheme } = useUIStore();
+  const { t } = useTranslation();
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const [showToaster, setShowToaster] = useState(false);
@@ -104,6 +107,9 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col transition-colors duration-200">
+      <div className="flex items-center justify-end px-4 py-2 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <LanguageSelector compact />
+      </div>
       <Header
         user={user}
         onLogin={login}
@@ -134,7 +140,7 @@ const App: React.FC = () => {
       <Modal
         isOpen={showAuthModal}
         onClose={() => setShowAuthModal(false)}
-        title={authMode === 'login' ? 'Login' : 'Sign Up'}
+        title={authMode === 'login' ? t('auth.login') : t('auth.signUp')}
         size="md"
       >
         <Suspense
@@ -154,12 +160,20 @@ const App: React.FC = () => {
 
       {showToaster && (
         <ToasterBox
-          message="Session expired. Please log in again."
+          message={t('auth.sessionExpired')}
           type="error"
           onClose={() => setShowToaster(false)}
         />
       )}
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <I18nProvider>
+      <AppContent />
+    </I18nProvider>
   );
 };
 

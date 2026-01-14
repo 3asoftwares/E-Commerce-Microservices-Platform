@@ -1,0 +1,826 @@
+/**
+ * 3A Softwares - Customer Support Application
+ * Technologies: JavaScript (ES6+), HTML5, CSS3, SCSS, Bootstrap, Fetch API
+ */
+
+// ==========================================
+// APPLICATION STATE
+// ==========================================
+const AppState = {
+    currentUser: null,
+    tickets: [],
+    users: [],
+    currentPage: 'dashboard',
+    ticketIdCounter: 1000,
+};
+
+// ==========================================
+// MOCK DATA
+// ==========================================
+const mockTickets = [
+    {
+        id: 1001,
+        subject: 'Unable to process payment',
+        description: 'I tried to make a payment for my order but it keeps showing an error message. I have tried multiple cards but the issue persists.',
+        customer: 'John Smith',
+        email: 'john.smith@email.com',
+        category: 'billing',
+        priority: 'high',
+        status: 'open',
+        assignee: 'admin',
+        createdAt: new Date('2026-01-12T10:30:00'),
+        updatedAt: new Date('2026-01-12T10:30:00'),
+    },
+    {
+        id: 1002,
+        subject: 'Product not received',
+        description: 'I ordered a laptop 10 days ago and it still has not arrived. The tracking shows it was delivered but I never received it.',
+        customer: 'Sarah Johnson',
+        email: 'sarah.j@email.com',
+        category: 'general',
+        priority: 'high',
+        status: 'in-progress',
+        assignee: 'support1',
+        createdAt: new Date('2026-01-11T14:20:00'),
+        updatedAt: new Date('2026-01-12T09:15:00'),
+    },
+    {
+        id: 1003,
+        subject: 'Request for refund',
+        description: 'I would like to request a refund for my recent purchase. The product does not match the description on the website.',
+        customer: 'Mike Brown',
+        email: 'mike.brown@email.com',
+        category: 'billing',
+        priority: 'medium',
+        status: 'open',
+        assignee: null,
+        createdAt: new Date('2026-01-10T16:45:00'),
+        updatedAt: new Date('2026-01-10T16:45:00'),
+    },
+    {
+        id: 1004,
+        subject: 'Login issues on mobile app',
+        description: 'I cannot login to the mobile application. It keeps showing "Invalid credentials" even though I can login on the website.',
+        customer: 'Emily Davis',
+        email: 'emily.d@email.com',
+        category: 'technical',
+        priority: 'medium',
+        status: 'in-progress',
+        assignee: 'admin',
+        createdAt: new Date('2026-01-09T11:00:00'),
+        updatedAt: new Date('2026-01-10T14:30:00'),
+    },
+    {
+        id: 1005,
+        subject: 'Feature request: Dark mode',
+        description: 'It would be great if you could add a dark mode option to the application. It would help reduce eye strain during night time usage.',
+        customer: 'Alex Wilson',
+        email: 'alex.w@email.com',
+        category: 'feature',
+        priority: 'low',
+        status: 'resolved',
+        assignee: 'support2',
+        createdAt: new Date('2026-01-08T09:30:00'),
+        updatedAt: new Date('2026-01-11T16:00:00'),
+    },
+    {
+        id: 1006,
+        subject: 'Account verification pending',
+        description: 'I submitted my documents for account verification 5 days ago but it is still showing as pending. Please expedite the process.',
+        customer: 'Lisa Anderson',
+        email: 'lisa.a@email.com',
+        category: 'general',
+        priority: 'medium',
+        status: 'resolved',
+        assignee: 'admin',
+        createdAt: new Date('2026-01-07T13:15:00'),
+        updatedAt: new Date('2026-01-09T10:45:00'),
+    },
+    {
+        id: 1007,
+        subject: 'API integration help needed',
+        description: 'We are trying to integrate your API into our system but facing issues with authentication. Can you provide technical support?',
+        customer: 'Tech Corp',
+        email: 'support@techcorp.com',
+        category: 'technical',
+        priority: 'high',
+        status: 'open',
+        assignee: null,
+        createdAt: new Date('2026-01-13T08:00:00'),
+        updatedAt: new Date('2026-01-13T08:00:00'),
+    },
+    {
+        id: 1008,
+        subject: 'Billing discrepancy',
+        description: 'I was charged twice for my last order. Please investigate and process a refund for the duplicate charge.',
+        customer: 'Robert Taylor',
+        email: 'robert.t@email.com',
+        category: 'billing',
+        priority: 'high',
+        status: 'in-progress',
+        assignee: 'support1',
+        createdAt: new Date('2026-01-12T15:30:00'),
+        updatedAt: new Date('2026-01-13T09:00:00'),
+    },
+];
+
+const mockUsers = [
+    {
+        id: 1,
+        name: 'Admin User',
+        email: 'admin@3asoftwares.com',
+        role: 'admin',
+        status: 'active',
+        avatar: 'https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff',
+    },
+    {
+        id: 2,
+        name: 'Support Agent 1',
+        email: 'support1@3asoftwares.com',
+        role: 'agent',
+        status: 'active',
+        avatar: 'https://ui-avatars.com/api/?name=Support+Agent&background=22c55e&color=fff',
+    },
+    {
+        id: 3,
+        name: 'Support Agent 2',
+        email: 'support2@3asoftwares.com',
+        role: 'agent',
+        status: 'active',
+        avatar: 'https://ui-avatars.com/api/?name=Support+Two&background=f59e0b&color=fff',
+    },
+];
+
+// ==========================================
+// INITIALIZATION
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    initializeApp();
+});
+
+function initializeApp() {
+    // Load mock data
+    AppState.tickets = [...mockTickets];
+    AppState.users = [...mockUsers];
+    AppState.ticketIdCounter = 1009;
+
+    // Check for existing session
+    const savedUser = localStorage.getItem('supportUser');
+    if (savedUser) {
+        AppState.currentUser = JSON.parse(savedUser);
+        showDashboard();
+    }
+
+    // Setup event listeners
+    setupEventListeners();
+}
+
+// ==========================================
+// EVENT LISTENERS
+// ==========================================
+function setupEventListeners() {
+    // Login form
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+
+    // Password toggle
+    const togglePassword = document.getElementById('togglePassword');
+    if (togglePassword) {
+        togglePassword.addEventListener('click', () => {
+            const passwordInput = document.getElementById('password');
+            const icon = togglePassword.querySelector('i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
+            }
+        });
+    }
+
+    // Sidebar menu items
+    const menuItems = document.querySelectorAll('.sidebar-menu li');
+    menuItems.forEach((item) => {
+        item.addEventListener('click', () => {
+            const page = item.dataset.page;
+            if (page) {
+                showPage(page);
+                updateActiveMenu(item);
+            }
+        });
+    });
+
+    // Sidebar toggle
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', toggleSidebar);
+    }
+
+    // Logout buttons
+    const logoutBtn = document.getElementById('logoutBtn');
+    const logoutDropdown = document.getElementById('logoutDropdown');
+    if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+    if (logoutDropdown) logoutDropdown.addEventListener('click', handleLogout);
+
+    // New ticket form
+    const newTicketForm = document.getElementById('newTicketForm');
+    if (newTicketForm) {
+        newTicketForm.addEventListener('submit', handleCreateTicket);
+    }
+
+    // Filters
+    const filterStatus = document.getElementById('filterStatus');
+    const filterPriority = document.getElementById('filterPriority');
+    const filterCategory = document.getElementById('filterCategory');
+    const ticketSearch = document.getElementById('ticketSearch');
+
+    if (filterStatus) filterStatus.addEventListener('change', filterTickets);
+    if (filterPriority) filterPriority.addEventListener('change', filterTickets);
+    if (filterCategory) filterCategory.addEventListener('change', filterTickets);
+    if (ticketSearch) ticketSearch.addEventListener('input', debounce(filterTickets, 300));
+
+    // Global search
+    const globalSearch = document.getElementById('globalSearch');
+    if (globalSearch) {
+        globalSearch.addEventListener('input', debounce(handleGlobalSearch, 300));
+    }
+
+    // Select all checkbox
+    const selectAll = document.getElementById('selectAll');
+    if (selectAll) {
+        selectAll.addEventListener('change', (e) => {
+            const checkboxes = document.querySelectorAll('#ticketsTableBody input[type="checkbox"]');
+            checkboxes.forEach((cb) => (cb.checked = e.target.checked));
+        });
+    }
+
+    // Resolve ticket button in modal
+    const resolveBtn = document.getElementById('resolveTicketBtn');
+    if (resolveBtn) {
+        resolveBtn.addEventListener('click', handleResolveTicket);
+    }
+}
+
+// ==========================================
+// AUTHENTICATION
+// ==========================================
+function handleLogin(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
+
+    // Simple validation (demo credentials)
+    if (email === 'admin@3asoftwares.com' && password === 'admin123') {
+        const user = {
+            id: 1,
+            name: 'Admin User',
+            email: email,
+            role: 'admin',
+        };
+
+        AppState.currentUser = user;
+
+        if (rememberMe) {
+            localStorage.setItem('supportUser', JSON.stringify(user));
+        }
+
+        showDashboard();
+        showToast('Welcome back, Admin!');
+    } else {
+        showToast('Invalid credentials. Please try again.', 'error');
+    }
+}
+
+function handleLogout(e) {
+    e.preventDefault();
+
+    AppState.currentUser = null;
+    localStorage.removeItem('supportUser');
+
+    // Show login page
+    document.getElementById('dashboardPage').classList.remove('active');
+    document.getElementById('loginPage').classList.add('active');
+
+    // Reset form
+    document.getElementById('loginForm').reset();
+}
+
+// ==========================================
+// NAVIGATION
+// ==========================================
+function showDashboard() {
+    document.getElementById('loginPage').classList.remove('active');
+    document.getElementById('dashboardPage').classList.add('active');
+
+    updateDashboardStats();
+    renderRecentTickets();
+    renderTicketsTable();
+    renderUsersTable();
+    updatePriorityChart();
+}
+
+function showPage(pageName) {
+    // Hide all content sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach((section) => section.classList.remove('active'));
+
+    // Show selected section
+    const targetSection = document.getElementById(`${pageName}Content`);
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
+
+    AppState.currentPage = pageName;
+
+    // Refresh data if needed
+    if (pageName === 'dashboard') {
+        updateDashboardStats();
+        renderRecentTickets();
+        updatePriorityChart();
+    } else if (pageName === 'tickets') {
+        renderTicketsTable();
+    } else if (pageName === 'users') {
+        renderUsersTable();
+    }
+}
+
+function updateActiveMenu(activeItem) {
+    const menuItems = document.querySelectorAll('.sidebar-menu li');
+    menuItems.forEach((item) => item.classList.remove('active'));
+    activeItem.classList.add('active');
+}
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    sidebar.classList.toggle('collapsed');
+    mainContent.classList.toggle('expanded');
+
+    // For mobile
+    if (window.innerWidth <= 991) {
+        sidebar.classList.toggle('show');
+    }
+}
+
+// ==========================================
+// DASHBOARD
+// ==========================================
+function updateDashboardStats() {
+    const total = AppState.tickets.length;
+    const open = AppState.tickets.filter((t) => t.status === 'open').length;
+    const inProgress = AppState.tickets.filter((t) => t.status === 'in-progress').length;
+    const resolved = AppState.tickets.filter((t) => t.status === 'resolved' || t.status === 'closed').length;
+
+    animateCounter('totalTickets', total);
+    animateCounter('openTickets', open);
+    animateCounter('inProgressTickets', inProgress);
+    animateCounter('resolvedTickets', resolved);
+
+    // Update badge count
+    document.getElementById('ticketCount').textContent = total;
+}
+
+function animateCounter(elementId, targetValue) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    let current = 0;
+    const increment = targetValue / 20;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 50);
+}
+
+function updatePriorityChart() {
+    const high = AppState.tickets.filter((t) => t.priority === 'high').length;
+    const medium = AppState.tickets.filter((t) => t.priority === 'medium').length;
+    const low = AppState.tickets.filter((t) => t.priority === 'low').length;
+    const total = AppState.tickets.length;
+
+    document.getElementById('highCount').textContent = high;
+    document.getElementById('mediumCount').textContent = medium;
+    document.getElementById('lowCount').textContent = low;
+
+    document.getElementById('highPriorityBar').style.width = `${(high / total) * 100}%`;
+    document.getElementById('mediumPriorityBar').style.width = `${(medium / total) * 100}%`;
+    document.getElementById('lowPriorityBar').style.width = `${(low / total) * 100}%`;
+}
+
+function renderRecentTickets() {
+    const tableBody = document.getElementById('recentTicketsTable');
+    if (!tableBody) return;
+
+    const recentTickets = [...AppState.tickets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
+
+    tableBody.innerHTML = recentTickets
+        .map(
+            (ticket) => `
+        <tr onclick="viewTicket(${ticket.id})" style="cursor: pointer;">
+            <td><strong>#${ticket.id}</strong></td>
+            <td>${truncateText(ticket.subject, 30)}</td>
+            <td><span class="priority-badge ${ticket.priority}">${capitalize(ticket.priority)}</span></td>
+            <td><span class="status-badge ${ticket.status}">${formatStatus(ticket.status)}</span></td>
+            <td>${formatDate(ticket.createdAt)}</td>
+        </tr>
+    `
+        )
+        .join('');
+}
+
+// ==========================================
+// TICKETS
+// ==========================================
+function renderTicketsTable(tickets = AppState.tickets) {
+    const tableBody = document.getElementById('ticketsTableBody');
+    if (!tableBody) return;
+
+    if (tickets.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="9" class="text-center py-4">
+                    <i class="bi bi-inbox text-muted" style="font-size: 48px;"></i>
+                    <p class="text-muted mt-2">No tickets found</p>
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
+    tableBody.innerHTML = tickets
+        .map(
+            (ticket) => `
+        <tr>
+            <td><input type="checkbox" class="form-check-input" value="${ticket.id}"></td>
+            <td><strong>#${ticket.id}</strong></td>
+            <td>${truncateText(ticket.subject, 25)}</td>
+            <td>
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(ticket.customer)}&background=random" alt="${ticket.customer}">
+                    <div class="user-info">
+                        <div class="user-name">${ticket.customer}</div>
+                        <div class="user-email">${ticket.email}</div>
+                    </div>
+                </div>
+            </td>
+            <td>${capitalize(ticket.category)}</td>
+            <td><span class="priority-badge ${ticket.priority}">${capitalize(ticket.priority)}</span></td>
+            <td><span class="status-badge ${ticket.status}">${formatStatus(ticket.status)}</span></td>
+            <td>${formatDate(ticket.createdAt)}</td>
+            <td>
+                <div class="d-flex gap-1">
+                    <button class="action-btn view" onclick="viewTicket(${ticket.id})" title="View">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                    <button class="action-btn edit" onclick="editTicket(${ticket.id})" title="Edit">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="action-btn delete" onclick="deleteTicket(${ticket.id})" title="Delete">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    `
+        )
+        .join('');
+}
+
+function filterTickets() {
+    const status = document.getElementById('filterStatus').value;
+    const priority = document.getElementById('filterPriority').value;
+    const category = document.getElementById('filterCategory').value;
+    const search = document.getElementById('ticketSearch').value.toLowerCase();
+
+    let filtered = [...AppState.tickets];
+
+    if (status) {
+        filtered = filtered.filter((t) => t.status === status);
+    }
+    if (priority) {
+        filtered = filtered.filter((t) => t.priority === priority);
+    }
+    if (category) {
+        filtered = filtered.filter((t) => t.category === category);
+    }
+    if (search) {
+        filtered = filtered.filter(
+            (t) =>
+                t.subject.toLowerCase().includes(search) ||
+                t.customer.toLowerCase().includes(search) ||
+                t.email.toLowerCase().includes(search) ||
+                t.id.toString().includes(search)
+        );
+    }
+
+    renderTicketsTable(filtered);
+}
+
+function handleCreateTicket(e) {
+    e.preventDefault();
+
+    const newTicket = {
+        id: AppState.ticketIdCounter++,
+        customer: document.getElementById('ticketCustomer').value,
+        email: document.getElementById('ticketEmail').value,
+        subject: document.getElementById('ticketSubject').value,
+        category: document.getElementById('ticketCategory').value,
+        priority: document.getElementById('ticketPriority').value,
+        description: document.getElementById('ticketDescription').value,
+        assignee: document.getElementById('ticketAssignee').value || null,
+        status: 'open',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    };
+
+    AppState.tickets.unshift(newTicket);
+
+    showToast(`Ticket #${newTicket.id} created successfully!`);
+    e.target.reset();
+    showPage('tickets');
+    updateActiveMenuItem('tickets');
+}
+
+function viewTicket(ticketId) {
+    const ticket = AppState.tickets.find((t) => t.id === ticketId);
+    if (!ticket) return;
+
+    const modalBody = document.getElementById('ticketDetailBody');
+    modalBody.innerHTML = `
+        <div class="ticket-detail">
+            <div class="ticket-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Ticket ID</div>
+                    <div class="meta-value">#${ticket.id}</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Status</div>
+                    <div class="meta-value">
+                        <span class="status-badge ${ticket.status}">${formatStatus(ticket.status)}</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Priority</div>
+                    <div class="meta-value">
+                        <span class="priority-badge ${ticket.priority}">${capitalize(ticket.priority)}</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Customer</div>
+                    <div class="meta-value">${ticket.customer}</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Email</div>
+                    <div class="meta-value">${ticket.email}</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Category</div>
+                    <div class="meta-value">${capitalize(ticket.category)}</div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <h6 class="text-muted">SUBJECT</h6>
+                <p class="fw-bold">${ticket.subject}</p>
+            </div>
+            
+            <div class="ticket-description">
+                <h6>DESCRIPTION</h6>
+                <p>${ticket.description}</p>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-6">
+                    <small class="text-muted">Created: ${formatDateTime(ticket.createdAt)}</small>
+                </div>
+                <div class="col-6 text-end">
+                    <small class="text-muted">Updated: ${formatDateTime(ticket.updatedAt)}</small>
+                </div>
+            </div>
+            
+            <div class="ticket-response">
+                <h6>ADD RESPONSE</h6>
+                <textarea placeholder="Type your response here..." id="ticketResponse"></textarea>
+            </div>
+        </div>
+    `;
+
+    // Store current ticket ID for resolve action
+    document.getElementById('resolveTicketBtn').dataset.ticketId = ticketId;
+
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('ticketDetailModal'));
+    modal.show();
+}
+
+function handleResolveTicket() {
+    const ticketId = parseInt(document.getElementById('resolveTicketBtn').dataset.ticketId);
+    const response = document.getElementById('ticketResponse').value;
+
+    const ticketIndex = AppState.tickets.findIndex((t) => t.id === ticketId);
+    if (ticketIndex !== -1) {
+        AppState.tickets[ticketIndex].status = 'resolved';
+        AppState.tickets[ticketIndex].updatedAt = new Date();
+
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('ticketDetailModal'));
+        modal.hide();
+
+        showToast(`Ticket #${ticketId} has been resolved!`);
+
+        // Refresh views
+        if (AppState.currentPage === 'dashboard') {
+            updateDashboardStats();
+            renderRecentTickets();
+            updatePriorityChart();
+        } else if (AppState.currentPage === 'tickets') {
+            renderTicketsTable();
+        }
+    }
+}
+
+function editTicket(ticketId) {
+    const ticket = AppState.tickets.find((t) => t.id === ticketId);
+    if (!ticket) return;
+
+    // Populate form
+    document.getElementById('ticketCustomer').value = ticket.customer;
+    document.getElementById('ticketEmail').value = ticket.email;
+    document.getElementById('ticketSubject').value = ticket.subject;
+    document.getElementById('ticketCategory').value = ticket.category;
+    document.getElementById('ticketPriority').value = ticket.priority;
+    document.getElementById('ticketDescription').value = ticket.description;
+    document.getElementById('ticketAssignee').value = ticket.assignee || '';
+
+    // Navigate to form
+    showPage('newTicket');
+    updateActiveMenuItem('newTicket');
+
+    showToast('Edit the ticket details and submit to update.');
+}
+
+function deleteTicket(ticketId) {
+    if (confirm(`Are you sure you want to delete ticket #${ticketId}?`)) {
+        AppState.tickets = AppState.tickets.filter((t) => t.id !== ticketId);
+        showToast(`Ticket #${ticketId} has been deleted.`);
+        renderTicketsTable();
+        updateDashboardStats();
+    }
+}
+
+// ==========================================
+// USERS
+// ==========================================
+function renderUsersTable() {
+    const tableBody = document.getElementById('usersTableBody');
+    if (!tableBody) return;
+
+    tableBody.innerHTML = AppState.users
+        .map((user) => {
+            const assignedTickets = AppState.tickets.filter((t) => t.assignee === user.email.split('@')[0]).length;
+
+            return `
+            <tr>
+                <td>
+                    <div class="user-avatar">
+                        <img src="${user.avatar}" alt="${user.name}">
+                        <div class="user-info">
+                            <div class="user-name">${user.name}</div>
+                        </div>
+                    </div>
+                </td>
+                <td>${user.email}</td>
+                <td><span class="badge ${user.role === 'admin' ? 'bg-primary' : 'bg-secondary'}">${capitalize(user.role)}</span></td>
+                <td><span class="badge ${user.status === 'active' ? 'bg-success' : 'bg-danger'}">${capitalize(user.status)}</span></td>
+                <td>${assignedTickets}</td>
+                <td>
+                    <div class="d-flex gap-1">
+                        <button class="action-btn view" title="View">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="action-btn edit" title="Edit">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+        })
+        .join('');
+}
+
+// ==========================================
+// SEARCH
+// ==========================================
+function handleGlobalSearch(e) {
+    const query = e.target.value.toLowerCase();
+
+    if (query.length < 2) return;
+
+    const results = AppState.tickets.filter(
+        (t) => t.subject.toLowerCase().includes(query) || t.customer.toLowerCase().includes(query) || t.id.toString().includes(query)
+    );
+
+    if (results.length > 0) {
+        showPage('tickets');
+        updateActiveMenuItem('tickets');
+        renderTicketsTable(results);
+    }
+}
+
+// ==========================================
+// UTILITY FUNCTIONS
+// ==========================================
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function truncateText(text, maxLength) {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
+function formatStatus(status) {
+    return status.split('-').map(capitalize).join(' ');
+}
+
+function formatDate(date) {
+    const d = new Date(date);
+    const now = new Date();
+    const diff = now - d;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    if (days === 0) return 'Today';
+    if (days === 1) return 'Yesterday';
+    if (days < 7) return `${days} days ago`;
+
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function formatDateTime(date) {
+    const d = new Date(date);
+    return d.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+    });
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function updateActiveMenuItem(pageName) {
+    const menuItems = document.querySelectorAll('.sidebar-menu li');
+    menuItems.forEach((item) => {
+        item.classList.remove('active');
+        if (item.dataset.page === pageName) {
+            item.classList.add('active');
+        }
+    });
+}
+
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('successToast');
+    const toastMessage = document.getElementById('toastMessage');
+    const toastHeader = toast.querySelector('.toast-header');
+
+    toastMessage.textContent = message;
+
+    if (type === 'error') {
+        toastHeader.classList.remove('bg-success');
+        toastHeader.classList.add('bg-danger');
+    } else {
+        toastHeader.classList.remove('bg-danger');
+        toastHeader.classList.add('bg-success');
+    }
+
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+}
+
+// Make functions globally accessible
+window.showPage = showPage;
+window.viewTicket = viewTicket;
+window.editTicket = editTicket;
+window.deleteTicket = deleteTicket;
