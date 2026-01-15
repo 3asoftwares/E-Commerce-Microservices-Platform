@@ -70,6 +70,7 @@ jobs:
       services-gateway: ${{ steps.filter.outputs.services-gateway }}
       services-order: ${{ steps.filter.outputs.services-order }}
       services-product: ${{ steps.filter.outputs.services-product }}
+      services-ticket: ${{ steps.filter.outputs.services-ticket }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -97,6 +98,9 @@ jobs:
               - 'packages/**'
             services-product:
               - 'services/product-service/**'
+              - 'packages/**'
+            services-ticket:
+              - 'services/ticket-service/**'
               - 'packages/**'
 
   # ===========================================
@@ -298,12 +302,45 @@ jobs:
           echo "### Product Service Deployed" >> $GITHUB_STEP_SUMMARY
 
   # ===========================================
+  # DEPLOY TICKET SERVICE
+  # ===========================================
+  deploy-ticket:
+    name: Deploy Ticket Service
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    env:
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Verify Railway Token
+        run: |
+          if [ -z "$RAILWAY_TOKEN" ]; then
+            echo "::error::RAILWAY_TOKEN secret is not set"
+            exit 1
+          fi
+          echo "Railway token is configured"
+          railway whoami
+
+      - name: Deploy to Railway
+        working-directory: services/ticket-service
+        run: |
+          railway link --project ${{ secrets.RAILWAY_PROJECT_ID }} --environment production
+          railway up --service ${{ secrets.RAILWAY_SERVICE_TICKET }} --detach
+          echo "### Ticket Service Deployed" >> $GITHUB_STEP_SUMMARY
+
+  # ===========================================
   # DEPLOYMENT SUMMARY
   # ===========================================
   summary:
     name: Deployment Summary
     runs-on: ubuntu-latest
-    needs: [verify-ci, detect-changes, deploy-auth, deploy-category, deploy-coupon, deploy-gateway, deploy-order, deploy-product]
+    needs: [verify-ci, detect-changes, deploy-auth, deploy-category, deploy-coupon, deploy-gateway, deploy-order, deploy-product, deploy-ticket]
     if: always()
     steps:
       - name: Generate Summary
@@ -362,6 +399,13 @@ jobs:
               DEPLOYED=true
             elif [ "${{ needs.deploy-product.result }}" == "failure" ]; then
               echo "| Product | failed |" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            if [ "${{ needs.deploy-ticket.result }}" == "success" ]; then
+              echo "| Ticket | deployed |" >> $GITHUB_STEP_SUMMARY
+              DEPLOYED=true
+            elif [ "${{ needs.deploy-ticket.result }}" == "failure" ]; then
+              echo "| Ticket | failed |" >> $GITHUB_STEP_SUMMARY
             fi
             
             if [ "$DEPLOYED" != "true" ]; then

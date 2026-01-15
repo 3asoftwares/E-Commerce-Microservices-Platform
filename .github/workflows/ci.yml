@@ -196,6 +196,9 @@ jobs:
       - name: Build Product Service
         run: yarn build:product
 
+      - name: Build Ticket Service
+        run: yarn build:ticket
+
   # ===========================================
   # TEST PACKAGES
   # ===========================================
@@ -319,6 +322,9 @@ jobs:
       - name: Test Product Service
         run: yarn test:product
 
+      - name: Test Ticket Service
+        run: yarn test:ticket
+
   # ===========================================
   # SUMMARY
   # ===========================================
@@ -345,7 +351,7 @@ jobs:
           echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| Packages (Types, Utils, UI) | ${{ needs.build-packages.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Frontend (Admin, Seller, Shell) | ${{ needs.build-frontend.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Backend (Auth, Category, Coupon, Gateway, Order, Product) | ${{ needs.build-backend.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend (Auth, Category, Coupon, Gateway, Order, Product, Ticket) | ${{ needs.build-backend.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           echo "### Test Status" >> $GITHUB_STEP_SUMMARY
@@ -353,7 +359,7 @@ jobs:
           echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| Packages (Types, Utils, UI) | ${{ needs.test-packages.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Frontend (Admin, Seller, Shell) | ${{ needs.test-frontend.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Backend (Auth, Category, Coupon, Gateway, Order, Product) | ${{ needs.test-backend.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend (Auth, Category, Coupon, Gateway, Order, Product, Ticket) | ${{ needs.test-backend.result }} |" >> $GITHUB_STEP_SUMMARY
 
       - name: Check for Failures
         run: |
