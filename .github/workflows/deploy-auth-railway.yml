@@ -1,0 +1,73 @@
+name: Deploy Auth Service (Railway)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'services/auth-service/**'
+      - 'packages/**'
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deploy (ignore change detection)'
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: deploy-auth-railway-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '20'
+  # Static credentials for auth service deployment
+  RAILWAY_TOKEN: '9b2110c7-b161-45f3-8bf8-67a4a29f90f1'
+  RAILWAY_PROJECT_ID: '04f49d30-1baf-423a-9e6d-76ac8a867b93'
+  RAILWAY_SERVICE_AUTH: '1e3a3dd6-ac2c-4e63-a224-419dcb69770e'
+
+jobs:
+  # ===========================================
+  # DEPLOY AUTH SERVICE
+  # ===========================================
+  deploy-auth:
+    name: Deploy Auth Service
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli@latest
+
+      - name: Verify Railway Token
+        run: |
+          if [ -z "$RAILWAY_TOKEN" ]; then
+            echo "::error::RAILWAY_TOKEN is not set"
+            exit 1
+          fi
+          echo "Railway token is configured"
+          railway whoami
+
+      - name: Link to Railway Project
+        working-directory: services/auth-service
+        run: |
+          echo "Linking to Railway project..."
+          railway link --project ${{ env.RAILWAY_PROJECT_ID }} --environment production
+          echo "Successfully linked to Railway project"
+
+      - name: Deploy to Railway
+        working-directory: services/auth-service
+        run: |
+          echo "Deploying auth-service to Railway..."
+          railway up --service ${{ env.RAILWAY_SERVICE_AUTH }} --detach
+          echo "### ✅ Auth Service Deployed to Railway" >> $GITHUB_STEP_SUMMARY
+
+      - name: Deployment Summary
+        run: |
+          echo "## Auth Service Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Service | Auth Service |" >> $GITHUB_STEP_SUMMARY
+          echo "| Environment | Production |" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Triggered by | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY

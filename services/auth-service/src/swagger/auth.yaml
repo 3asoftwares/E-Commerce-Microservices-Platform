@@ -209,7 +209,7 @@ paths:
               properties:
                 role:
                   type: string
-                  enum: ['customer', 'seller', 'admin']
+                  enum: ['customer', 'seller', 'admin', 'support', 'super_admin']
       responses:
         '200':
           description: Role updated
