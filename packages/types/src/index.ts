@@ -1,3 +1,8 @@
+/**
+ * @3asoftwares/types - Shared TypeScript type definitions
+ * @version 1.0.1
+ */
+
 // Common Types
 export type {
   Pagination,
