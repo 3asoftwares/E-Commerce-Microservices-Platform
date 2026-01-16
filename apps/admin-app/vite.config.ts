@@ -9,14 +9,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   
   return {
-    resolve: {
-      alias: {
-        '@3asoftwares/ui/styles.css': path.resolve(
-          __dirname,
-          '../../packages/ui-library/dist/style.css'
-        ),
-      },
-    },
     plugins: [
       react(),
       federation({
