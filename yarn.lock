@@ -3380,6 +3380,13 @@
   dependencies:
     undici-types "~6.21.0"
 
+"@types/node@^25.0.9":
+  version "25.0.9"
+  resolved "https://registry.npmjs.org/@types/node/-/node-25.0.9.tgz"
+  integrity sha512-/rpCXHlCWeqClNBwUhDcusJxXYDjZTyE8v5oTO7WbL8eij2nKhUeU89/6xgjU7N4/Vh3He0BtyhJdQbDyhiXAw==
+  dependencies:
+    undici-types "~7.16.0"
+
 "@types/nodemailer@^6.4.21":
   version "6.4.21"
   resolved "https://registry.npmjs.org/@types/nodemailer/-/nodemailer-6.4.21.tgz"
@@ -12142,7 +12149,7 @@ yallist@^3.0.2:
 
 yaml@2.0.0-1:
   version "2.0.0-1"
-  resolved "https://registry.npmjs.org/yaml/-/yaml-2.0.0-1.tgz"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.0.0-1.tgz#8c3029b3ee2028306d5bcf396980623115ff8d18"
   integrity sha512-W7h5dEhywMKenDJh2iX/LABkbFnBxasD27oyXWDS/feDsxiw0dD5ncXdYXgkvAsXIY2MpW/ZKkr9IU30DBdMNQ==
 
 yargs-parser@^21.1.1:

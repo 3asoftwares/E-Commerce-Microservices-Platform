@@ -10,12 +10,14 @@ import {
   faClock,
 } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n/I18nContext';
+import { getCurrentUser } from '@3asoftwares/utils/client';
 
 interface WelcomePageProps {
   onSignupClick?: () => void;
 }
 
 export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
+  const user = getCurrentUser();
   const [showSupportModal, setShowSupportModal] = useState(false);
   const { t } = useTranslation();
 
@@ -24,7 +26,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
   };
 
   const openApp = (url: string) => {
-    window.location.href = url;
+    window.location.href = `${url}?userId=${user ? user.id : ''}`;
   };
 
   return (
@@ -87,7 +89,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
             <Button
               variant="primary"
               className="w-full !bg-blue-600 !border-blue-600 !hover:bg-blue-700"
-              onClick={() => openApp('http://localhost:3001')}
+              onClick={() => openApp(process.env.ADMIN_APP_URL || 'http://localhost:3001')}
             >
               {t('features.adminPortal.button')}
             </Button>
@@ -121,7 +123,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onSignupClick }) => {
             <Button
               variant="primary"
               className="w-full !bg-green-600 !border-green-600 !hover:bg-green-700"
-              onClick={() => openApp('http://localhost:3002')}
+              onClick={() => openApp(process.env.SELLER_APP_URL || 'http://localhost:3002')}
             >
               {t('features.sellerPortal.button')}
             </Button>

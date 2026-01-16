@@ -22,8 +22,6 @@ export const Header: React.FC = () => {
         appName="Admin Portal"
         theme={theme}
         onToggleTheme={toggleTheme}
-        language={language}
-        onLanguageChange={setLanguage}
         user={user ? { name: user.name } : undefined}
         onLogout={handleLogout}
       />

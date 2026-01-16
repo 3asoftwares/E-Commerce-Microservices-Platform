@@ -7,6 +7,13 @@ param(
     [string]$Command = "help"
 )
 
+# Get the repository root (two levels up from this script)
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$RepoRoot = Split-Path -Parent (Split-Path -Parent $ScriptDir)
+
+# Change to repo root for relative paths to work
+Push-Location $RepoRoot
+
 # Helper functions
 function Write-Header {
     param([string]$text)
@@ -105,7 +112,7 @@ function Switch-ToProduction {
     }
     
     # Copy .env.production to .env for each service
-    $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "graphql-gateway")
+    $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "ticket-service", "graphql-gateway")
     foreach ($service in $services) {
         $envProd = "services/$service/.env.production"
         $envTarget = "services/$service/.env"
@@ -139,7 +146,7 @@ function Show-Status {
         }
     }
     
-    $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "graphql-gateway")
+    $services = @("auth-service", "category-service", "coupon-service", "product-service", "order-service", "ticket-service", "graphql-gateway")
     foreach ($service in $services) {
         if (Test-Path "services/$service/.env") {
             Write-Host "services/$service/.env: EXISTS" -ForegroundColor Green
@@ -172,3 +179,6 @@ switch ($Command) {
     "production" { Switch-ToProduction }
     default { Show-Help }
 }
+
+# Restore original directory
+Pop-Location

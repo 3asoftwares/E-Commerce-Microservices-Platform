@@ -15,6 +15,8 @@ import { SellerEarnings } from './pages/SellerEarnings';
 import { SellerProfile } from './pages/SellerProfile';
 import { VerifyEmail } from './pages/VerifyEmail';
 
+console.log('Seller App - VITE_ENV:', process.env.VITE_ENV);
+
 function App() {
   const location = useLocation();
   const { isAuthenticated, user, hydrate, clearAuth, setAuthData } = useSellerAuthStore();
