@@ -8,7 +8,7 @@ import { I18nProvider, useTranslation } from './i18n/I18nContext';
 import { LanguageSelector } from './components/LanguageSelector';
 import { IframeContainer } from './components/IframeContainer';
 
-console.log('Shell App - VITE_ENV:', process.env.VITE_ENV);
+console.log('Shell App - NODE_ENV:', process.env.NODE_ENV);
 
 const Footer = React.lazy(() =>
   import('./components/Footer').then((m) => ({ default: (m as any).Footer ?? (m as any).default }))
