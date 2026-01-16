@@ -12,14 +12,11 @@ jest.mock('@3asoftwares/utils/client', () => ({
 
 // Mock the UI store
 const mockToggleTheme = jest.fn();
-const mockSetLanguage = jest.fn();
 
 jest.mock('../../src/store/uiStore', () => ({
   useUIStore: jest.fn(() => ({
     theme: 'light',
     toggleTheme: mockToggleTheme,
-    language: 'en',
-    setLanguage: mockSetLanguage,
   })),
 }));
 
@@ -58,8 +55,6 @@ describe('Admin Header Component', () => {
     (useUIStore as any).mockReturnValue({
       theme: 'light',
       toggleTheme: mockToggleTheme,
-      language: 'en',
-      setLanguage: mockSetLanguage,
     });
   });
 
@@ -71,11 +66,6 @@ describe('Admin Header Component', () => {
   it('should display current theme', () => {
     renderWithProviders();
     expect(screen.getByTestId('theme')).toHaveTextContent('light');
-  });
-
-  it('should display current language', () => {
-    renderWithProviders();
-    expect(screen.getByTestId('language')).toHaveTextContent('en');
   });
 
   it('should display user name when logged in', () => {
@@ -90,15 +80,6 @@ describe('Admin Header Component', () => {
     fireEvent.click(themeToggle);
 
     expect(mockToggleTheme).toHaveBeenCalledTimes(1);
-  });
-
-  it('should call setLanguage when language is changed', () => {
-    renderWithProviders();
-
-    const languageSelect = screen.getByTestId('language-select');
-    fireEvent.change(languageSelect, { target: { value: 'es' } });
-
-    expect(mockSetLanguage).toHaveBeenCalledWith('es');
   });
 
   it('should call logout and clearAuth when logout button is clicked', () => {
@@ -138,8 +119,6 @@ describe('Admin Header Component', () => {
     (useUIStore as any).mockReturnValue({
       theme: 'dark',
       toggleTheme: mockToggleTheme,
-      language: 'en',
-      setLanguage: mockSetLanguage,
     });
 
     renderWithProviders();

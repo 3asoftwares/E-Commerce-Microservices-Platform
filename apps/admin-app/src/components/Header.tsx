@@ -6,7 +6,7 @@ import { logout } from '../store/authSlice';
 import { SHELL_APP_URL, clearAuth } from '@3asoftwares/utils/client';
 
 export const Header: React.FC = () => {
-  const { theme, toggleTheme, language, setLanguage } = useUIStore();
+  const { theme, toggleTheme } = useUIStore();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.user);
 
@@ -22,6 +22,7 @@ export const Header: React.FC = () => {
         appName="Admin Portal"
         theme={theme}
         onToggleTheme={toggleTheme}
+        showLanguageSelector={false}
         user={user ? { name: user.name } : undefined}
         onLogout={handleLogout}
       />
