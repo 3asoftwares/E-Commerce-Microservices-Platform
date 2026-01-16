@@ -20,7 +20,7 @@ import {
 import { Button } from '@3asoftwares/ui';
 import { SUPPORT_APP_URL } from '@3asoftwares/utils/client';
 
-const SUPPORT_URL = process.env.REACT_APP_SUPPORT_APP_URL || SUPPORT_APP_URL;
+const SUPPORT_URL = process.env.VITE_SUPPORT_APP_URL || SUPPORT_APP_URL;
 
 interface NavItem {
   path: string;
