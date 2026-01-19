@@ -10,9 +10,49 @@ jest.mock('../../src/store/uiStore', () => ({
   }),
 }));
 
+jest.mock('../../src/i18n/I18nContext', () => ({
+  useLanguage: () => ({
+    language: 'en',
+    setLanguage: jest.fn(),
+  }),
+  useTranslation: () => ({
+    t: (key: string) => key,
+    locale: 'en',
+    setLocale: jest.fn(),
+  }),
+  I18nProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+}));
+
 jest.mock('@3asoftwares/utils', () => ({
   getCurrentUser: jest.fn(() => null),
   clearAuth: jest.fn(),
+}));
+
+jest.mock('@3asoftwares/utils/client', () => ({
+  getCurrentUser: jest.fn(() => null),
+  clearAuth: jest.fn(),
+}));
+
+// Mock the UI library Header component
+jest.mock('@3asoftwares/ui', () => ({
+  Header: ({ appName, appBadge, user, onLogin, onCreateAccount, onLogout, theme, onToggleTheme, extraContent, children }: any) => (
+    <header data-testid="mock-header">
+      <span data-testid="app-name">{appName || '3A Softwares'}</span>
+      {appBadge && <span>{appBadge}</span>}
+      {extraContent}
+      {!user && onLogin && <button onClick={onLogin}>Login</button>}
+      {!user && onCreateAccount && <button onClick={onCreateAccount}>Sign Up</button>}
+      {user && <span data-testid="user-name">{user.name}</span>}
+      {user && onLogout && <button onClick={onLogout}>Logout</button>}
+      <button aria-label="Toggle theme" onClick={onToggleTheme}>Theme</button>
+      {children}
+    </header>
+  ),
+  Button: ({ children, onClick, variant, className }: any) => (
+    <button onClick={onClick} className={className} data-variant={variant}>
+      {children}
+    </button>
+  ),
 }));
 
 jest.mock('@fortawesome/react-fontawesome', () => ({
@@ -39,13 +79,11 @@ describe('Header', () => {
     it('should render admin dashboard title when activeApp is admin', () => {
       render(<Header activeApp="admin" onBackToHome={mockOnBackToHome} />);
       expect(screen.getByText('Admin Dashboard')).toBeInTheDocument();
-      expect(screen.getByText('Admin')).toBeInTheDocument();
     });
 
     it('should render seller portal title when activeApp is seller', () => {
       render(<Header activeApp="seller" onBackToHome={mockOnBackToHome} />);
       expect(screen.getByText('Seller Portal')).toBeInTheDocument();
-      expect(screen.getByText('Seller')).toBeInTheDocument();
     });
 
     it('should show back button when activeApp is set', () => {

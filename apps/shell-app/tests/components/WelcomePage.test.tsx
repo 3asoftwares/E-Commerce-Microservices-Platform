@@ -56,7 +56,15 @@ jest.mock('../../src/i18n/I18nContext', () => ({
   I18nProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
+// Mock getCurrentUser from utils
+jest.mock('@3asoftwares/utils/client', () => ({
+  getCurrentUser: jest.fn(() => null),
+}));
+
 import { WelcomePage } from '../../src/components/WelcomePage';
+import { getCurrentUser } from '@3asoftwares/utils/client';
+
+const mockGetCurrentUser = getCurrentUser as jest.Mock;
 
 // Mock window.location
 const mockLocation = {
@@ -74,30 +82,32 @@ Element.prototype.scrollIntoView = jest.fn();
 
 describe('WelcomePage Component', () => {
   const mockOnSignupClick = jest.fn();
+  const mockOnLoginClick = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
     mockLocation.href = '';
+    mockGetCurrentUser.mockReturnValue(null);
   });
 
   it('should render the welcome heading', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getByText(/welcome to/i)).toBeInTheDocument();
     expect(screen.getByText(/3A Softwares/i)).toBeInTheDocument();
   });
 
   it('should display platform description', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getByText(/complete e-commerce platform solution/i)).toBeInTheDocument();
   });
 
   it('should render Get Started button', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getByRole('button', { name: /get started/i })).toBeInTheDocument();
   });
 
   it('should scroll to platform features when Get Started is clicked', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
 
     // Create a mock element for getElementById to return
     const mockElement = document.createElement('div');
@@ -113,52 +123,74 @@ describe('WelcomePage Component', () => {
   });
 
   it('should display Admin Portal card', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getAllByText(/admin portal/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/user & seller management/i)).toBeInTheDocument();
   });
 
   it('should display Seller Portal card', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getAllByText(/seller portal/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/product catalog management/i)).toBeInTheDocument();
   });
 
   it('should display Customer Storefront card', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getByText(/customer storefront/i)).toBeInTheDocument();
     expect(screen.getByText(/advanced product search/i)).toBeInTheDocument();
   });
 
-  it('should navigate to admin portal when button clicked', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+  it('should call onLoginClick when admin portal button clicked and not logged in', () => {
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
 
     const adminButton = screen.getByRole('button', { name: /open admin portal/i });
     fireEvent.click(adminButton);
 
-    expect(mockLocation.href).toBe('http://localhost:3001');
+    expect(mockOnLoginClick).toHaveBeenCalledTimes(1);
+    expect(mockLocation.href).toBe('');
   });
 
-  it('should navigate to seller portal when button clicked', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+  it('should navigate to admin portal when button clicked and logged in', () => {
+    mockGetCurrentUser.mockReturnValue({ id: 'user123', email: 'test@example.com' });
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
+
+    const adminButton = screen.getByRole('button', { name: /open admin portal/i });
+    fireEvent.click(adminButton);
+
+    expect(mockLocation.href).toBe('http://localhost:3001?userId=user123');
+  });
+
+  it('should call onLoginClick when seller portal button clicked and not logged in', () => {
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
 
     const sellerButton = screen.getByRole('button', { name: /open seller portal/i });
     fireEvent.click(sellerButton);
 
-    expect(mockLocation.href).toBe('http://localhost:3002');
+    expect(mockOnLoginClick).toHaveBeenCalledTimes(1);
+    expect(mockLocation.href).toBe('');
+  });
+
+  it('should navigate to seller portal when button clicked and logged in', () => {
+    mockGetCurrentUser.mockReturnValue({ id: 'user123', email: 'test@example.com' });
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
+
+    const sellerButton = screen.getByRole('button', { name: /open seller portal/i });
+    fireEvent.click(sellerButton);
+
+    expect(mockLocation.href).toBe('http://localhost:3002?userId=user123');
   });
 
   it('should navigate to storefront when button clicked', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
 
     const storefrontButton = screen.getByRole('button', { name: /open storefront/i });
     fireEvent.click(storefrontButton);
 
-    expect(mockLocation.href).toBe('http://localhost:3003');
+    expect(mockLocation.href).toBe('http://localhost:3004?userId=');
   });
 
   it('should call onSignupClick when Create Account button is clicked', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
 
     const createAccountButton = screen.getByRole('button', { name: /create account/i });
     fireEvent.click(createAccountButton);
@@ -166,22 +198,25 @@ describe('WelcomePage Component', () => {
     expect(mockOnSignupClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should display support button', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
-    expect(screen.getByRole('button', { name: /support/i })).toBeInTheDocument();
+  it('should display support buttons', () => {
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
+    const supportButtons = screen.getAllByRole('button', { name: /support/i });
+    expect(supportButtons.length).toBeGreaterThan(0);
   });
 
   it('should open support modal when Support button is clicked', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
 
-    const supportButton = screen.getByRole('button', { name: /support/i });
-    fireEvent.click(supportButton);
+    // Get the CTA section support button (ghost variant)
+    const supportButtons = screen.getAllByRole('button', { name: /support/i });
+    const ctaSupportButton = supportButtons.find(btn => btn.textContent === 'Support');
+    fireEvent.click(ctaSupportButton!);
 
     expect(screen.getByText(/contact support/i)).toBeInTheDocument();
   });
 
   it('should display Ready to Get Started section', () => {
-    render(<WelcomePage onSignupClick={mockOnSignupClick} />);
+    render(<WelcomePage onSignupClick={mockOnSignupClick} onLoginClick={mockOnLoginClick} />);
     expect(screen.getByText(/ready to get started/i)).toBeInTheDocument();
   });
 });
